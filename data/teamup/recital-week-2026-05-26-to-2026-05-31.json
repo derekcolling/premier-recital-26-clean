@@ -1,0 +1,2018 @@
+{
+  "source": "TeamUp public calendar",
+  "calendar_key": "ksth51hxqvsg3b7wtx",
+  "source_url": "https://teamup.com/ksth51hxqvsg3b7wtx/events?startDate=2026-05-26&endDate=2026-06-01",
+  "pulled_at": "2026-05-20T21:46:12.732137-05:00",
+  "range": {
+    "start": "2026-05-26",
+    "end": "2026-05-31",
+    "timezone": "America/Chicago"
+  },
+  "event_count": 111,
+  "events": [
+    {
+      "id": "2095465338",
+      "title": "Evelynn E Private - Kaylee",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T16:00:00-05:00",
+      "end": "2026-05-26T16:30:00-05:00",
+      "time": "4:00 PM\u20134:30 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601454
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2099541056",
+      "title": "Summer Private Tasha",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T16:00:00-05:00",
+      "end": "2026-05-26T16:15:00-05:00",
+      "time": "4:00 PM\u20134:15 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601467
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2098130574",
+      "title": "Eliza private Tasha",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T16:15:00-05:00",
+      "end": "2026-05-26T16:30:00-05:00",
+      "time": "4:15 PM\u20134:30 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601467
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2100192266",
+      "title": "Savannah - Private w/ Val",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T16:15:00-05:00",
+      "end": "2026-05-26T16:45:00-05:00",
+      "time": "4:15 PM\u20134:45 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601465
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2098131202",
+      "title": "Ari private - Tasha",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T16:30:00-05:00",
+      "end": "2026-05-26T16:45:00-05:00",
+      "time": "4:30 PM\u20134:45 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601467
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2095465464",
+      "title": "Open Private - Kaylee",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T16:30:00-05:00",
+      "end": "2026-05-26T17:00:00-05:00",
+      "time": "4:30 PM\u20135:00 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601454
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090558890",
+      "title": "Gold Combo - Tasha",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T16:45:00-05:00",
+      "end": "2026-05-26T17:00:00-05:00",
+      "time": "4:45 PM\u20135:00 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601467
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2098172502",
+      "title": "Liliana B Private w/ Val",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T16:45:00-05:00",
+      "end": "2026-05-26T17:15:00-05:00",
+      "time": "4:45 PM\u20135:15 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601468
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090557978",
+      "title": "Pearl / Silver Tuesday Ballet + Saturday Ballet - Jordan & Emily",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T16:45:00-05:00",
+      "end": "2026-05-26T17:45:00-05:00",
+      "time": "4:45 PM\u20135:45 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601455
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090558488",
+      "title": "Sapphire Ballet, Sapphire/Topaz Ballet and Topaz Ballet - Marlee",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T16:45:00-05:00",
+      "end": "2026-05-26T17:30:00-05:00",
+      "time": "4:45 PM\u20135:30 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601466
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090559202",
+      "title": "Aqua / Opal Combo - Jamie (bring costume!)",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T17:00:00-05:00",
+      "end": "2026-05-26T17:30:00-05:00",
+      "time": "5:00 PM\u20135:30 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601469
+      ],
+      "category": "costume_rehearsal",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2095465820",
+      "title": "Open Private - Kaylee",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T17:00:00-05:00",
+      "end": "2026-05-26T17:30:00-05:00",
+      "time": "5:00 PM\u20135:30 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601454
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2100364509",
+      "title": "Tasha Open",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T17:00:00-05:00",
+      "end": "2026-05-26T17:15:00-05:00",
+      "time": "5:00 PM\u20135:15 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601467
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2096012508",
+      "title": "Open Private - Jessie",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T17:15:00-05:00",
+      "end": "2026-05-26T17:30:00-05:00",
+      "time": "5:15 PM\u20135:30 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601465
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090559059",
+      "title": "Tiny Tendu - Tasha",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T17:15:00-05:00",
+      "end": "2026-05-26T17:45:00-05:00",
+      "time": "5:15 PM\u20135:45 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601468
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090558930",
+      "title": "Onyx Combo - Kalley",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T17:30:00-05:00",
+      "end": "2026-05-26T18:00:00-05:00",
+      "time": "5:30 PM\u20136:00 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601467
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2096012547",
+      "title": "Open Private - Jessie",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T17:30:00-05:00",
+      "end": "2026-05-26T17:45:00-05:00",
+      "time": "5:30 PM\u20135:45 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601465
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2092640659",
+      "title": "Open private - Abigail",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T17:30:00-05:00",
+      "end": "2026-05-26T18:00:00-05:00",
+      "time": "5:30 PM\u20136:00 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601470
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090558764",
+      "title": "Platinum Ballet - Abigail/Emily",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T17:30:00-05:00",
+      "end": "2026-05-26T18:00:00-05:00",
+      "time": "5:30 PM\u20136:00 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601466
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090559233",
+      "title": "Sapphire Combo - Jamie (bring costume!)",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T17:30:00-05:00",
+      "end": "2026-05-26T18:00:00-05:00",
+      "time": "5:30 PM\u20136:00 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601469
+      ],
+      "category": "costume_rehearsal",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2096011501",
+      "title": "Eden Private - Tasha",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T17:45:00-05:00",
+      "end": "2026-05-26T18:00:00-05:00",
+      "time": "5:45 PM\u20136:00 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601454
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2096012851",
+      "title": "Open Private - Jessie",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T17:45:00-05:00",
+      "end": "2026-05-26T18:00:00-05:00",
+      "time": "5:45 PM\u20136:00 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601465
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090558009",
+      "title": "Pearl/Silver/Gold Hip Hop - Val",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T17:45:00-05:00",
+      "end": "2026-05-26T18:15:00-05:00",
+      "time": "5:45 PM\u20136:15 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601455
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090559070",
+      "title": "Rhinestones 1 (Wednesday) Jordan",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T17:45:00-05:00",
+      "end": "2026-05-26T18:15:00-05:00",
+      "time": "5:45 PM\u20136:15 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601468
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2096011547",
+      "title": "Charlotte Private - Tasha",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T18:00:00-05:00",
+      "end": "2026-05-26T18:15:00-05:00",
+      "time": "6:00 PM\u20136:15 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601454
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090558788",
+      "title": "Gold Ballet- Emily",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T18:00:00-05:00",
+      "end": "2026-05-26T18:30:00-05:00",
+      "time": "6:00 PM\u20136:30 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601466
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090558979",
+      "title": "Onyx Contemp - Abigail",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T18:00:00-05:00",
+      "end": "2026-05-26T18:30:00-05:00",
+      "time": "6:00 PM\u20136:30 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601467
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2096013085",
+      "title": "Open Private - Jessie",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T18:00:00-05:00",
+      "end": "2026-05-26T18:15:00-05:00",
+      "time": "6:00 PM\u20136:15 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601465
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090559377",
+      "title": "Platinum / Sapphire Contemp - Jamie (bring costume!)",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T18:00:00-05:00",
+      "end": "2026-05-26T18:30:00-05:00",
+      "time": "6:00 PM\u20136:30 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601469
+      ],
+      "category": "costume_rehearsal",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2096011678",
+      "title": "Hadley W Private - Tasha",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T18:15:00-05:00",
+      "end": "2026-05-26T18:30:00-05:00",
+      "time": "6:15 PM\u20136:30 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601454
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2096013436",
+      "title": "Open Private - Jessie",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T18:15:00-05:00",
+      "end": "2026-05-26T18:30:00-05:00",
+      "time": "6:15 PM\u20136:30 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601465
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090558036",
+      "title": "Pearl/Silver Combo - Liz",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T18:15:00-05:00",
+      "end": "2026-05-26T18:45:00-05:00",
+      "time": "6:15 PM\u20136:45 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601455
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090559123",
+      "title": "Rhinestones 2 (Tuesday)- Jordan",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T18:15:00-05:00",
+      "end": "2026-05-26T18:45:00-05:00",
+      "time": "6:15 PM\u20136:45 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601468
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2091081219",
+      "title": "Diamond tap (T)",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T18:30:00-05:00",
+      "end": "2026-05-26T19:00:00-05:00",
+      "time": "6:30 PM\u20137:00 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601470
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2096011780",
+      "title": "Isla Private - Tasha",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T18:30:00-05:00",
+      "end": "2026-05-26T18:45:00-05:00",
+      "time": "6:30 PM\u20136:45 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601454
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2096013485",
+      "title": "Open Private - Jessie",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T18:30:00-05:00",
+      "end": "2026-05-26T18:45:00-05:00",
+      "time": "6:30 PM\u20136:45 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601465
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090559519",
+      "title": "Platinum Combo - Jamie (bring costume!)",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T18:30:00-05:00",
+      "end": "2026-05-26T19:00:00-05:00",
+      "time": "6:30 PM\u20137:00 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601469
+      ],
+      "category": "costume_rehearsal",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090558817",
+      "title": "Tuesday and Thursday Aqua Ballet- Marlee",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T18:30:00-05:00",
+      "end": "2026-05-26T19:00:00-05:00",
+      "time": "6:30 PM\u20137:00 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601466
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090559008",
+      "title": "Wednesday and Thursday Diamond Ballet- Emily",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T18:30:00-05:00",
+      "end": "2026-05-26T19:00:00-05:00",
+      "time": "6:30 PM\u20137:00 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601467
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2098172598",
+      "title": "Brecklyn Private w/ Val",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T18:45:00-05:00",
+      "end": "2026-05-26T19:00:00-05:00",
+      "time": "6:45 PM\u20137:00 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601468
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2096014157",
+      "title": "Open Private - Jessie",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T18:45:00-05:00",
+      "end": "2026-05-26T19:00:00-05:00",
+      "time": "6:45 PM\u20137:00 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601465
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2096011829",
+      "title": "Penny Private - Tasha",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T18:45:00-05:00",
+      "end": "2026-05-26T19:00:00-05:00",
+      "time": "6:45 PM\u20137:00 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601454
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2096011953",
+      "title": "Adalyn C Private - Tasha",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T19:00:00-05:00",
+      "end": "2026-05-26T19:15:00-05:00",
+      "time": "7:00 PM\u20137:15 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601454
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090559139",
+      "title": "Elementary Dance Team Class - Val",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T19:00:00-05:00",
+      "end": "2026-05-26T19:30:00-05:00",
+      "time": "7:00 PM\u20137:30 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601468
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090559533",
+      "title": "Intro To Movement - Kalley",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T19:00:00-05:00",
+      "end": "2026-05-26T19:30:00-05:00",
+      "time": "7:00 PM\u20137:30 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601469
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090558839",
+      "title": "Monday and Tuesday Onyx Ballet - Marlee",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T19:00:00-05:00",
+      "end": "2026-05-26T19:45:00-05:00",
+      "time": "7:00 PM\u20137:45 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601466
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2092571375",
+      "title": "Open Private - Emily",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T19:00:00-05:00",
+      "end": "2026-05-26T19:20:00-05:00",
+      "time": "7:00 PM\u20137:20 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601470
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090559027",
+      "title": "Platinum/Sapphire Tap - Abigail",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T19:00:00-05:00",
+      "end": "2026-05-26T19:15:00-05:00",
+      "time": "7:00 PM\u20137:15 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601467
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2092611756",
+      "title": "Onyx Tap",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T19:15:00-05:00",
+      "end": "2026-05-26T20:00:00-05:00",
+      "time": "7:15 PM\u20138:00 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601467
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2098155484",
+      "title": "Reagan C private Tasha",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T19:15:00-05:00",
+      "end": "2026-05-26T19:30:00-05:00",
+      "time": "7:15 PM\u20137:30 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601454
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2092571408",
+      "title": "Open Private - Emily",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T19:20:00-05:00",
+      "end": "2026-05-26T19:40:00-05:00",
+      "time": "7:20 PM\u20137:40 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601470
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090559154",
+      "title": "Gold Tap (Monday)- Tasha",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T19:30:00-05:00",
+      "end": "2026-05-26T20:00:00-05:00",
+      "time": "7:30 PM\u20138:00 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601468
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2092571454",
+      "title": "Open Private - Emily",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T19:40:00-05:00",
+      "end": "2026-05-26T20:00:00-05:00",
+      "time": "7:40 PM\u20138:00 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601470
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090559558",
+      "title": "College Dance Team Class - Chasity",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T19:45:00-05:00",
+      "end": "2026-05-26T20:15:00-05:00",
+      "time": "7:45 PM\u20138:15 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601469
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090558272",
+      "title": "Onyx Hip Hop - Kalley",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T19:45:00-05:00",
+      "end": "2026-05-26T20:15:00-05:00",
+      "time": "7:45 PM\u20138:15 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601455
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2099533625",
+      "title": "Change Is Everything- Liz and Tasha",
+      "date": "2026-05-26",
+      "display_date": "Tuesday, May 26, 2026",
+      "start": "2026-05-26T20:00:00-05:00",
+      "end": "2026-05-26T20:15:00-05:00",
+      "time": "8:00 PM\u20138:15 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601467
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090561565",
+      "title": "Canned Heat Nationals ReBlock - Jessie/Jillian",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T15:00:00-05:00",
+      "end": "2026-05-27T16:45:00-05:00",
+      "time": "3:00 PM\u20134:45 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601455
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2098073964",
+      "title": "Open Private - Ava",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T15:00:00-05:00",
+      "end": "2026-05-27T15:20:00-05:00",
+      "time": "3:00 PM\u20133:20 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601466
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2098073985",
+      "title": "Open Private - Ava",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T15:20:00-05:00",
+      "end": "2026-05-27T15:40:00-05:00",
+      "time": "3:20 PM\u20133:40 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601466
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2095465986",
+      "title": "Open Private - Kaylee",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T15:30:00-05:00",
+      "end": "2026-05-27T16:00:00-05:00",
+      "time": "3:30 PM\u20134:00 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601454
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2098073995",
+      "title": "Eliza E Private - Ava",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T15:40:00-05:00",
+      "end": "2026-05-27T16:00:00-05:00",
+      "time": "3:40 PM\u20134:00 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601466
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2098074004",
+      "title": "Chloe Bulcock Private - Ava",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T16:00:00-05:00",
+      "end": "2026-05-27T16:20:00-05:00",
+      "time": "4:00 PM\u20134:20 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601466
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2095466142",
+      "title": "Eliza E Private - Kaylee",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T16:00:00-05:00",
+      "end": "2026-05-27T16:30:00-05:00",
+      "time": "4:00 PM\u20134:30 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601454
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2098131875",
+      "title": "Savannah private -Tasha",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T16:00:00-05:00",
+      "end": "2026-05-27T16:20:00-05:00",
+      "time": "4:00 PM\u20134:20 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601468
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090562307",
+      "title": "Diamond / Opal MT - Katelyn",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T16:15:00-05:00",
+      "end": "2026-05-27T16:45:00-05:00",
+      "time": "4:15 PM\u20134:45 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601469
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2092556514",
+      "title": "Pearl/Silver Tap - Tasha",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T16:20:00-05:00",
+      "end": "2026-05-27T16:45:00-05:00",
+      "time": "4:20 PM\u20134:45 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601468
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2095466259",
+      "title": "Open Private - Kaylee",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T16:30:00-05:00",
+      "end": "2026-05-27T17:00:00-05:00",
+      "time": "4:30 PM\u20135:00 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601454
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2098073420",
+      "title": "Claire - Jessie",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T16:45:00-05:00",
+      "end": "2026-05-27T17:15:00-05:00",
+      "time": "4:45 PM\u20135:15 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601466
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090562329",
+      "title": "Diamond Combo - Katelyn",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T16:45:00-05:00",
+      "end": "2026-05-27T17:15:00-05:00",
+      "time": "4:45 PM\u20135:15 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601469
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2098132555",
+      "title": "Hadley Private - Tasha",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T16:45:00-05:00",
+      "end": "2026-05-27T17:15:00-05:00",
+      "time": "4:45 PM\u20135:15 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601468
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090561586",
+      "title": "Sapphire/Platinum Hip Hop - Kalley",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T16:45:00-05:00",
+      "end": "2026-05-27T17:15:00-05:00",
+      "time": "4:45 PM\u20135:15 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601455
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090562146",
+      "title": "Show 1 Finale - Jamie",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T16:45:00-05:00",
+      "end": "2026-05-27T17:15:00-05:00",
+      "time": "4:45 PM\u20135:15 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601467
+      ],
+      "category": "recital_show_or_show_specific",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2095466399",
+      "title": "Open Private - Kaylee",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T17:00:00-05:00",
+      "end": "2026-05-27T17:30:00-05:00",
+      "time": "5:00 PM\u20135:30 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601454
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090561595",
+      "title": "Aqua/Opal/Diamond Hip Hop - Kalley",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T17:15:00-05:00",
+      "end": "2026-05-27T18:00:00-05:00",
+      "time": "5:15 PM\u20136:00 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601455
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090562763",
+      "title": "Onyx/Platinum/Sapphire Musical Theater - Katelyn",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T17:15:00-05:00",
+      "end": "2026-05-27T17:45:00-05:00",
+      "time": "5:15 PM\u20135:45 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601469
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090562172",
+      "title": "Pearl/Silver/Gold Hip Hop - Val",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T17:15:00-05:00",
+      "end": "2026-05-27T17:45:00-05:00",
+      "time": "5:15 PM\u20135:45 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601467
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090562272",
+      "title": "Rhinestones 1 (Monday)- Tasha",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T17:15:00-05:00",
+      "end": "2026-05-27T17:45:00-05:00",
+      "time": "5:15 PM\u20135:45 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601468
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090562075",
+      "title": "Wednesday and Thursday Diamond Ballet - Emily",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T17:15:00-05:00",
+      "end": "2026-05-27T17:45:00-05:00",
+      "time": "5:15 PM\u20135:45 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601466
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2095104709",
+      "title": "Lacey- with Liz",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T17:45:00-05:00",
+      "end": "2026-05-27T18:15:00-05:00",
+      "time": "5:45 PM\u20136:15 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601465
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2092571760",
+      "title": "Open Private - Emily",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T17:45:00-05:00",
+      "end": "2026-05-27T18:00:00-05:00",
+      "time": "5:45 PM\u20136:00 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601470
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2098073468",
+      "title": "Open Private - Jessie",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T17:45:00-05:00",
+      "end": "2026-05-27T18:00:00-05:00",
+      "time": "5:45 PM\u20136:00 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601468
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090563195",
+      "title": "Pearl/Silver/Gold/Aqua Musical Theater - Katelyn",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T17:45:00-05:00",
+      "end": "2026-05-27T18:15:00-05:00",
+      "time": "5:45 PM\u20136:15 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601469
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090562190",
+      "title": "Platinum/Onyx Tap (Thursday) - Tasha",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T17:45:00-05:00",
+      "end": "2026-05-27T18:15:00-05:00",
+      "time": "5:45 PM\u20136:15 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601467
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090562098",
+      "title": "Rhinestones 1 (Wednesday) Jordan",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T17:45:00-05:00",
+      "end": "2026-05-27T18:15:00-05:00",
+      "time": "5:45 PM\u20136:15 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601466
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090562027",
+      "title": "Diamond Contemp - Kalley",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T18:00:00-05:00",
+      "end": "2026-05-27T18:30:00-05:00",
+      "time": "6:00 PM\u20136:30 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601455
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2092571810",
+      "title": "Evelynn E Private - Emily",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T18:00:00-05:00",
+      "end": "2026-05-27T18:20:00-05:00",
+      "time": "6:00 PM\u20136:20 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601470
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2098073501",
+      "title": "Open Private - Jessie",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T18:00:00-05:00",
+      "end": "2026-05-27T18:15:00-05:00",
+      "time": "6:00 PM\u20136:15 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601468
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090563838",
+      "title": "College Dance Team - Liz",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T18:15:00-05:00",
+      "end": "2026-05-27T19:00:00-05:00",
+      "time": "6:15 PM\u20137:00 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601469
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2092638119",
+      "title": "Opal tap - Abigail",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T18:15:00-05:00",
+      "end": "2026-05-27T18:30:00-05:00",
+      "time": "6:15 PM\u20136:30 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601468
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2098073670",
+      "title": "Open Private - Jessie",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T18:15:00-05:00",
+      "end": "2026-05-27T18:30:00-05:00",
+      "time": "6:15 PM\u20136:30 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601465
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090562206",
+      "title": "Rhinestones 2 (Monday)- Tasha",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T18:15:00-05:00",
+      "end": "2026-05-27T18:45:00-05:00",
+      "time": "6:15 PM\u20136:45 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601467
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090562112",
+      "title": "Rhinestones 2 (Tuesday)- Jordan",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T18:15:00-05:00",
+      "end": "2026-05-27T18:45:00-05:00",
+      "time": "6:15 PM\u20136:45 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601466
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2092571832",
+      "title": "Open Private - Emily",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T18:20:00-05:00",
+      "end": "2026-05-27T18:40:00-05:00",
+      "time": "6:20 PM\u20136:40 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601470
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2092639409",
+      "title": "Diamond tap (Monday) - Abigail",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T18:30:00-05:00",
+      "end": "2026-05-27T18:45:00-05:00",
+      "time": "6:30 PM\u20136:45 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601468
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2098073684",
+      "title": "Open Private - Jessie",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T18:30:00-05:00",
+      "end": "2026-05-27T18:45:00-05:00",
+      "time": "6:30 PM\u20136:45 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601465
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2092571880",
+      "title": "Open Private - Emily",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T18:40:00-05:00",
+      "end": "2026-05-27T19:00:00-05:00",
+      "time": "6:40 PM\u20137:00 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601470
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2092640236",
+      "title": "Gold/Diamond tap (T/Th) - Abigail",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T18:45:00-05:00",
+      "end": "2026-05-27T19:15:00-05:00",
+      "time": "6:45 PM\u20137:15 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601468
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090562226",
+      "title": "Silver Ballet (Thursday) - Tasha",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T18:45:00-05:00",
+      "end": "2026-05-27T19:15:00-05:00",
+      "time": "6:45 PM\u20137:15 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601467
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090563978",
+      "title": "High School Dance Team - Liz",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T19:00:00-05:00",
+      "end": "2026-05-27T19:30:00-05:00",
+      "time": "7:00 PM\u20137:30 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601469
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2092571913",
+      "title": "Open Private - Emily",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T19:00:00-05:00",
+      "end": "2026-05-27T19:20:00-05:00",
+      "time": "7:00 PM\u20137:20 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601470
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090562254",
+      "title": "Daddy Daugher Show 1",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T19:15:00-05:00",
+      "end": "2026-05-27T19:45:00-05:00",
+      "time": "7:15 PM\u20137:45 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601467
+      ],
+      "category": "recital_show_or_show_specific",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2092640538",
+      "title": "Open private - Abigail",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T19:15:00-05:00",
+      "end": "2026-05-27T19:40:00-05:00",
+      "time": "7:15 PM\u20137:40 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601468
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2099535477",
+      "title": "Reagan C Private Tasha",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T19:15:00-05:00",
+      "end": "2026-05-27T19:30:00-05:00",
+      "time": "7:15 PM\u20137:30 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601454
+      ],
+      "category": "private",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2099535575",
+      "title": "Snow Angels- Liz and Tasha",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T19:30:00-05:00",
+      "end": "2026-05-27T19:45:00-05:00",
+      "time": "7:30 PM\u20137:45 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601469
+      ],
+      "category": "rehearsal_or_class",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090564016",
+      "title": "Dude's Dance Show 2/3/4 - Jamie",
+      "date": "2026-05-27",
+      "display_date": "Wednesday, May 27, 2026",
+      "start": "2026-05-27T20:00:00-05:00",
+      "end": "2026-05-27T20:45:00-05:00",
+      "time": "8:00 PM\u20138:45 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601469
+      ],
+      "category": "recital_show_or_show_specific",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090561004",
+      "title": "Dress Rehearsal - Show 1 & 2 - B&B Theaters",
+      "date": "2026-05-28",
+      "display_date": "Thursday, May 28, 2026",
+      "start": "2026-05-28T12:00:00-05:00",
+      "end": "2026-05-28T21:00:00-05:00",
+      "time": "12:00 PM\u20139:00 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601468,
+        14601469
+      ],
+      "category": "dress_rehearsal",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090561298",
+      "title": "Dress Rehearsal - Show 3 & 4 - B&B Theaters",
+      "date": "2026-05-29",
+      "display_date": "Friday, May 29, 2026",
+      "start": "2026-05-29T12:00:00-05:00",
+      "end": "2026-05-29T21:00:00-05:00",
+      "time": "12:00 PM\u20139:00 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601468,
+        14601469
+      ],
+      "category": "dress_rehearsal",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090564247",
+      "title": "Show #1 Noon - B&B Theaters",
+      "date": "2026-05-30",
+      "display_date": "Saturday, May 30, 2026",
+      "start": "2026-05-30T12:00:00-05:00",
+      "end": "2026-05-30T15:30:00-05:00",
+      "time": "12:00 PM\u20133:30 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601468,
+        14601469
+      ],
+      "category": "recital_show_or_show_specific",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090564191",
+      "title": "Show #2 6pm - B&B Theaters",
+      "date": "2026-05-30",
+      "display_date": "Saturday, May 30, 2026",
+      "start": "2026-05-30T18:00:00-05:00",
+      "end": "2026-05-30T21:30:00-05:00",
+      "time": "6:00 PM\u20139:30 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601468,
+        14601469
+      ],
+      "category": "recital_show_or_show_specific",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090564547",
+      "title": "Show #3 Noon - B&B Theaters",
+      "date": "2026-05-31",
+      "display_date": "Sunday, May 31, 2026",
+      "start": "2026-05-31T12:00:00-05:00",
+      "end": "2026-05-31T15:30:00-05:00",
+      "time": "12:00 PM\u20133:30 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601468,
+        14601469
+      ],
+      "category": "recital_show_or_show_specific",
+      "all_day": false,
+      "readonly": true
+    },
+    {
+      "id": "2090564602",
+      "title": "Show #4 6 pm - B&B Theaters",
+      "date": "2026-05-31",
+      "display_date": "Sunday, May 31, 2026",
+      "start": "2026-05-31T18:00:00-05:00",
+      "end": "2026-05-31T21:30:00-05:00",
+      "time": "6:00 PM\u20139:30 PM",
+      "location": "",
+      "who": "",
+      "notes": "",
+      "subcalendar_ids": [
+        14601468,
+        14601469
+      ],
+      "category": "recital_show_or_show_specific",
+      "all_day": false,
+      "readonly": true
+    }
+  ]
+}

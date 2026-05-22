@@ -1,0 +1,941 @@
+{
+  "source": "lovable_recital_page_and_linked_google_doc",
+  "source_url": "https://premier-dance-hub.lovable.app/recital",
+  "linked_show_orders_doc": "https://docs.google.com/document/d/1DAAp9_xB9C1i2hXPWjIK-DBsfUtGzQD_/edit?usp=sharing&ouid=102734008570607516179&rtpof=true&sd=true",
+  "ticket_flower_form_url": "https://forms.gle/zSrgj9khUitX4XC8A",
+  "title": "ELEV8 Recital 2026 — In The Details",
+  "app_event_summary": {
+    "date": "2026-06-13",
+    "display_date": "Saturday, June 13, 2026",
+    "venue": "Kauffman Center for the Performing Arts",
+    "times": [
+      "1:00 PM Matinee",
+      "6:00 PM Evening"
+    ]
+  },
+  "show_orders_doc_note": "PLEASE NOTE SENIOR SOLOS HAVE NOT BEEN PLACED YET",
+  "show_orders_doc": [
+    {
+      "show_number": 1,
+      "source_meta": "SATURDAY NOON SHOW",
+      "items": [
+        {
+          "order": 1,
+          "title": "Big Bad Wolf",
+          "type": "routine"
+        },
+        {
+          "order": 2,
+          "title": "Rhinestones 1 (Monday)",
+          "type": "routine"
+        },
+        {
+          "order": 3,
+          "title": "Pink Cadillac",
+          "type": "routine"
+        },
+        {
+          "order": 4,
+          "title": "We Feel Cute",
+          "type": "routine"
+        },
+        {
+          "order": 5,
+          "title": "Ballet Aqua (Tuesday & Thursday)",
+          "type": "routine"
+        },
+        {
+          "order": 6,
+          "title": "Rhinestones 1 (Wednesday)",
+          "type": "routine"
+        },
+        {
+          "order": 7,
+          "title": "Pearl Hip Hop (Thursday) & Silver/Gold Hip Hop",
+          "type": "routine"
+        },
+        {
+          "order": 8,
+          "title": "Solo TBA (Senior)",
+          "type": "routine"
+        },
+        {
+          "order": 9,
+          "title": "Gold Combo",
+          "type": "routine"
+        },
+        {
+          "order": 10,
+          "title": "Islands",
+          "type": "routine"
+        },
+        {
+          "order": 11,
+          "title": "Ballet Silver (Thursday)",
+          "type": "routine"
+        },
+        {
+          "order": 12,
+          "title": "Let’s Party",
+          "type": "routine"
+        },
+        {
+          "order": 13,
+          "title": "Paw Patrol",
+          "type": "routine"
+        },
+        {
+          "order": 14,
+          "title": "Gold Tap (Monday)",
+          "type": "routine"
+        },
+        {
+          "order": null,
+          "title": "INTERMISSION",
+          "type": "intermission"
+        },
+        {
+          "order": 15,
+          "title": "Funky Monkey",
+          "type": "routine"
+        },
+        {
+          "order": 16,
+          "title": "Bad Guy",
+          "type": "routine"
+        },
+        {
+          "order": 17,
+          "title": "Solo TBA (Senior)",
+          "type": "routine"
+        },
+        {
+          "order": 18,
+          "title": "Rhinestones 2 (Monday)",
+          "type": "routine"
+        },
+        {
+          "order": 19,
+          "title": "Pearl/Silver Tap (Wednesday)",
+          "type": "routine"
+        },
+        {
+          "order": 20,
+          "title": "Tiny Tendu (Tuesday)",
+          "type": "routine"
+        },
+        {
+          "order": 21,
+          "title": "Rhinestones 2 (Monday)",
+          "type": "routine"
+        },
+        {
+          "order": 22,
+          "title": "Outta My Hair",
+          "type": "routine"
+        },
+        {
+          "order": 23,
+          "title": "Rio",
+          "type": "routine"
+        },
+        {
+          "order": 24,
+          "title": "Solo TBA (Senior)",
+          "type": "routine"
+        },
+        {
+          "order": 25,
+          "title": "Gold (Tuesday)",
+          "type": "routine"
+        },
+        {
+          "order": 26,
+          "title": "Puttin’ on the Ritz",
+          "type": "routine"
+        },
+        {
+          "order": 27,
+          "title": "Pearl/Silver Combo",
+          "type": "routine"
+        },
+        {
+          "order": 28,
+          "title": "The Pirates Who Don’t Do Anything",
+          "type": "routine"
+        },
+        {
+          "order": 29,
+          "title": "She’s In Love",
+          "type": "routine"
+        },
+        {
+          "order": 30,
+          "title": "Ballet Pearl & Silver (Tuesday) & Ballet Pearl/Silver/Gold (Saturday)",
+          "type": "routine"
+        },
+        {
+          "order": 31,
+          "title": "Solo TBA (Senior)",
+          "type": "routine"
+        },
+        {
+          "order": 32,
+          "title": "You Raise Me Up",
+          "type": "routine"
+        },
+        {
+          "order": 33,
+          "title": "The Mouse House",
+          "type": "routine"
+        },
+        {
+          "order": 34,
+          "title": "Pearl/Silver/Gold/Aqua Musical Theater",
+          "type": "routine"
+        },
+        {
+          "order": 35,
+          "title": "Rhinestones 2 (Tuesday)",
+          "type": "routine"
+        },
+        {
+          "order": 36,
+          "title": "Frozen Heart",
+          "type": "routine"
+        },
+        {
+          "order": 37,
+          "title": "Dance Party & Bow",
+          "type": "routine"
+        }
+      ],
+      "routine_count": 37
+    },
+    {
+      "show_number": 2,
+      "source_meta": "Saturday, May 30th, 6pm",
+      "items": [
+        {
+          "order": 1,
+          "title": "Oh Yeah",
+          "type": "routine"
+        },
+        {
+          "order": 2,
+          "title": "Girls Night Out",
+          "type": "routine"
+        },
+        {
+          "order": 3,
+          "title": "Diamond/Opal Musical Theater",
+          "type": "routine"
+        },
+        {
+          "order": 4,
+          "title": "Peas in a Pod",
+          "type": "routine"
+        },
+        {
+          "order": 5,
+          "title": "Intro to Movement (Tuesday)",
+          "type": "routine"
+        },
+        {
+          "order": 6,
+          "title": "Do Your Thing",
+          "type": "routine"
+        },
+        {
+          "order": 7,
+          "title": "Shout",
+          "type": "routine"
+        },
+        {
+          "order": 8,
+          "title": "Ballet Video",
+          "type": "routine"
+        },
+        {
+          "order": 9,
+          "title": "Ballet Platinum",
+          "type": "routine"
+        },
+        {
+          "order": 10,
+          "title": "Diamond Tap (Tuesday)",
+          "type": "routine"
+        },
+        {
+          "order": 11,
+          "title": "Watch This",
+          "type": "routine"
+        },
+        {
+          "order": 12,
+          "title": "High School Dance Team (Thursday)",
+          "type": "routine"
+        },
+        {
+          "order": 13,
+          "title": "Aqua/Opal Combo",
+          "type": "routine"
+        },
+        {
+          "order": 14,
+          "title": "You Ain’t No Celebrity",
+          "type": "routine"
+        },
+        {
+          "order": 15,
+          "title": "Teach Me How to Shimmy",
+          "type": "routine"
+        },
+        {
+          "order": 16,
+          "title": "Dang",
+          "type": "routine"
+        },
+        {
+          "order": 17,
+          "title": "Gold/Diamond Tap (Tuesday/Thursday)",
+          "type": "routine"
+        },
+        {
+          "order": null,
+          "title": "INTERMISSION",
+          "type": "intermission"
+        },
+        {
+          "order": 18,
+          "title": "Right About Now",
+          "type": "routine"
+        },
+        {
+          "order": 19,
+          "title": "Candy Man",
+          "type": "routine"
+        },
+        {
+          "order": 20,
+          "title": "You Took My Look",
+          "type": "routine"
+        },
+        {
+          "order": 21,
+          "title": "I Feel Like Dancing",
+          "type": "routine"
+        },
+        {
+          "order": 22,
+          "title": "Jailhouse Rock",
+          "type": "routine"
+        },
+        {
+          "order": 23,
+          "title": "Up All Night",
+          "type": "routine"
+        },
+        {
+          "order": 24,
+          "title": "Aqua/Opal Hip Hop + Diamond Hip Hop",
+          "type": "routine"
+        },
+        {
+          "order": 25,
+          "title": "Quake",
+          "type": "routine"
+        },
+        {
+          "order": 26,
+          "title": "Uncovered",
+          "type": "routine"
+        },
+        {
+          "order": 27,
+          "title": "Tea Party",
+          "type": "routine"
+        },
+        {
+          "order": 28,
+          "title": "Andy Griffith",
+          "type": "routine"
+        },
+        {
+          "order": 29,
+          "title": "Velma & Roxie",
+          "type": "routine"
+        },
+        {
+          "order": 30,
+          "title": "Elementary Dance Team (Thursday)",
+          "type": "routine"
+        },
+        {
+          "order": 31,
+          "title": "Set Prop",
+          "type": "routine"
+        },
+        {
+          "order": 32,
+          "title": "Red Light Green Light",
+          "type": "routine"
+        },
+        {
+          "order": 33,
+          "title": "Your Song",
+          "type": "routine"
+        },
+        {
+          "order": 34,
+          "title": "Telephone",
+          "type": "routine"
+        },
+        {
+          "order": 35,
+          "title": "Finale",
+          "type": "routine"
+        }
+      ],
+      "routine_count": 35
+    },
+    {
+      "show_number": 3,
+      "source_meta": "Sunday, May 31st, Noon",
+      "items": [
+        {
+          "order": 1,
+          "title": "Platinum/Sapphire Contemporary",
+          "type": "routine"
+        },
+        {
+          "order": 2,
+          "title": "Slow Me Down",
+          "type": "routine"
+        },
+        {
+          "order": 3,
+          "title": "Snow Angels",
+          "type": "routine"
+        },
+        {
+          "order": 4,
+          "title": "Diamond Combo",
+          "type": "routine"
+        },
+        {
+          "order": 5,
+          "title": "Sunday Kind of Love",
+          "type": "routine"
+        },
+        {
+          "order": 6,
+          "title": "I Don’t Remember",
+          "type": "routine"
+        },
+        {
+          "order": 7,
+          "title": "Happy Feet",
+          "type": "routine"
+        },
+        {
+          "order": 8,
+          "title": "Not About You",
+          "type": "routine"
+        },
+        {
+          "order": 9,
+          "title": "Voice Over",
+          "type": "routine"
+        },
+        {
+          "order": 10,
+          "title": "Water From the Moon",
+          "type": "routine"
+        },
+        {
+          "order": 11,
+          "title": "Ballet Opal",
+          "type": "routine"
+        },
+        {
+          "order": 12,
+          "title": "Like Jennie",
+          "type": "routine"
+        },
+        {
+          "order": 13,
+          "title": "Diamond Tap (Monday)",
+          "type": "routine"
+        },
+        {
+          "order": 14,
+          "title": "Crush On You",
+          "type": "routine"
+        },
+        {
+          "order": 15,
+          "title": "Opal/Diamond Contemporary (Monday)",
+          "type": "routine"
+        },
+        {
+          "order": 16,
+          "title": "Onyx Combo",
+          "type": "routine"
+        },
+        {
+          "order": 17,
+          "title": "The Chain",
+          "type": "routine"
+        },
+        {
+          "order": 18,
+          "title": "Red Ribbon",
+          "type": "routine"
+        },
+        {
+          "order": null,
+          "title": "INTERMISSION",
+          "type": "intermission"
+        },
+        {
+          "order": 19,
+          "title": "Thursday",
+          "type": "routine"
+        },
+        {
+          "order": 20,
+          "title": "The Journey",
+          "type": "routine"
+        },
+        {
+          "order": 21,
+          "title": "Ballet Video",
+          "type": "routine"
+        },
+        {
+          "order": 22,
+          "title": "Ballet Topaz / Sapphire",
+          "type": "routine"
+        },
+        {
+          "order": 23,
+          "title": "Good Morning",
+          "type": "routine"
+        },
+        {
+          "order": 24,
+          "title": "Change Is Everything",
+          "type": "routine"
+        },
+        {
+          "order": 25,
+          "title": "Onyx Hip Hop",
+          "type": "routine"
+        },
+        {
+          "order": 26,
+          "title": "Troop Beverly Hills",
+          "type": "routine"
+        },
+        {
+          "order": 27,
+          "title": "Ballad of a Thin Man",
+          "type": "routine"
+        },
+        {
+          "order": 28,
+          "title": "Schoolin Life",
+          "type": "routine"
+        },
+        {
+          "order": 29,
+          "title": "Voice Over",
+          "type": "routine"
+        },
+        {
+          "order": 30,
+          "title": "Ballet Diamond",
+          "type": "routine"
+        },
+        {
+          "order": 31,
+          "title": "Diamond/Opal Tap",
+          "type": "routine"
+        },
+        {
+          "order": 32,
+          "title": "Platinum/Onyx Tap (Thursday)",
+          "type": "routine"
+        },
+        {
+          "order": 33,
+          "title": "Me Against the Music",
+          "type": "routine"
+        },
+        {
+          "order": 34,
+          "title": "Platinum/Sapphire Tap",
+          "type": "routine"
+        },
+        {
+          "order": 35,
+          "title": "Vogue",
+          "type": "routine"
+        },
+        {
+          "order": 36,
+          "title": "See You Again",
+          "type": "routine"
+        },
+        {
+          "order": 37,
+          "title": "Finale",
+          "type": "routine"
+        }
+      ],
+      "routine_count": 37
+    },
+    {
+      "show_number": 4,
+      "source_meta": "Sunday, May 31st, 6pm",
+      "items": [
+        {
+          "order": 1,
+          "title": "YaYa",
+          "type": "routine"
+        },
+        {
+          "order": 2,
+          "title": "Platinum Hip Hop (Monday) & Sapphire Hip Hop (Monday)",
+          "type": "routine"
+        },
+        {
+          "order": 3,
+          "title": "Samba",
+          "type": "routine"
+        },
+        {
+          "order": 4,
+          "title": "Loathing",
+          "type": "routine"
+        },
+        {
+          "order": 5,
+          "title": "I’d Rather Go Blind",
+          "type": "routine"
+        },
+        {
+          "order": 6,
+          "title": "Opal Tap (Monday)",
+          "type": "routine"
+        },
+        {
+          "order": 7,
+          "title": "Mama Knows Best",
+          "type": "routine"
+        },
+        {
+          "order": 8,
+          "title": "Untamed",
+          "type": "routine"
+        },
+        {
+          "order": 9,
+          "title": "Girls Just Want to Have Fun",
+          "type": "routine"
+        },
+        {
+          "order": 10,
+          "title": "I Lived",
+          "type": "routine"
+        },
+        {
+          "order": 11,
+          "title": "Platinum Combo (Thursday)",
+          "type": "routine"
+        },
+        {
+          "order": 12,
+          "title": "Ballet Onyx (Monday & Tuesday)",
+          "type": "routine"
+        },
+        {
+          "order": 13,
+          "title": "Moulin Rouge",
+          "type": "routine"
+        },
+        {
+          "order": 14,
+          "title": "Call Me Back",
+          "type": "routine"
+        },
+        {
+          "order": 15,
+          "title": "Heaven",
+          "type": "routine"
+        },
+        {
+          "order": 16,
+          "title": "Bloodbag",
+          "type": "routine"
+        },
+        {
+          "order": 17,
+          "title": "Bad Thing",
+          "type": "routine"
+        },
+        {
+          "order": 18,
+          "title": "Bite Your Tongue",
+          "type": "routine"
+        },
+        {
+          "order": 19,
+          "title": "College Dance Team (Thursday)",
+          "type": "routine"
+        },
+        {
+          "order": 20,
+          "title": "Gossip",
+          "type": "routine"
+        },
+        {
+          "order": 21,
+          "title": "Onyx Contemporary (Tuesday)",
+          "type": "routine"
+        },
+        {
+          "order": 22,
+          "title": "Warrior",
+          "type": "routine"
+        },
+        {
+          "order": 23,
+          "title": "Stop in Nevada",
+          "type": "routine"
+        },
+        {
+          "order": 24,
+          "title": "Die on This Hill",
+          "type": "routine"
+        },
+        {
+          "order": 25,
+          "title": "Take It",
+          "type": "routine"
+        },
+        {
+          "order": 26,
+          "title": "Purple Hat",
+          "type": "routine"
+        },
+        {
+          "order": 27,
+          "title": "War of the Mind",
+          "type": "routine"
+        },
+        {
+          "order": 28,
+          "title": "Onyx/Platinum/Sapphire Musical Theater (Thursday)",
+          "type": "routine"
+        },
+        {
+          "order": 29,
+          "title": "Onyx Tap (Tuesday & Thursday)",
+          "type": "routine"
+        },
+        {
+          "order": 30,
+          "title": "Canned Heat",
+          "type": "routine"
+        },
+        {
+          "order": 31,
+          "title": "Sapphire Combo (Monday)",
+          "type": "routine"
+        },
+        {
+          "order": 32,
+          "title": "Finale",
+          "type": "routine"
+        }
+      ],
+      "routine_count": 32
+    }
+  ],
+  "lovable_app_show_1_with_instructors": [
+    {
+      "order": 1,
+      "title": "Big Bad Wolf",
+      "instructor_or_owner": "Tasha Spalding"
+    },
+    {
+      "order": 2,
+      "title": "Rhinestones 1 (Monday)",
+      "instructor_or_owner": "Tasha Spalding"
+    },
+    {
+      "order": 3,
+      "title": "Pink Cadillac",
+      "instructor_or_owner": "Val Elazegui"
+    },
+    {
+      "order": 4,
+      "title": "We Feel Cute",
+      "instructor_or_owner": "Tasha Spalding"
+    },
+    {
+      "order": 5,
+      "title": "Ballet Aqua (Tuesday & Thursday)",
+      "instructor_or_owner": "Marlee Bailey Samani"
+    },
+    {
+      "order": 6,
+      "title": "Rhinestones 1 (Wednesday)",
+      "instructor_or_owner": "Jordan West"
+    },
+    {
+      "order": 7,
+      "title": "Pearl Hip Hop (Thursday) & Silver/Gold Hip Hop",
+      "instructor_or_owner": "Val Elazegui"
+    },
+    {
+      "order": 8,
+      "title": "Solo TBA (Brooklyn)",
+      "instructor_or_owner": "Keri"
+    },
+    {
+      "order": 9,
+      "title": "Gold Combo",
+      "instructor_or_owner": "Tasha Spalding"
+    },
+    {
+      "order": 10,
+      "title": "Islands",
+      "instructor_or_owner": "Emily Adair"
+    },
+    {
+      "order": 11,
+      "title": "Ballet Silver (Thursday)",
+      "instructor_or_owner": "Tasha Spalding"
+    },
+    {
+      "order": 12,
+      "title": "Let's Party",
+      "instructor_or_owner": "Liz Crocker"
+    },
+    {
+      "order": 13,
+      "title": "Paw Patrol",
+      "instructor_or_owner": "Tasha Spalding"
+    },
+    {
+      "order": 14,
+      "title": "Gold Tap (Monday)",
+      "instructor_or_owner": "Tasha Spalding"
+    },
+    {
+      "order": 15,
+      "title": "Funky Monkey",
+      "instructor_or_owner": "Jillian Richard & Jessie McElwain"
+    },
+    {
+      "order": 16,
+      "title": "Bad Guy",
+      "instructor_or_owner": "Jamie Barry"
+    },
+    {
+      "order": 17,
+      "title": "Rhinestones 2 (Monday)",
+      "instructor_or_owner": "Tasha Spalding"
+    },
+    {
+      "order": 18,
+      "title": "Pearl/Silver Tap (Wednesday)",
+      "instructor_or_owner": "Tasha Spalding"
+    },
+    {
+      "order": 19,
+      "title": "Tiny Tendu (Tuesday)",
+      "instructor_or_owner": "Tasha Spalding"
+    },
+    {
+      "order": 20,
+      "title": "Outta My Hair",
+      "instructor_or_owner": "Val Elazegui"
+    },
+    {
+      "order": 21,
+      "title": "Rio",
+      "instructor_or_owner": "Tasha Spalding"
+    },
+    {
+      "order": 22,
+      "title": "Solo TBA (Senior)",
+      "instructor_or_owner": "TBD"
+    },
+    {
+      "order": 23,
+      "title": "Ballet Gold (Tuesday)",
+      "instructor_or_owner": "TBD"
+    },
+    {
+      "order": 24,
+      "title": "Puttin' on the Ritz",
+      "instructor_or_owner": "Jamie Barry"
+    },
+    {
+      "order": 25,
+      "title": "Pearl/Silver Combo",
+      "instructor_or_owner": "Liz Crocker"
+    },
+    {
+      "order": 26,
+      "title": "The Pirates Who Don't Do Anything",
+      "instructor_or_owner": "Tasha Spalding"
+    },
+    {
+      "order": 27,
+      "title": "She's In Love",
+      "instructor_or_owner": "Katelyn Falconer"
+    },
+    {
+      "order": 28,
+      "title": "Ballet Pearl & Silver (Tuesday) & Ballet Pearl/Silver/Gold (Saturday)",
+      "instructor_or_owner": "Emily Adair"
+    },
+    {
+      "order": 29,
+      "title": "You Raise Me Up",
+      "instructor_or_owner": "Jamie Barry"
+    },
+    {
+      "order": 30,
+      "title": "The Mouse House",
+      "instructor_or_owner": "Val Elazegui"
+    },
+    {
+      "order": 31,
+      "title": "Pearl/Silver/Gold/Aqua Musical Theater",
+      "instructor_or_owner": "Katelyn Falconer"
+    },
+    {
+      "order": 32,
+      "title": "Rhinestones 2 (Tuesday)",
+      "instructor_or_owner": "Jordan West"
+    },
+    {
+      "order": 33,
+      "title": "Frozen Heart",
+      "instructor_or_owner": "Jillian Richard & Jessie McElwain"
+    }
+  ],
+  "gaps_and_conflicts": [
+    "Lovable recital page says Saturday, June 13, 2026 at Kauffman Center, 1:00 PM Matinee / 6:00 PM Evening.",
+    "Linked Google show-order document labels shows as Saturday May 30 and Sunday May 31, which conflicts with the app summary date and may be stale/copied from another version.",
+    "Lovable app only exposes Show 1 order; Shows 2-4 are Coming Soon in the app, but linked Google Doc contains all four show lists.",
+    "Show 1 differs between Lovable app and linked Google Doc: app includes instructors/owners and shows 33 items; Google doc includes intermission, duplicate Rhinestones 2 (Monday), multiple Senior Solo TBA slots, Dance Party & Bow, and no instructors.",
+    "Ticket/flower Google Form requires sign-in from extraction environment, so details were not pulled yet."
+  ]
+}
