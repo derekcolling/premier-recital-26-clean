@@ -8,13 +8,13 @@ import {
   ArrowUp,
   BookOpenText,
   Check,
+  ChevronDown,
   Info,
   ListChecks,
   MapPin,
   Music2,
   Plus,
   Search,
-  SlidersHorizontal,
   UserRound,
   Users,
   X,
@@ -218,57 +218,6 @@ function getTrackedDanceRows(show: Elev8ProgramShow, selectedIds: Set<string>) {
   });
 }
 
-function LiveNowPanel({
-  liveShow,
-  liveItem,
-  currentShow,
-  onViewLiveShow,
-}: {
-  liveShow: Elev8ProgramShow | null;
-  liveItem: Elev8ProgramItem | null;
-  currentShow: Elev8ProgramShow;
-  onViewLiveShow: () => void;
-}) {
-  if (!liveShow || !liveItem) return null;
-
-  const itemNumber = liveItem.order ?? liveItem.position;
-  const isViewingLiveShow = currentShow.id === liveShow.id;
-  const statusLabel = liveItem.type === "dance" ? "On stage now" : `${getTypeLabel(liveItem)} now`;
-  const detailText = [
-    liveShow.title,
-    liveShow.startTime,
-    liveItem.teacher,
-    liveItem.songTitle,
-  ].filter(Boolean).join(" · ");
-
-  return (
-    <section
-      aria-live="polite"
-      className="min-w-0 rounded-[8px] border border-[#1C4EFF]/60 bg-[#071b55] p-3 shadow-[0_0_0_1px_rgba(255,255,255,0.06)]"
-    >
-      <div className="flex items-center gap-3">
-        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[5px] bg-[#1C4EFF] text-base font-bold text-white">
-          {itemNumber}
-        </div>
-        <div className="min-w-0 flex-1">
-          <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#c7d3ff]">{statusLabel}</p>
-          <h2 className="mt-1 truncate text-xl font-bold leading-6 text-white">{liveItem.title}</h2>
-          <p className="mt-1 truncate text-xs font-medium text-white/62">{detailText}</p>
-        </div>
-        {!isViewingLiveShow ? (
-          <button
-            type="button"
-            onClick={onViewLiveShow}
-            className="flex min-h-10 shrink-0 items-center justify-center rounded-[6px] border border-white/20 px-3 text-xs font-bold text-white transition hover:bg-white/10"
-          >
-            View live show
-          </button>
-        ) : null}
-      </div>
-    </section>
-  );
-}
-
 function ShowProgramSelector({
   currentShow,
   shows,
@@ -289,13 +238,12 @@ function ShowProgramSelector({
   return (
     <section className="min-w-0 border-b border-white/10 pb-3">
       <div className="grid w-full min-w-0 gap-2 sm:grid-cols-[minmax(16rem,0.9fr)_minmax(15rem,1fr)]">
-        <label className="relative flex min-h-12 flex-1 items-center gap-3 rounded-[6px] border border-white/10 bg-white/[0.04] pl-3 pr-2 text-sm font-bold text-white transition focus-within:border-[#1C4EFF] hover:bg-white/[0.07]">
-          <SlidersHorizontal aria-hidden="true" className="size-5 shrink-0 text-white/45" />
+        <label className="relative flex min-h-12 flex-1 items-center rounded-[6px] border border-white/15 bg-white/[0.04] pl-3 pr-10 text-sm font-bold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] transition focus-within:border-[#f5c542]/70 hover:border-white/25 hover:bg-white/[0.07]">
           <span className="sr-only">View another show program</span>
           <select
             value={currentShow.showNumber}
             onChange={(event) => onSelectShow(Number(event.target.value))}
-            className="h-12 min-w-0 flex-1 appearance-none bg-transparent pr-5 text-base font-bold text-white outline-none"
+            className="h-12 min-w-0 flex-1 appearance-none bg-transparent text-base font-bold text-white outline-none"
             aria-label="View another show program"
           >
             {shows.map((show) => (
@@ -304,6 +252,10 @@ function ShowProgramSelector({
               </option>
             ))}
           </select>
+          <ChevronDown
+            aria-hidden="true"
+            className="pointer-events-none absolute right-3 top-1/2 size-5 -translate-y-1/2 text-white/55"
+          />
         </label>
 
         <div className="flex w-full min-w-0 gap-2">
@@ -358,7 +310,7 @@ function ProgramItemCard({
       <div
         className={`grid min-w-0 grid-cols-[2.5rem_1fr] gap-3 rounded-[6px] border px-2 py-3 transition ${
           isCurrent
-            ? "border-[#1C4EFF] bg-[#071b55] text-white shadow-[0_0_0_1px_rgba(255,255,255,0.08)]"
+            ? "border-[#f5c542] bg-[#2a2108] text-white shadow-[0_0_0_1px_rgba(245,197,66,0.22)]"
             : isPerformed
               ? "border-white/8 bg-transparent text-white/38"
               : "border-white/10 bg-transparent text-white/70"
@@ -366,7 +318,7 @@ function ProgramItemCard({
       >
         <div
           className={`flex h-10 w-10 items-center justify-center rounded-[4px] text-xs font-bold ${
-            isCurrent ? "bg-[#1C4EFF] text-white" : "border border-white/10 text-white/45"
+            isCurrent ? "bg-[#f5c542] text-[#171001]" : "border border-white/10 text-white/45"
           }`}
         >
           {itemNumber}
@@ -393,7 +345,7 @@ function ProgramItemCard({
     <article
       className={`min-w-0 rounded-[6px] border transition ${
         isCurrent
-          ? "border-[#1C4EFF] bg-[#071b55] shadow-[0_0_0_1px_rgba(255,255,255,0.08)]"
+          ? "border-[#f5c542] bg-[#2a2108] shadow-[0_0_0_1px_rgba(245,197,66,0.22)]"
           : isTracked
             ? "border-[#1C4EFF] bg-[#0b1d3d]"
             : isPerformed
@@ -409,19 +361,18 @@ function ProgramItemCard({
         >
           <span
             className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-[4px] text-sm font-bold ${
-              isCurrent || isTracked ? "bg-[#1C4EFF] text-white" : "border border-white/10 bg-black/10 text-white"
+              isCurrent
+                ? "bg-[#f5c542] text-[#171001]"
+                : isTracked
+                  ? "bg-[#1C4EFF] text-white"
+                  : "border border-white/10 bg-black/10 text-white"
             }`}
           >
             {itemNumber}
           </span>
           <span className="min-w-0 flex-1">
-            <span className="flex flex-wrap items-center gap-2">
+            <span className="flex items-center gap-2">
               <span className="block min-w-0 text-base font-semibold leading-6 text-white">{item.title}</span>
-              {isCurrent ? (
-                <span className="rounded-full bg-[#1C4EFF] px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.1em] text-white">
-                  On stage now
-                </span>
-              ) : null}
               {isPerformed ? (
                 <span className="rounded-full border border-white/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.1em] text-white/35">
                   Performed
@@ -433,6 +384,11 @@ function ProgramItemCard({
               {item.songTitle ? ` · ${item.songTitle}` : ""}
             </span>
           </span>
+          {isCurrent ? (
+            <span className="ml-auto shrink-0 rounded-full border border-[#f5c542]/50 bg-[#f5c542] px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.08em] text-[#171001]">
+              On stage
+            </span>
+          ) : null}
         </button>
 
         {!isCurrent ? (
@@ -770,13 +726,6 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
 
       <section className="bg-[#07080b] px-3 pb-28 pt-3 sm:px-4 lg:px-8">
         <div className="mx-auto grid w-full max-w-3xl gap-4 [&>*]:min-w-0">
-          <LiveNowPanel
-            liveShow={liveShow}
-            liveItem={activeLiveItem}
-            currentShow={currentShow}
-            onViewLiveShow={resumeAutoFollowingShow}
-          />
-
           {mode !== "info" ? (
             <ShowProgramSelector
               currentShow={currentShow}
