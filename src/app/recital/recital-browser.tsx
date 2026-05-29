@@ -215,7 +215,7 @@ function LiveNowPanel({
   return (
     <section
       aria-live="polite"
-      className="rounded-[8px] border border-[#1C4EFF]/60 bg-[#071b55] p-3 shadow-[0_0_0_1px_rgba(255,255,255,0.06)]"
+      className="min-w-0 rounded-[8px] border border-[#1C4EFF]/60 bg-[#071b55] p-3 shadow-[0_0_0_1px_rgba(255,255,255,0.06)]"
     >
       <div className="flex items-center gap-3">
         <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[5px] bg-[#1C4EFF] text-base font-bold text-white">
@@ -258,8 +258,8 @@ function ShowProgramSelector({
   onSearchChange: (value: string) => void;
 }) {
   return (
-    <section className="border-b border-white/10 pb-3">
-      <div className="grid w-full gap-2 sm:grid-cols-[minmax(16rem,0.9fr)_minmax(15rem,1fr)]">
+    <section className="min-w-0 border-b border-white/10 pb-3">
+      <div className="grid w-full min-w-0 gap-2 sm:grid-cols-[minmax(16rem,0.9fr)_minmax(15rem,1fr)]">
         <label className="relative flex min-h-12 flex-1 items-center gap-3 rounded-[6px] border border-white/10 bg-white/[0.04] pl-3 pr-2 text-sm font-bold text-white transition focus-within:border-[#1C4EFF] hover:bg-white/[0.07]">
           <SlidersHorizontal aria-hidden="true" className="size-5 shrink-0 text-white/45" />
           <span className="sr-only">View another show program</span>
@@ -277,7 +277,7 @@ function ShowProgramSelector({
           </select>
         </label>
 
-        <div className="flex min-w-0 gap-2">
+        <div className="flex w-full min-w-0 gap-2">
           <label className="relative block min-w-0 flex-1">
             <span className="sr-only">Search program</span>
             <Search
@@ -327,7 +327,7 @@ function ProgramItemCard({
   if (item.type !== "dance") {
     return (
       <div
-        className={`grid grid-cols-[2.5rem_1fr] gap-3 rounded-[6px] border px-2 py-3 transition ${
+        className={`grid min-w-0 grid-cols-[2.5rem_1fr] gap-3 rounded-[6px] border px-2 py-3 transition ${
           isCurrent
             ? "border-[#1C4EFF] bg-[#071b55] text-white shadow-[0_0_0_1px_rgba(255,255,255,0.08)]"
             : isPerformed
@@ -362,7 +362,7 @@ function ProgramItemCard({
 
   return (
     <article
-      className={`rounded-[6px] border transition ${
+      className={`min-w-0 rounded-[6px] border transition ${
         isCurrent
           ? "border-[#1C4EFF] bg-[#071b55] shadow-[0_0_0_1px_rgba(255,255,255,0.08)]"
           : isTracked
@@ -726,7 +726,7 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
       </header>
 
       <section className="bg-[#07080b] px-3 pb-28 pt-3 sm:px-4 lg:px-8">
-        <div className="mx-auto grid max-w-3xl gap-4">
+        <div className="mx-auto grid w-full max-w-3xl gap-4 [&>*]:min-w-0">
           <LiveNowPanel
             liveShow={liveShow}
             liveItem={activeLiveItem}
@@ -748,7 +748,7 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
 
           {mode === "program" ? (
             <>
-              <div className="grid gap-2" aria-live="polite">
+              <div className="grid min-w-0 gap-2" aria-live="polite">
                 {upcomingProgramItems.length === 0 ? (
                   <div className="rounded-[6px] border border-white/10 bg-white/5 p-5 text-sm leading-6 text-white/70">
                     No program items match this search in Show {currentShow.showNumber}.
@@ -819,7 +819,7 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
                     const liveStatus = getDanceLiveStatus(currentShow, row.item, liveState);
 
                     return (
-                      <article key={row.item.id} className="rounded-[6px] border border-white/10 bg-white/5 p-3">
+                      <article key={row.item.id} className="min-w-0 rounded-[6px] border border-white/10 bg-white/5 p-3">
                         <div className="flex items-start gap-3">
                           <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[4px] bg-[#1C4EFF] text-sm font-bold text-white">
                             {row.item.order}
