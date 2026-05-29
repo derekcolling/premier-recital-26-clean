@@ -116,6 +116,9 @@ export function Elev8Admin({ program }: { program: Elev8ProgramData }) {
     [liveState.activeShowId, program.shows],
   );
   const activeItem = activeShow?.items.find((item) => item.id === liveState.currentItemId) ?? null;
+  const activeItemIndex = activeShow && activeItem ? activeShow.items.findIndex((item) => item.id === activeItem.id) : -1;
+  const activeItemNumber = activeItem ? (activeItem.order ?? activeItem.position) : null;
+  const audiencePreviewItems = activeShow && activeItemIndex >= 0 ? activeShow.items.slice(activeItemIndex, activeItemIndex + 4) : [];
 
   useEffect(() => {
     let isMounted = true;
@@ -228,7 +231,7 @@ export function Elev8Admin({ program }: { program: Elev8ProgramData }) {
           <section className="grid min-w-0 gap-3 rounded-[8px] border border-white/10 bg-white/5 p-3">
             <div className="flex min-w-0 items-start justify-between gap-3">
               <div className="min-w-0">
-                <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-white/45">Live Status</p>
+                <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-white/45">Live Control</p>
                 <h1 className="mt-1 break-words text-xl font-bold text-white">
                   {activeShow && activeItem ? `${activeShow.title}: ${activeItem.title}` : "No item currently on stage"}
                 </h1>
@@ -239,37 +242,81 @@ export function Elev8Admin({ program }: { program: Elev8ProgramData }) {
               {isLoading || isSaving ? <Loader2 aria-hidden="true" className="size-5 shrink-0 animate-spin text-[#8ea4ff]" /> : null}
             </div>
 
+            <div className="grid gap-3 sm:grid-cols-[10rem_1fr]">
+              <div className="rounded-[6px] border border-[#f5c542]/45 bg-[#2a2108] p-3 text-center shadow-[0_0_0_1px_rgba(245,197,66,0.12)]">
+                <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#f5c542]/80">Selected #</p>
+                <p className="mt-1 text-5xl font-black leading-none text-[#f5c542]">{activeItemNumber ?? "—"}</p>
+                <p className="mt-2 text-[11px] font-bold uppercase tracking-[0.12em] text-white/55">
+                  {activeItem ? getItemTypeLabel(activeItem) : "Waiting"}
+                </p>
+              </div>
+
+              <div className="grid min-w-0 gap-2 rounded-[6px] border border-white/10 bg-black/20 p-3">
+                <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-white/45">Audience App Is Showing</p>
+                {activeShow && activeItem ? (
+                  <>
+                    <div className="min-w-0 rounded-[6px] border border-[#f5c542]/35 bg-[#f5c542]/10 p-3">
+                      <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#f5c542]">Top card · On stage now</p>
+                      <p className="mt-1 break-words text-lg font-bold leading-6 text-white">
+                        #{activeItemNumber} {activeItem.title}
+                      </p>
+                      <p className="mt-1 text-xs font-medium text-white/55">
+                        {activeItem.teacher ?? "Teacher not listed"}
+                        {activeItem.songTitle ? ` · ${activeItem.songTitle}` : ""}
+                      </p>
+                    </div>
+                    <div className="grid gap-1">
+                      {audiencePreviewItems.slice(1).map((item, index) => (
+                        <div key={item.id} className="flex min-w-0 items-center gap-2 rounded-[4px] border border-white/8 bg-white/[0.03] px-2 py-1.5">
+                          <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-[4px] border border-white/10 text-[11px] font-bold text-white/70">
+                            {item.order ?? item.position}
+                          </span>
+                          <span className="min-w-0 flex-1 truncate text-xs font-semibold text-white/70">
+                            {index === 0 ? "Next: " : "Then: "}{item.title}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </>
+                ) : (
+                  <p className="rounded-[6px] border border-white/10 bg-white/[0.03] p-3 text-sm leading-6 text-white/60">
+                    Audience app has no live item yet. Pick a show and set the first item on stage.
+                  </p>
+                )}
+              </div>
+            </div>
+
             {error ? (
               <p className="rounded-[6px] border border-red-500/40 bg-red-500/10 p-3 text-sm text-red-100">{error}</p>
             ) : null}
 
-            <div className="grid grid-cols-3 gap-2">
+            <div className="grid grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,1fr)] gap-2">
               <button
                 type="button"
                 onClick={previousItem}
                 disabled={!isSelectedShowActive || !currentItem || isSaving}
-                className="flex min-h-11 items-center justify-center gap-2 rounded-[6px] border border-white/10 text-sm font-bold text-white/75 transition hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-40"
+                className="flex min-h-12 min-w-0 items-center justify-center gap-1 rounded-[6px] border border-white/10 px-1 text-xs font-bold text-white/75 transition hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-40 sm:gap-2 sm:text-sm"
               >
-                <ChevronLeft aria-hidden="true" className="size-5" />
-                Back
+                <ChevronLeft aria-hidden="true" className="size-5 shrink-0" />
+                <span className="truncate">Back</span>
               </button>
               <button
                 type="button"
                 onClick={advanceItem}
                 disabled={!selectedShow || isSaving}
-                className="flex min-h-11 items-center justify-center gap-2 rounded-[6px] bg-[#1C4EFF] text-sm font-bold text-white transition hover:bg-[#2d5cff] disabled:cursor-not-allowed disabled:opacity-50"
+                className="flex min-h-12 min-w-0 items-center justify-center gap-1 rounded-[6px] bg-[#1C4EFF] px-1 text-xs font-bold text-white transition hover:bg-[#2d5cff] disabled:cursor-not-allowed disabled:opacity-50 sm:gap-2 sm:text-sm"
               >
-                Next
-                <ChevronRight aria-hidden="true" className="size-5" />
+                <span className="truncate">Next</span>
+                <ChevronRight aria-hidden="true" className="size-5 shrink-0" />
               </button>
               <button
                 type="button"
                 onClick={resetLiveState}
                 disabled={isSaving}
-                className="flex min-h-11 items-center justify-center gap-2 rounded-[6px] border border-white/10 text-sm font-bold text-white/75 transition hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-40"
+                className="flex min-h-12 min-w-0 items-center justify-center gap-1 rounded-[6px] border border-white/10 px-1 text-xs font-bold text-white/75 transition hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-40 sm:gap-2 sm:text-sm"
               >
-                <RotateCcw aria-hidden="true" className="size-4" />
-                Reset
+                <RotateCcw aria-hidden="true" className="size-4 shrink-0" />
+                <span className="truncate">Reset</span>
               </button>
             </div>
           </section>
