@@ -26,7 +26,7 @@ import { findLiveItem, findLiveShow, getDanceLiveStatus } from "@/lib/live-posit
 import type { DanceLiveStatus } from "@/lib/live-position";
 import type { LiveState } from "@/lib/live-state-types";
 
-type BrowserMode = "my-dances" | "program" | "info";
+type BrowserMode = "live-program" | "full-program" | "my-dances" | "info";
 type LegacySelections = Record<string, number[]>;
 
 const TRACKER_STORAGE_KEY = "premier-recital-program-tracker-v1";
@@ -221,6 +221,7 @@ function getTrackedDanceRows(show: Elev8ProgramShow, selectedIds: Set<string>) {
 function ShowProgramSelector({
   currentShow,
   shows,
+  allowAutoFollow = true,
   isAutoFollowing,
   onSelectShow,
   onResumeAuto,
@@ -229,6 +230,7 @@ function ShowProgramSelector({
 }: {
   currentShow: Elev8ProgramShow;
   shows: Elev8ProgramShow[];
+  allowAutoFollow?: boolean;
   isAutoFollowing: boolean;
   onSelectShow: (showNumber: number) => void;
   onResumeAuto: () => void;
@@ -273,7 +275,7 @@ function ShowProgramSelector({
             />
           </label>
 
-          {!isAutoFollowing ? (
+          {allowAutoFollow && !isAutoFollowing ? (
             <button
               type="button"
               onClick={onResumeAuto}
@@ -293,6 +295,8 @@ function ProgramItemCard({
   isTracked,
   isCurrent,
   isPerformed,
+  canTrack = true,
+  canOpenDetails = true,
   onOpen,
   onToggle,
 }: {
@@ -300,6 +304,8 @@ function ProgramItemCard({
   isTracked: boolean;
   isCurrent: boolean;
   isPerformed: boolean;
+  canTrack?: boolean;
+  canOpenDetails?: boolean;
   onOpen: () => void;
   onToggle: () => void;
 }) {
@@ -341,6 +347,43 @@ function ProgramItemCard({
     );
   }
 
+  const itemDetails = (
+    <>
+      <span
+        className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-[4px] text-sm font-bold ${
+          isCurrent
+            ? "bg-[#f5c542] text-[#171001]"
+            : isTracked
+              ? "bg-[#1C4EFF] text-white"
+              : "border border-white/10 bg-black/10 text-white"
+        }`}
+      >
+        {itemNumber}
+      </span>
+      <span className="min-w-0 flex-1">
+        <span className="flex items-center gap-2">
+          <span className="block min-w-0 text-base font-semibold leading-6 text-white">{item.title}</span>
+          {isPerformed ? (
+            <span className="rounded-full border border-white/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.1em] text-white/35">
+              Performed
+            </span>
+          ) : null}
+        </span>
+        <span className="mt-0.5 block truncate text-xs font-medium text-white/50">
+          {item.teacher ?? "Teacher not listed"}
+          {item.songTitle ? ` · ${item.songTitle}` : ""}
+        </span>
+      </span>
+      {isCurrent ? (
+        <span className="ml-auto shrink-0 rounded-full border border-[#f5c542]/50 bg-[#f5c542] px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.08em] text-[#171001]">
+          On stage
+        </span>
+      ) : null}
+    </>
+  );
+  const itemDetailsClassName =
+    "flex min-w-0 flex-1 items-center gap-3 rounded-[4px] p-1 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1C4EFF]";
+
   return (
     <article
       className={`min-w-0 rounded-[6px] border transition ${
@@ -354,44 +397,15 @@ function ProgramItemCard({
       }`}
     >
       <div className="flex items-stretch gap-2 p-2">
-        <button
-          type="button"
-          onClick={onOpen}
-          className="flex min-w-0 flex-1 items-center gap-3 rounded-[4px] p-1 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1C4EFF]"
-        >
-          <span
-            className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-[4px] text-sm font-bold ${
-              isCurrent
-                ? "bg-[#f5c542] text-[#171001]"
-                : isTracked
-                  ? "bg-[#1C4EFF] text-white"
-                  : "border border-white/10 bg-black/10 text-white"
-            }`}
-          >
-            {itemNumber}
-          </span>
-          <span className="min-w-0 flex-1">
-            <span className="flex items-center gap-2">
-              <span className="block min-w-0 text-base font-semibold leading-6 text-white">{item.title}</span>
-              {isPerformed ? (
-                <span className="rounded-full border border-white/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.1em] text-white/35">
-                  Performed
-                </span>
-              ) : null}
-            </span>
-            <span className="mt-0.5 block truncate text-xs font-medium text-white/50">
-              {item.teacher ?? "Teacher not listed"}
-              {item.songTitle ? ` · ${item.songTitle}` : ""}
-            </span>
-          </span>
-          {isCurrent ? (
-            <span className="ml-auto shrink-0 rounded-full border border-[#f5c542]/50 bg-[#f5c542] px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.08em] text-[#171001]">
-              On stage
-            </span>
-          ) : null}
-        </button>
+        {canOpenDetails ? (
+          <button type="button" onClick={onOpen} className={itemDetailsClassName}>
+            {itemDetails}
+          </button>
+        ) : (
+          <div className={itemDetailsClassName}>{itemDetails}</div>
+        )}
 
-        {!isCurrent ? (
+        {canTrack && !isCurrent ? (
           <button
             type="button"
             onClick={onToggle}
@@ -415,12 +429,14 @@ function DanceDetailModal({
   dance,
   isTracked,
   isOnStage,
+  canTrack = true,
   onClose,
   onToggle,
 }: {
   dance: Elev8ProgramItem;
   isTracked: boolean;
   isOnStage: boolean;
+  canTrack?: boolean;
   onClose: () => void;
   onToggle: () => void;
 }) {
@@ -518,7 +534,7 @@ function DanceDetailModal({
             <div className="rounded-[6px] border border-[#1C4EFF]/55 bg-[#071b55] p-3 text-sm font-bold text-white">
               On stage now
             </div>
-          ) : (
+          ) : canTrack ? (
             <button
               type="button"
               onClick={onToggle}
@@ -532,7 +548,7 @@ function DanceDetailModal({
               {isTracked ? <Check aria-hidden="true" className="size-5" /> : <Plus aria-hidden="true" className="size-5" />}
               {isTracked ? "Tracked" : "Track Dance"}
             </button>
-          )}
+          ) : null}
         </div>
       </div>
     </div>
@@ -542,7 +558,7 @@ function DanceDetailModal({
 export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
   const [selectedShowNumber, setSelectedShowNumber] = useState(program.shows[0]?.showNumber ?? 1);
   const [isAutoFollowingShow, setIsAutoFollowingShow] = useState(true);
-  const [mode, setMode] = useState<BrowserMode>("program");
+  const [mode, setMode] = useState<BrowserMode>("live-program");
   const [query, setQuery] = useState("");
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
   const [quickChangeEnabled, setQuickChangeEnabled] = useState(true);
@@ -564,7 +580,8 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
     return currentShow.items.filter((item) => getSearchText(item).includes(normalizedQuery));
   }, [currentShow, normalizedQuery]);
 
-  const upcomingProgramItems = isLiveProgramMode && currentShow ? currentShow.items.slice(liveItemIndex) : programItems;
+  const liveProgramItems = isLiveProgramMode && currentShow ? currentShow.items.slice(liveItemIndex) : programItems;
+  const fullProgramItems = programItems;
 
   const trackedRows = useMemo(() => {
     if (!currentShow) return [];
@@ -691,8 +708,9 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
   }
 
   const modeOptions = [
+    { id: "live-program" as const, label: "Live Program", icon: Music2 },
+    { id: "full-program" as const, label: "Full Program", icon: BookOpenText },
     { id: "my-dances" as const, label: "My Dances", icon: ListChecks },
-    { id: "program" as const, label: "Program", icon: BookOpenText },
     { id: "info" as const, label: "Info", icon: Info },
   ];
 
@@ -733,6 +751,7 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
             <ShowProgramSelector
               currentShow={currentShow}
               shows={program.shows}
+              allowAutoFollow={mode === "live-program"}
               isAutoFollowing={isAutoFollowingShow}
               onSelectShow={(showNumber) => selectShow(showNumber, { manual: true })}
               onResumeAuto={resumeAutoFollowingShow}
@@ -741,16 +760,16 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
             />
           ) : null}
 
-          {mode === "program" ? (
+          {mode === "live-program" ? (
             <>
               <div className="grid min-w-0 gap-2" aria-live="polite">
-                {upcomingProgramItems.length === 0 ? (
+                {liveProgramItems.length === 0 ? (
                   <div className="rounded-[6px] border border-white/10 bg-white/5 p-5 text-sm leading-6 text-white/70">
                     No program items match this search in Show {currentShow.showNumber}.
                   </div>
                 ) : null}
 
-                {upcomingProgramItems.map((item) => {
+                {liveProgramItems.map((item) => {
                   const isTracked = selectedIdSet.has(item.id);
                   const isCurrent = item.id === liveItem?.id;
 
@@ -771,6 +790,32 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
 
               </div>
             </>
+          ) : null}
+
+          {mode === "full-program" ? (
+            <div className="grid min-w-0 gap-2" aria-live="polite">
+              {fullProgramItems.length === 0 ? (
+                <div className="rounded-[6px] border border-white/10 bg-white/5 p-5 text-sm leading-6 text-white/70">
+                  No program items match this search in Show {currentShow.showNumber}.
+                </div>
+              ) : null}
+
+              {fullProgramItems.map((item) => (
+                <ProgramItemCard
+                  key={item.id}
+                  item={item}
+                  isTracked={false}
+                  isCurrent={false}
+                  isPerformed={false}
+                  canTrack={false}
+                  canOpenDetails={false}
+                  onOpen={() => {
+                    if (item.type === "dance") setActiveDance(item);
+                  }}
+                  onToggle={() => undefined}
+                />
+              ))}
+            </div>
           ) : null}
 
           {mode === "my-dances" ? (
@@ -814,14 +859,14 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
                   <Music2 aria-hidden="true" className="size-7 text-[#1C4EFF]" />
                   <h2 className="mt-3 text-lg font-bold text-white">No tracked dances for this show</h2>
                   <p className="mt-2 text-sm leading-6 text-white/60">
-                    Open the Program tab and tap the plus next to each dance you want to follow.
+                    Open the Live Program tab and tap the plus next to each dance you want to follow.
                   </p>
                   <button
                     type="button"
-                    onClick={() => setMode("program")}
+                    onClick={() => setMode("live-program")}
                     className="mt-4 flex min-h-11 items-center justify-center rounded-[6px] bg-[#1C4EFF] px-4 text-sm font-bold text-white"
                   >
-                    Open Program
+                    Open Live Program
                   </button>
                 </div>
               ) : (
@@ -953,7 +998,7 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
         aria-label="Recital sections"
         className="fixed inset-x-0 bottom-0 z-30 border-t border-white/10 bg-[#07080b]/95 px-3 pb-[calc(env(safe-area-inset-bottom)+0.5rem)] pt-2 backdrop-blur"
       >
-        <div className="mx-auto grid max-w-3xl grid-cols-3 gap-1 rounded-[10px] border border-white/10 bg-white/5 p-1 sm:gap-2">
+        <div className="mx-auto grid max-w-3xl grid-cols-4 gap-1 rounded-[10px] border border-white/10 bg-white/5 p-1 sm:gap-2">
           {modeOptions.map((item) => {
             const isSelected = mode === item.id;
             const Icon = item.icon;
@@ -965,9 +1010,14 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
                 onClick={() => {
                   setMode(item.id);
                   setQuery("");
+                  if (item.id === "full-program") {
+                    setIsAutoFollowingShow(false);
+                  } else if (item.id === "live-program" && mode !== "live-program") {
+                    resumeAutoFollowingShow();
+                  }
                 }}
                 aria-current={isSelected ? "page" : undefined}
-                className={`relative flex min-h-14 flex-col items-center justify-center gap-1 rounded-[8px] px-1 text-[11px] font-bold leading-none transition sm:min-h-12 sm:flex-row sm:gap-2 sm:px-3 sm:text-sm ${
+                className={`relative flex min-h-14 flex-col items-center justify-center gap-1 rounded-[8px] px-1 text-center text-[10px] font-bold leading-tight transition sm:min-h-12 sm:flex-row sm:gap-2 sm:px-3 sm:text-sm ${
                   isSelected ? "bg-[#1C4EFF] text-white" : "text-white/58 hover:bg-white/10 hover:text-white"
                 }`}
               >
@@ -997,7 +1047,8 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
         <DanceDetailModal
           dance={activeDance}
           isTracked={selectedIdSet.has(activeDance.id)}
-          isOnStage={activeDance.id === liveItem?.id}
+          isOnStage={mode === "live-program" && activeDance.id === liveItem?.id}
+          canTrack={mode !== "full-program"}
           onClose={() => setActiveDance(null)}
           onToggle={() => toggleDance(activeDance.id)}
         />
