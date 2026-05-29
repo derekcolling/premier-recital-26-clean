@@ -22,8 +22,7 @@ import {
 import { Input } from "@/components/ui/input";
 import type { Elev8ProgramData, Elev8ProgramItem, Elev8ProgramShow } from "@/lib/elev8-program";
 import { fallbackLiveState, fetchLiveState, isUninitializedLiveState } from "@/lib/live-state-client";
-import { findLiveItem, findLiveShow, getDanceLiveStatus } from "@/lib/live-position";
-import type { DanceLiveStatus } from "@/lib/live-position";
+import { findLiveItem, findLiveShow } from "@/lib/live-position";
 import type { LiveState } from "@/lib/live-state-types";
 
 type BrowserMode = "live-program" | "full-program" | "my-dances" | "info";
@@ -164,21 +163,6 @@ function getScheduledShow(shows: Elev8ProgramShow[], now = new Date()) {
 function getAutoShowNumber(program: Elev8ProgramData, liveState: LiveState) {
   const liveShow = findLiveShow(program, liveState);
   return liveShow?.showNumber ?? getScheduledShow(program.shows)?.showNumber ?? program.shows[0]?.showNumber ?? 1;
-}
-
-function getLiveStatusClass(status: DanceLiveStatus) {
-  switch (status.kind) {
-    case "on-stage-now":
-      return "border-[#1C4EFF] bg-[#1C4EFF] text-white";
-    case "up-next":
-      return "border-[#8ea4ff]/50 bg-[#1C4EFF]/20 text-[#c7d3ff]";
-    case "away":
-      return "border-white/10 bg-white/8 text-white/78";
-    case "already-performed":
-      return "border-white/10 bg-black/20 text-white/40";
-    default:
-      return "border-white/10 bg-white/[0.03] text-white/45";
-  }
 }
 
 function getSearchText(item: Elev8ProgramItem) {
@@ -872,7 +856,6 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
               ) : (
                 <div className="grid gap-2">
                   {trackedRows.map((row) => {
-                    const liveStatus = getDanceLiveStatus(currentShow, row.item, liveState);
                     const showQuickChangeMarker = quickChangeEnabled && row.isQuickChange;
 
                     return (
@@ -902,11 +885,6 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
                                 >
                                   {row.item.title}
                                 </button>
-                                <span
-                                  className={`shrink-0 rounded-full border px-2.5 py-1 text-[11px] font-bold ${getLiveStatusClass(liveStatus)}`}
-                                >
-                                  {liveStatus.label}
-                                </span>
                               </div>
                               <p className="mt-1 text-xs font-medium text-white/50">
                                 {row.item.teacher ?? "Teacher not listed"}
