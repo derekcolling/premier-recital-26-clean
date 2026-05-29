@@ -375,6 +375,14 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
               </p>
             </div>
           </Link>
+          <Image
+            src={`${BASE_PATH}/premier-monogram.png`}
+            alt="Premier Dance"
+            width={203}
+            height={263}
+            priority
+            className="h-10 w-auto shrink-0 sm:h-12"
+          />
         </div>
       </header>
 
