@@ -48,3 +48,7 @@ export async function clearLiveState() {
 export function fallbackLiveState() {
   return EMPTY_LIVE_STATE;
 }
+
+export function isUninitializedLiveState(state: LiveState) {
+  return !state.activeShowId && !state.currentItemId && !state.updatedAt;
+}

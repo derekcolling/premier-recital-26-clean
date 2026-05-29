@@ -21,7 +21,7 @@ import {
 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import type { Elev8ProgramData, Elev8ProgramItem, Elev8ProgramShow } from "@/lib/elev8-program";
-import { fallbackLiveState, fetchLiveState } from "@/lib/live-state-client";
+import { fallbackLiveState, fetchLiveState, isUninitializedLiveState } from "@/lib/live-state-client";
 import { findLiveItem, findLiveShow, getDanceLiveStatus } from "@/lib/live-position";
 import type { DanceLiveStatus } from "@/lib/live-position";
 import type { LiveState } from "@/lib/live-state-types";
@@ -31,6 +31,7 @@ type LegacySelections = Record<string, number[]>;
 
 const TRACKER_STORAGE_KEY = "premier-recital-program-tracker-v1";
 const LEGACY_TRACKER_STORAGE_KEY = "premier-recital-tracker-v1";
+const LIVE_STATE_CACHE_KEY = "premier-recital-live-state-v1";
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const QUICK_CHANGE_DANCE_THRESHOLD = 3;
 const ESTIMATED_DANCE_MINUTES = 3;
@@ -52,6 +53,34 @@ function parseStoredIds(value: string | null) {
     return Array.isArray(parsed) ? parsed.filter((item): item is string => typeof item === "string") : [];
   } catch {
     return [];
+  }
+}
+
+function parseStoredLiveState(value: string | null) {
+  if (!value) return null;
+
+  try {
+    const parsed = JSON.parse(value) as LiveState;
+    const activeShowId = parsed.activeShowId ?? null;
+    const currentItemId = parsed.currentItemId ?? null;
+    const updatedAt = parsed.updatedAt ?? null;
+
+    if (activeShowId !== null && typeof activeShowId !== "string") return null;
+    if (currentItemId !== null && typeof currentItemId !== "string") return null;
+    if (updatedAt !== null && typeof updatedAt !== "string") return null;
+
+    return { activeShowId, currentItemId, updatedAt };
+  } catch {
+    return null;
+  }
+}
+
+function cacheLiveState(state: LiveState) {
+  try {
+    if (isUninitializedLiveState(state)) return;
+    window.localStorage.setItem(LIVE_STATE_CACHE_KEY, JSON.stringify(state));
+  } catch {
+    // Live state still updates for this session if localStorage is unavailable.
   }
 }
 
@@ -562,7 +591,12 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
   const [momHelperEnabled, setMomHelperEnabled] = useState(true);
   const [activeDance, setActiveDance] = useState<Elev8ProgramItem | null>(null);
-  const [liveState, setLiveState] = useState<LiveState>(fallbackLiveState());
+  const [liveState, setLiveState] = useState<LiveState>(() => {
+    if (typeof window === "undefined") return fallbackLiveState();
+
+    const cachedState = parseStoredLiveState(window.localStorage.getItem(LIVE_STATE_CACHE_KEY));
+    return cachedState && !isUninitializedLiveState(cachedState) ? cachedState : fallbackLiveState();
+  });
 
   const selectedIdSet = useMemo(() => new Set(selectedIds), [selectedIds]);
   const currentShow = program.shows.find((show) => show.showNumber === selectedShowNumber) ?? program.shows[0];
@@ -620,9 +654,18 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
     async function loadLiveState() {
       try {
         const nextState = await fetchLiveState();
-        if (isMounted) setLiveState(nextState);
+        if (!isMounted) return;
+
+        setLiveState((previousState) => {
+          if (isUninitializedLiveState(nextState) && !isUninitializedLiveState(previousState)) {
+            return previousState;
+          }
+
+          cacheLiveState(nextState);
+          return nextState;
+        });
       } catch {
-        if (isMounted) setLiveState(fallbackLiveState());
+        // Keep the last known live item visible through transient polling failures.
       }
     }
 

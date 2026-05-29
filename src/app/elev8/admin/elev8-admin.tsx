@@ -14,7 +14,13 @@ import {
   RotateCcw,
 } from "lucide-react";
 import type { Elev8ProgramData, Elev8ProgramItem, Elev8ProgramShow } from "@/lib/elev8-program";
-import { clearLiveState, fallbackLiveState, fetchLiveState, saveLiveState } from "@/lib/live-state-client";
+import {
+  clearLiveState,
+  fallbackLiveState,
+  fetchLiveState,
+  isUninitializedLiveState,
+  saveLiveState,
+} from "@/lib/live-state-client";
 import { getNextProgramItem, getPreviousProgramItem } from "@/lib/live-position";
 import type { LiveState } from "@/lib/live-state-types";
 
@@ -118,8 +124,15 @@ export function Elev8Admin({ program }: { program: Elev8ProgramData }) {
       try {
         const nextState = await fetchLiveState();
         if (!isMounted) return;
-        setLiveState(nextState);
-        setSelectedShowId(nextState.activeShowId ?? firstShowId);
+
+        setLiveState((previousState) =>
+          isUninitializedLiveState(nextState) && !isUninitializedLiveState(previousState)
+            ? previousState
+            : nextState,
+        );
+        if (!isUninitializedLiveState(nextState)) {
+          setSelectedShowId(nextState.activeShowId ?? firstShowId);
+        }
         setError(null);
       } catch (liveStateError) {
         if (!isMounted) return;
