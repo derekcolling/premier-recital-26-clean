@@ -62,11 +62,11 @@ function LiveItemRow({
 }) {
   return (
     <article
-      className={`rounded-[6px] border p-2 transition ${
+      className={`min-w-0 rounded-[6px] border p-2 transition ${
         isCurrent ? "border-[#1C4EFF] bg-[#0b1d3d]" : "border-white/10 bg-white/[0.04]"
       }`}
     >
-      <div className="flex items-center gap-3">
+      <div className="flex min-w-0 items-center gap-2 sm:gap-3">
         <div
           className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-[4px] text-sm font-bold ${
             isCurrent ? "bg-[#1C4EFF] text-white" : "border border-white/10 bg-black/15 text-white/70"
@@ -204,7 +204,7 @@ export function Elev8Admin({ program }: { program: Elev8ProgramData }) {
   return (
     <>
       <header className="sticky top-0 z-50 border-b border-white/10 bg-[#07080b] px-3 py-2 sm:px-4">
-        <div className="mx-auto flex max-w-4xl items-center justify-between gap-3">
+        <div className="mx-auto flex w-full max-w-4xl min-w-0 items-center justify-between gap-3">
           <Link href="/elev8" className="flex min-w-0 items-center gap-3 text-white">
             <ArrowLeft aria-hidden="true" className="size-5 shrink-0 text-white/60" />
             <Image
@@ -216,7 +216,7 @@ export function Elev8Admin({ program }: { program: Elev8ProgramData }) {
               className="h-12 w-auto shrink-0"
             />
           </Link>
-          <div className="text-right">
+          <div className="shrink-0 text-right">
             <p className="text-xs font-bold uppercase tracking-[0.16em] text-white">Live Admin</p>
             <p className="mt-1 text-[11px] font-medium text-white/50">{formatUpdatedAt(liveState.updatedAt)}</p>
           </div>
@@ -224,12 +224,12 @@ export function Elev8Admin({ program }: { program: Elev8ProgramData }) {
       </header>
 
       <section className="px-3 pb-10 pt-3 sm:px-4">
-        <div className="mx-auto grid max-w-4xl gap-4">
-          <section className="grid gap-3 rounded-[8px] border border-white/10 bg-white/5 p-3">
-            <div className="flex items-start justify-between gap-3">
+        <div className="mx-auto grid w-full max-w-4xl min-w-0 gap-4 [&>*]:min-w-0">
+          <section className="grid min-w-0 gap-3 rounded-[8px] border border-white/10 bg-white/5 p-3">
+            <div className="flex min-w-0 items-start justify-between gap-3">
               <div className="min-w-0">
                 <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-white/45">Live Status</p>
-                <h1 className="mt-1 text-xl font-bold text-white">
+                <h1 className="mt-1 break-words text-xl font-bold text-white">
                   {activeShow && activeItem ? `${activeShow.title}: ${activeItem.title}` : "No item currently on stage"}
                 </h1>
                 <p className="mt-1 text-sm text-white/55">
@@ -274,9 +274,9 @@ export function Elev8Admin({ program }: { program: Elev8ProgramData }) {
             </div>
           </section>
 
-          <section className="grid gap-2 rounded-[8px] border border-white/10 bg-white/5 p-2">
+          <section className="grid min-w-0 gap-2 rounded-[8px] border border-white/10 bg-white/5 p-2">
             <p className="px-1 pt-1 text-[10px] font-bold uppercase tracking-[0.16em] text-white/45">Active Show</p>
-            <div className="grid gap-2 sm:grid-cols-4">
+            <div className="grid min-w-0 gap-2 sm:grid-cols-4">
               {program.shows.map((show) => {
                 const isSelected = selectedShowId === show.id;
                 const isActive = liveState.activeShowId === show.id;
@@ -309,18 +309,18 @@ export function Elev8Admin({ program }: { program: Elev8ProgramData }) {
             </div>
           </section>
 
-          <section className="grid gap-2">
-            <div className="flex items-end justify-between gap-3">
-              <div>
+          <section className="grid min-w-0 gap-2">
+            <div className="flex min-w-0 items-end justify-between gap-3">
+              <div className="min-w-0">
                 <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-white/45">Program Items</p>
-                <h2 className="mt-1 text-lg font-bold text-white">
+                <h2 className="mt-1 break-words text-lg font-bold text-white">
                   {selectedShow.title} · {selectedShow.startTime}
                 </h2>
               </div>
-              <p className="text-sm font-medium text-white/45">{selectedShow.items.length} items</p>
+              <p className="shrink-0 text-sm font-medium text-white/45">{selectedShow.items.length} items</p>
             </div>
 
-            <div className="grid gap-2">
+            <div className="grid min-w-0 gap-2">
               {selectedShow.items.map((item) => (
                 <LiveItemRow
                   key={item.id}
