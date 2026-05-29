@@ -545,14 +545,9 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
   const [mode, setMode] = useState<BrowserMode>("program");
   const [query, setQuery] = useState("");
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
-  const [momHelperEnabled, setMomHelperEnabled] = useState(true);
+  const [quickChangeEnabled, setQuickChangeEnabled] = useState(true);
   const [activeDance, setActiveDance] = useState<Elev8ProgramItem | null>(null);
-  const [liveState, setLiveState] = useState<LiveState>(() => {
-    if (typeof window === "undefined") return fallbackLiveState();
-
-    const cachedState = parseStoredLiveState(window.localStorage.getItem(LIVE_STATE_CACHE_KEY));
-    return cachedState && !isUninitializedLiveState(cachedState) ? cachedState : fallbackLiveState();
-  });
+  const [liveState, setLiveState] = useState<LiveState>(fallbackLiveState);
 
   const selectedIdSet = useMemo(() => new Set(selectedIds), [selectedIds]);
   const currentShow = program.shows.find((show) => show.showNumber === selectedShowNumber) ?? program.shows[0];
@@ -606,6 +601,13 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
 
   useEffect(() => {
     let isMounted = true;
+    const cachedStateTimer = window.setTimeout(() => {
+      const cachedState = parseStoredLiveState(window.localStorage.getItem(LIVE_STATE_CACHE_KEY));
+
+      if (isMounted && cachedState && !isUninitializedLiveState(cachedState)) {
+        setLiveState(cachedState);
+      }
+    }, 0);
 
     async function loadLiveState() {
       try {
@@ -630,6 +632,7 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
 
     return () => {
       isMounted = false;
+      window.clearTimeout(cachedStateTimer);
       window.clearInterval(interval);
     };
   }, []);
@@ -779,15 +782,31 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
                     {trackedCountForShow} of {currentShow.danceCount} dances
                   </p>
                 </div>
-                <label className="flex shrink-0 cursor-pointer items-center gap-2 rounded-full border border-white/10 bg-black/15 px-3 py-2 text-xs font-bold text-white/75">
-                  <input
-                    type="checkbox"
-                    checked={momHelperEnabled}
-                    onChange={(event) => setMomHelperEnabled(event.target.checked)}
-                    className="size-4 accent-[#1C4EFF]"
-                  />
-                  Mom Helper
-                </label>
+                <button
+                  type="button"
+                  role="switch"
+                  aria-checked={quickChangeEnabled}
+                  onClick={() => setQuickChangeEnabled((isEnabled) => !isEnabled)}
+                  className={`flex min-h-10 shrink-0 items-center gap-2 rounded-full border px-2.5 py-1.5 text-xs font-bold transition ${
+                    quickChangeEnabled
+                      ? "border-[#1C4EFF]/70 bg-[#1C4EFF]/16 text-white"
+                      : "border-white/10 bg-black/15 text-white/58"
+                  }`}
+                >
+                  <span
+                    aria-hidden="true"
+                    className={`flex h-5 w-9 items-center rounded-full p-0.5 transition ${
+                      quickChangeEnabled ? "bg-[#1C4EFF]" : "bg-white/12"
+                    }`}
+                  >
+                    <span
+                      className={`block h-4 w-4 rounded-full bg-white transition ${
+                        quickChangeEnabled ? "translate-x-4" : "translate-x-0"
+                      }`}
+                    />
+                  </span>
+                  Quick Change
+                </button>
               </div>
 
               {trackedRows.length === 0 ? (
@@ -846,7 +865,7 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
                                   {pluralize(row.dancesBefore, "dance")}
                                 </span>
                               </p>
-                              {momHelperEnabled && row.isQuickChange ? (
+                              {quickChangeEnabled && row.isQuickChange ? (
                                 <div className="mt-2 flex items-start gap-2 rounded-[6px] border border-[#f59e0b]/60 bg-[#2b1707] p-2 text-[#fed7aa]">
                                   <AlertTriangle aria-hidden="true" className="mt-0.5 size-4 shrink-0" />
                                   <p>
