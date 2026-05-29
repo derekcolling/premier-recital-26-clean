@@ -14,12 +14,17 @@ import {
   Music2,
   Plus,
   Search,
+  SlidersHorizontal,
   UserRound,
   Users,
   X,
 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import type { Elev8ProgramData, Elev8ProgramItem, Elev8ProgramShow } from "@/lib/elev8-program";
+import { fallbackLiveState, fetchLiveState } from "@/lib/live-state-client";
+import { findLiveItem, findLiveShow, getDanceLiveStatus } from "@/lib/live-position";
+import type { DanceLiveStatus } from "@/lib/live-position";
+import type { LiveState } from "@/lib/live-state-types";
 
 type BrowserMode = "my-dances" | "program" | "info";
 type LegacySelections = Record<string, number[]>;
@@ -28,6 +33,8 @@ const TRACKER_STORAGE_KEY = "premier-recital-program-tracker-v1";
 const LEGACY_TRACKER_STORAGE_KEY = "premier-recital-tracker-v1";
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const QUICK_CHANGE_DANCE_THRESHOLD = 3;
+const ESTIMATED_DANCE_MINUTES = 3;
+const ESTIMATED_NON_DANCE_MINUTES = 2;
 
 function pluralize(count: number, singular: string, plural = `${singular}s`) {
   return `${count} ${count === 1 ? singular : plural}`;
@@ -74,16 +81,6 @@ function filterKnownDanceIds(ids: string[], shows: Elev8ProgramShow[]) {
   return ids.filter((id) => validIds.has(id));
 }
 
-function getDayGroups(shows: Elev8ProgramShow[]) {
-  const groups = new Map<string, number[]>();
-
-  for (const show of shows) {
-    groups.set(show.day, [...(groups.get(show.day) ?? []), show.showNumber]);
-  }
-
-  return [...groups.entries()].map(([label, showNumbers]) => ({ label, showNumbers }));
-}
-
 function getTypeLabel(item: Elev8ProgramItem) {
   switch (item.type) {
     case "intermission":
@@ -98,6 +95,60 @@ function getTypeLabel(item: Elev8ProgramItem) {
       return "Program";
     default:
       return "Dance";
+  }
+}
+
+function parseShowStart(show: Elev8ProgramShow) {
+  const [time = "12:00", modifier = "PM"] = show.startTime.split(" ");
+  const [rawHours = "12", rawMinutes = "0"] = time.split(":");
+  let hours = Number(rawHours);
+  const minutes = Number(rawMinutes);
+
+  if (modifier.toUpperCase() === "PM" && hours !== 12) hours += 12;
+  if (modifier.toUpperCase() === "AM" && hours === 12) hours = 0;
+
+  return new Date(`${show.date}T${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:00`);
+}
+
+function getEstimatedShowEnd(show: Elev8ProgramShow) {
+  const start = parseShowStart(show);
+  const estimatedMinutes = show.items.reduce((total, item) => {
+    if (typeof item.durationMinutes === "number") return total + item.durationMinutes;
+    return total + (item.type === "dance" ? ESTIMATED_DANCE_MINUTES : ESTIMATED_NON_DANCE_MINUTES);
+  }, 0);
+
+  return new Date(start.getTime() + estimatedMinutes * 60 * 1000);
+}
+
+function getScheduledShow(shows: Elev8ProgramShow[], now = new Date()) {
+  const sortedShows = [...shows].sort((first, second) => parseShowStart(first).getTime() - parseShowStart(second).getTime());
+
+  for (const show of sortedShows) {
+    if (getEstimatedShowEnd(show).getTime() > now.getTime()) {
+      return show;
+    }
+  }
+
+  return sortedShows[sortedShows.length - 1] ?? null;
+}
+
+function getAutoShowNumber(program: Elev8ProgramData, liveState: LiveState) {
+  const liveShow = findLiveShow(program, liveState);
+  return liveShow?.showNumber ?? getScheduledShow(program.shows)?.showNumber ?? program.shows[0]?.showNumber ?? 1;
+}
+
+function getLiveStatusClass(status: DanceLiveStatus) {
+  switch (status.kind) {
+    case "on-stage-now":
+      return "border-[#1C4EFF] bg-[#1C4EFF] text-white";
+    case "up-next":
+      return "border-[#8ea4ff]/50 bg-[#1C4EFF]/20 text-[#c7d3ff]";
+    case "away":
+      return "border-white/10 bg-white/8 text-white/78";
+    case "already-performed":
+      return "border-white/10 bg-black/20 text-white/40";
+    default:
+      return "border-white/10 bg-white/[0.03] text-white/45";
   }
 }
 
@@ -138,14 +189,253 @@ function getTrackedDanceRows(show: Elev8ProgramShow, selectedIds: Set<string>) {
   });
 }
 
+function LiveNowPanel({
+  liveShow,
+  liveItem,
+  currentShow,
+  onViewLiveShow,
+}: {
+  liveShow: Elev8ProgramShow | null;
+  liveItem: Elev8ProgramItem | null;
+  currentShow: Elev8ProgramShow;
+  onViewLiveShow: () => void;
+}) {
+  if (!liveShow || !liveItem) return null;
+
+  const itemNumber = liveItem.order ?? liveItem.position;
+  const isViewingLiveShow = currentShow.id === liveShow.id;
+  const statusLabel = liveItem.type === "dance" ? "On stage now" : `${getTypeLabel(liveItem)} now`;
+  const detailText = [
+    liveShow.title,
+    liveShow.startTime,
+    liveItem.teacher,
+    liveItem.songTitle,
+  ].filter(Boolean).join(" · ");
+
+  return (
+    <section
+      aria-live="polite"
+      className="rounded-[8px] border border-[#1C4EFF]/60 bg-[#071b55] p-3 shadow-[0_0_0_1px_rgba(255,255,255,0.06)]"
+    >
+      <div className="flex items-center gap-3">
+        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[5px] bg-[#1C4EFF] text-base font-bold text-white">
+          {itemNumber}
+        </div>
+        <div className="min-w-0 flex-1">
+          <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#c7d3ff]">{statusLabel}</p>
+          <h2 className="mt-1 truncate text-xl font-bold leading-6 text-white">{liveItem.title}</h2>
+          <p className="mt-1 truncate text-xs font-medium text-white/62">{detailText}</p>
+        </div>
+        {!isViewingLiveShow ? (
+          <button
+            type="button"
+            onClick={onViewLiveShow}
+            className="flex min-h-10 shrink-0 items-center justify-center rounded-[6px] border border-white/20 px-3 text-xs font-bold text-white transition hover:bg-white/10"
+          >
+            View live show
+          </button>
+        ) : null}
+      </div>
+    </section>
+  );
+}
+
+function ShowProgramSelector({
+  currentShow,
+  shows,
+  isAutoFollowing,
+  onSelectShow,
+  onResumeAuto,
+  searchValue,
+  onSearchChange,
+}: {
+  currentShow: Elev8ProgramShow;
+  shows: Elev8ProgramShow[];
+  isAutoFollowing: boolean;
+  onSelectShow: (showNumber: number) => void;
+  onResumeAuto: () => void;
+  searchValue: string;
+  onSearchChange: (value: string) => void;
+}) {
+  return (
+    <section className="border-b border-white/10 pb-3">
+      <div className="grid w-full gap-2 sm:grid-cols-[minmax(16rem,0.9fr)_minmax(15rem,1fr)]">
+        <label className="relative flex min-h-12 flex-1 items-center gap-3 rounded-[6px] border border-white/10 bg-white/[0.04] pl-3 pr-2 text-sm font-bold text-white transition focus-within:border-[#1C4EFF] hover:bg-white/[0.07]">
+          <SlidersHorizontal aria-hidden="true" className="size-5 shrink-0 text-white/45" />
+          <span className="sr-only">View another show program</span>
+          <select
+            value={currentShow.showNumber}
+            onChange={(event) => onSelectShow(Number(event.target.value))}
+            className="h-12 min-w-0 flex-1 appearance-none bg-transparent pr-5 text-base font-bold text-white outline-none"
+            aria-label="View another show program"
+          >
+            {shows.map((show) => (
+              <option key={show.id} value={show.showNumber} className="bg-[#101114] text-white">
+                {show.day} · {show.title} · {show.startTime}
+              </option>
+            ))}
+          </select>
+        </label>
+
+        <div className="flex min-w-0 gap-2">
+          <label className="relative block min-w-0 flex-1">
+            <span className="sr-only">Search program</span>
+            <Search
+              aria-hidden="true"
+              className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-white/45"
+            />
+            <Input
+              value={searchValue}
+              onChange={(event) => onSearchChange(event.target.value)}
+              placeholder="Search"
+              className="min-h-12 rounded-[6px] border-white/15 bg-white/5 pl-10 text-base text-white placeholder:text-white/45 focus-visible:border-white focus-visible:ring-white/20"
+            />
+          </label>
+
+          {!isAutoFollowing ? (
+            <button
+              type="button"
+              onClick={onResumeAuto}
+              className="flex min-h-12 shrink-0 items-center justify-center rounded-[6px] border border-[#1C4EFF]/60 px-3 text-xs font-bold text-[#aebcff] transition hover:bg-[#1C4EFF]/15"
+            >
+              Follow live
+            </button>
+          ) : null}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ProgramItemCard({
+  item,
+  isTracked,
+  isCurrent,
+  isPerformed,
+  onOpen,
+  onToggle,
+}: {
+  item: Elev8ProgramItem;
+  isTracked: boolean;
+  isCurrent: boolean;
+  isPerformed: boolean;
+  onOpen: () => void;
+  onToggle: () => void;
+}) {
+  const itemNumber = item.order ?? item.position;
+
+  if (item.type !== "dance") {
+    return (
+      <div
+        className={`grid grid-cols-[2.5rem_1fr] gap-3 rounded-[6px] border px-2 py-3 transition ${
+          isCurrent
+            ? "border-[#1C4EFF] bg-[#071b55] text-white shadow-[0_0_0_1px_rgba(255,255,255,0.08)]"
+            : isPerformed
+              ? "border-white/8 bg-transparent text-white/38"
+              : "border-white/10 bg-transparent text-white/70"
+        }`}
+      >
+        <div
+          className={`flex h-10 w-10 items-center justify-center rounded-[4px] text-xs font-bold ${
+            isCurrent ? "bg-[#1C4EFF] text-white" : "border border-white/10 text-white/45"
+          }`}
+        >
+          {itemNumber}
+        </div>
+        <div className="min-w-0 border-l border-white/10 pl-3">
+          <div className="flex flex-wrap items-center gap-2">
+            <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#8ea4ff]">
+              {isCurrent ? "On stage now" : getTypeLabel(item)}
+            </p>
+            {isPerformed ? (
+              <span className="rounded-full border border-white/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.1em] text-white/35">
+                Performed
+              </span>
+            ) : null}
+          </div>
+          <p className="mt-1 text-sm font-semibold text-white/78">{item.title}</p>
+          {item.programNote ? <p className="mt-1 text-xs text-white/45">{item.programNote}</p> : null}
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <article
+      className={`rounded-[6px] border transition ${
+        isCurrent
+          ? "border-[#1C4EFF] bg-[#071b55] shadow-[0_0_0_1px_rgba(255,255,255,0.08)]"
+          : isTracked
+            ? "border-[#1C4EFF] bg-[#0b1d3d]"
+            : isPerformed
+              ? "border-white/8 bg-white/[0.025] opacity-55"
+              : "border-white/10 bg-white/5 hover:border-[#1C4EFF] hover:bg-white/8"
+      }`}
+    >
+      <div className="flex items-stretch gap-2 p-2">
+        <button
+          type="button"
+          onClick={onOpen}
+          className="flex min-w-0 flex-1 items-center gap-3 rounded-[4px] p-1 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1C4EFF]"
+        >
+          <span
+            className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-[4px] text-sm font-bold ${
+              isCurrent || isTracked ? "bg-[#1C4EFF] text-white" : "border border-white/10 bg-black/10 text-white"
+            }`}
+          >
+            {itemNumber}
+          </span>
+          <span className="min-w-0 flex-1">
+            <span className="flex flex-wrap items-center gap-2">
+              <span className="block min-w-0 text-base font-semibold leading-6 text-white">{item.title}</span>
+              {isCurrent ? (
+                <span className="rounded-full bg-[#1C4EFF] px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.1em] text-white">
+                  On stage now
+                </span>
+              ) : null}
+              {isPerformed ? (
+                <span className="rounded-full border border-white/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.1em] text-white/35">
+                  Performed
+                </span>
+              ) : null}
+            </span>
+            <span className="mt-0.5 block truncate text-xs font-medium text-white/50">
+              {item.teacher ?? "Teacher not listed"}
+              {item.songTitle ? ` · ${item.songTitle}` : ""}
+            </span>
+          </span>
+        </button>
+
+        {!isCurrent ? (
+          <button
+            type="button"
+            onClick={onToggle}
+            aria-label={`${isTracked ? "Remove" : "Track"} ${item.title}`}
+            aria-pressed={isTracked}
+            className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition ${
+              isTracked
+                ? "bg-[#1C4EFF] text-white"
+                : "border border-white/15 text-white/75 hover:border-[#1C4EFF] hover:bg-[#1C4EFF] hover:text-white"
+            }`}
+          >
+            {isTracked ? <Check aria-hidden="true" className="size-5" /> : <Plus aria-hidden="true" className="size-5" />}
+          </button>
+        ) : null}
+      </div>
+    </article>
+  );
+}
+
 function DanceDetailModal({
   dance,
   isTracked,
+  isOnStage,
   onClose,
   onToggle,
 }: {
   dance: Elev8ProgramItem;
   isTracked: boolean;
+  isOnStage: boolean;
   onClose: () => void;
   onToggle: () => void;
 }) {
@@ -239,19 +529,25 @@ function DanceDetailModal({
             </details>
           ) : null}
 
-          <button
-            type="button"
-            onClick={onToggle}
-            aria-pressed={isTracked}
-            className={`flex min-h-12 items-center justify-center gap-2 rounded-[6px] text-sm font-bold transition ${
-              isTracked
-                ? "border border-[#1C4EFF] bg-[#0b1d3d] text-white"
-                : "bg-[#1C4EFF] text-white hover:bg-[#2d5cff]"
-            }`}
-          >
-            {isTracked ? <Check aria-hidden="true" className="size-5" /> : <Plus aria-hidden="true" className="size-5" />}
-            {isTracked ? "Tracked" : "Track Dance"}
-          </button>
+          {isOnStage ? (
+            <div className="rounded-[6px] border border-[#1C4EFF]/55 bg-[#071b55] p-3 text-sm font-bold text-white">
+              On stage now
+            </div>
+          ) : (
+            <button
+              type="button"
+              onClick={onToggle}
+              aria-pressed={isTracked}
+              className={`flex min-h-12 items-center justify-center gap-2 rounded-[6px] text-sm font-bold transition ${
+                isTracked
+                  ? "border border-[#1C4EFF] bg-[#0b1d3d] text-white"
+                  : "bg-[#1C4EFF] text-white hover:bg-[#2d5cff]"
+              }`}
+            >
+              {isTracked ? <Check aria-hidden="true" className="size-5" /> : <Plus aria-hidden="true" className="size-5" />}
+              {isTracked ? "Tracked" : "Track Dance"}
+            </button>
+          )}
         </div>
       </div>
     </div>
@@ -260,27 +556,30 @@ function DanceDetailModal({
 
 export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
   const [selectedShowNumber, setSelectedShowNumber] = useState(program.shows[0]?.showNumber ?? 1);
+  const [isAutoFollowingShow, setIsAutoFollowingShow] = useState(true);
   const [mode, setMode] = useState<BrowserMode>("program");
   const [query, setQuery] = useState("");
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
   const [momHelperEnabled, setMomHelperEnabled] = useState(true);
   const [activeDance, setActiveDance] = useState<Elev8ProgramItem | null>(null);
+  const [liveState, setLiveState] = useState<LiveState>(fallbackLiveState());
 
   const selectedIdSet = useMemo(() => new Set(selectedIds), [selectedIds]);
   const currentShow = program.shows.find((show) => show.showNumber === selectedShowNumber) ?? program.shows[0];
-  const dayGroups = useMemo(() => getDayGroups(program.shows), [program.shows]);
-  const selectedDayGroup = dayGroups.find((group) => group.showNumbers.includes(selectedShowNumber)) ?? dayGroups[0];
-  const selectedDayShows =
-    selectedDayGroup?.showNumbers
-      .map((showNumber) => program.shows.find((show) => show.showNumber === showNumber))
-      .filter((show): show is Elev8ProgramShow => Boolean(show)) ?? [];
   const normalizedQuery = query.trim().toLowerCase();
+  const liveShow = findLiveShow(program, liveState);
+  const activeLiveItem = findLiveItem(liveShow, liveState);
+  const liveItem = liveShow && currentShow && liveShow.id === currentShow.id ? activeLiveItem : null;
+  const liveItemIndex = liveItem && currentShow ? currentShow.items.findIndex((item) => item.id === liveItem.id) : -1;
+  const isLiveProgramMode = Boolean(liveItem && liveItemIndex >= 0 && !normalizedQuery);
 
-  const filteredProgramItems = useMemo(() => {
+  const programItems = useMemo(() => {
     if (!currentShow) return [];
     if (!normalizedQuery) return currentShow.items;
     return currentShow.items.filter((item) => getSearchText(item).includes(normalizedQuery));
   }, [currentShow, normalizedQuery]);
+
+  const upcomingProgramItems = isLiveProgramMode && currentShow ? currentShow.items.slice(liveItemIndex) : programItems;
 
   const trackedRows = useMemo(() => {
     if (!currentShow) return [];
@@ -315,6 +614,40 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
     return () => window.clearTimeout(timer);
   }, [program.shows]);
 
+  useEffect(() => {
+    let isMounted = true;
+
+    async function loadLiveState() {
+      try {
+        const nextState = await fetchLiveState();
+        if (isMounted) setLiveState(nextState);
+      } catch {
+        if (isMounted) setLiveState(fallbackLiveState());
+      }
+    }
+
+    void loadLiveState();
+    const interval = window.setInterval(loadLiveState, 3000);
+
+    return () => {
+      isMounted = false;
+      window.clearInterval(interval);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isAutoFollowingShow) return;
+
+    const syncAutoShow = () => {
+      setSelectedShowNumber(getAutoShowNumber(program, liveState));
+    };
+
+    syncAutoShow();
+    const interval = window.setInterval(syncAutoShow, 60000);
+
+    return () => window.clearInterval(interval);
+  }, [isAutoFollowingShow, liveState, program]);
+
   if (!currentShow) return null;
 
   function persistSelections(nextIds: string[]) {
@@ -343,10 +676,16 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
     });
   }
 
-  function selectShow(showNumber: number) {
+  function selectShow(showNumber: number, options: { manual?: boolean } = {}) {
+    if (options.manual) setIsAutoFollowingShow(false);
     setSelectedShowNumber(showNumber);
     setQuery("");
     setActiveDance(null);
+  }
+
+  function resumeAutoFollowingShow() {
+    setIsAutoFollowingShow(true);
+    selectShow(getAutoShowNumber(program, liveState));
   }
 
   const modeOptions = [
@@ -388,161 +727,53 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
 
       <section className="bg-[#07080b] px-3 pb-28 pt-3 sm:px-4 lg:px-8">
         <div className="mx-auto grid max-w-3xl gap-4">
+          <LiveNowPanel
+            liveShow={liveShow}
+            liveItem={activeLiveItem}
+            currentShow={currentShow}
+            onViewLiveShow={resumeAutoFollowingShow}
+          />
+
           {mode !== "info" ? (
-            <div
-              className="grid gap-2 rounded-[8px] border border-white/10 bg-white/5 p-2"
-              role="tablist"
-              aria-label="Select recital show"
-            >
-              <div className="grid grid-cols-2 gap-1 rounded-[6px] bg-black/20 p-1" aria-label="Select recital day">
-                {dayGroups.map((group) => {
-                  const isSelected = group.label === selectedDayGroup?.label;
-                  const firstShowNumber = group.showNumbers[0];
-
-                  return (
-                    <button
-                      key={group.label}
-                      type="button"
-                      onClick={() => selectShow(firstShowNumber)}
-                      className={`min-h-9 rounded-[5px] text-xs font-bold uppercase tracking-[0.14em] transition ${
-                        isSelected ? "bg-[#1C4EFF] text-white" : "text-white/55 hover:bg-white/10 hover:text-white"
-                      }`}
-                    >
-                      {group.label}
-                    </button>
-                  );
-                })}
-              </div>
-
-              <div className="grid gap-1.5 rounded-[6px] bg-black/20 p-1.5">
-                {selectedDayShows.map((show) => {
-                  const isSelected = show.showNumber === currentShow.showNumber;
-
-                  return (
-                    <button
-                      key={show.id}
-                      type="button"
-                      role="tab"
-                      aria-selected={isSelected}
-                      onClick={() => selectShow(show.showNumber)}
-                      className={`flex min-h-14 items-center justify-between gap-3 rounded-[6px] px-3 py-2 text-left transition ${
-                        isSelected
-                          ? "bg-[#1C4EFF] text-white shadow-[0_0_0_1px_rgba(255,255,255,0.18)]"
-                          : "bg-white/[0.03] text-white hover:bg-white/10"
-                      }`}
-                    >
-                      <span className="min-w-0">
-                        <span className="block text-[10px] font-medium uppercase tracking-[0.16em] opacity-70">
-                          Show {show.showNumber}
-                        </span>
-                        <span className="mt-0.5 block text-base font-semibold leading-5">{show.startTime}</span>
-                      </span>
-                      <span className="shrink-0 rounded-full border border-white/15 px-2 py-1 text-[11px] font-medium text-white/75">
-                        {show.danceCount} dances
-                      </span>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
+            <ShowProgramSelector
+              currentShow={currentShow}
+              shows={program.shows}
+              isAutoFollowing={isAutoFollowingShow}
+              onSelectShow={(showNumber) => selectShow(showNumber, { manual: true })}
+              onResumeAuto={resumeAutoFollowingShow}
+              searchValue={query}
+              onSearchChange={setQuery}
+            />
           ) : null}
 
           {mode === "program" ? (
             <>
-              <label className="relative block">
-                <span className="sr-only">Search program</span>
-                <Search
-                  aria-hidden="true"
-                  className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-white/45"
-                />
-                <Input
-                  value={query}
-                  onChange={(event) => setQuery(event.target.value)}
-                  placeholder="Search title, teacher, or dancer"
-                  className="min-h-12 rounded-[4px] border-white/15 bg-white/5 pl-10 text-base text-white placeholder:text-white/45 focus-visible:border-white focus-visible:ring-white/20"
-                />
-              </label>
-
               <div className="grid gap-2" aria-live="polite">
-                {filteredProgramItems.length === 0 ? (
+                {upcomingProgramItems.length === 0 ? (
                   <div className="rounded-[6px] border border-white/10 bg-white/5 p-5 text-sm leading-6 text-white/70">
                     No program items match this search in Show {currentShow.showNumber}.
                   </div>
                 ) : null}
 
-                {filteredProgramItems.map((item) => {
+                {upcomingProgramItems.map((item) => {
                   const isTracked = selectedIdSet.has(item.id);
-
-                  if (item.type !== "dance") {
-                    return (
-                      <div
-                        key={item.id}
-                        className="grid grid-cols-[2.5rem_1fr] gap-3 rounded-[6px] border border-white/10 bg-transparent px-2 py-3 text-white/70"
-                      >
-                        <div className="flex h-10 w-10 items-center justify-center rounded-[4px] border border-white/10 text-xs font-bold text-white/45">
-                          {item.order ?? "•"}
-                        </div>
-                        <div className="min-w-0 border-l border-white/10 pl-3">
-                          <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#8ea4ff]">
-                            {getTypeLabel(item)}
-                          </p>
-                          <p className="mt-1 text-sm font-semibold text-white/78">{item.title}</p>
-                          {item.programNote ? <p className="mt-1 text-xs text-white/45">{item.programNote}</p> : null}
-                        </div>
-                      </div>
-                    );
-                  }
+                  const isCurrent = item.id === liveItem?.id;
 
                   return (
-                    <article
+                    <ProgramItemCard
                       key={item.id}
-                      className={`rounded-[6px] border transition ${
-                        isTracked
-                          ? "border-[#1C4EFF] bg-[#0b1d3d]"
-                          : "border-white/10 bg-white/5 hover:border-[#1C4EFF] hover:bg-white/8"
-                      }`}
-                    >
-                      <div className="flex items-stretch gap-2 p-2">
-                        <button
-                          type="button"
-                          onClick={() => setActiveDance(item)}
-                          className="flex min-w-0 flex-1 items-center gap-3 rounded-[4px] p-1 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1C4EFF]"
-                        >
-                          <span
-                            className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-[4px] text-sm font-bold ${
-                              isTracked
-                                ? "bg-[#1C4EFF] text-white"
-                                : "border border-white/10 bg-black/10 text-white"
-                            }`}
-                          >
-                            {item.order}
-                          </span>
-                          <span className="min-w-0 flex-1">
-                            <span className="block text-base font-semibold leading-6 text-white">{item.title}</span>
-                            <span className="mt-0.5 block truncate text-xs font-medium text-white/50">
-                              {item.teacher ?? "Teacher not listed"}
-                              {item.songTitle ? ` · ${item.songTitle}` : ""}
-                            </span>
-                          </span>
-                        </button>
-
-                        <button
-                          type="button"
-                          onClick={() => toggleDance(item.id)}
-                          aria-label={`${isTracked ? "Remove" : "Track"} ${item.title}`}
-                          aria-pressed={isTracked}
-                          className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition ${
-                            isTracked
-                              ? "bg-[#1C4EFF] text-white"
-                              : "border border-white/15 text-white/75 hover:border-[#1C4EFF] hover:bg-[#1C4EFF] hover:text-white"
-                          }`}
-                        >
-                          {isTracked ? <Check aria-hidden="true" className="size-5" /> : <Plus aria-hidden="true" className="size-5" />}
-                        </button>
-                      </div>
-                    </article>
+                      item={item}
+                      isTracked={isTracked}
+                      isCurrent={isCurrent}
+                      isPerformed={false}
+                      onOpen={() => {
+                        if (item.type === "dance") setActiveDance(item);
+                      }}
+                      onToggle={() => toggleDance(item.id)}
+                    />
                   );
                 })}
+
               </div>
             </>
           ) : null}
@@ -584,56 +815,67 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
                 </div>
               ) : (
                 <div className="grid gap-2">
-                  {trackedRows.map((row) => (
-                    <article key={row.item.id} className="rounded-[6px] border border-white/10 bg-white/5 p-3">
-                      <div className="flex items-start gap-3">
-                        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[4px] bg-[#1C4EFF] text-sm font-bold text-white">
-                          {row.item.order}
-                        </div>
-                        <div className="min-w-0 flex-1">
+                  {trackedRows.map((row) => {
+                    const liveStatus = getDanceLiveStatus(currentShow, row.item, liveState);
+
+                    return (
+                      <article key={row.item.id} className="rounded-[6px] border border-white/10 bg-white/5 p-3">
+                        <div className="flex items-start gap-3">
+                          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[4px] bg-[#1C4EFF] text-sm font-bold text-white">
+                            {row.item.order}
+                          </div>
+                          <div className="min-w-0 flex-1">
+                            <div className="flex flex-wrap items-start gap-2">
+                              <button
+                                type="button"
+                                onClick={() => setActiveDance(row.item)}
+                                className="min-w-0 flex-1 text-left text-base font-semibold leading-6 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1C4EFF]"
+                              >
+                                {row.item.title}
+                              </button>
+                              <span
+                                className={`shrink-0 rounded-full border px-2.5 py-1 text-[11px] font-bold ${getLiveStatusClass(liveStatus)}`}
+                              >
+                                {liveStatus.label}
+                              </span>
+                            </div>
+                            <p className="mt-1 text-xs font-medium text-white/50">
+                              {row.item.teacher ?? "Teacher not listed"}
+                              {row.item.songTitle ? ` · ${row.item.songTitle}` : ""}
+                            </p>
+                            <div className="mt-3 grid gap-1 text-xs leading-5 text-white/62">
+                              <p>
+                                {row.isFirstTrackedDance ? "Before this dance" : "Since previous tracked dance"}:{" "}
+                                <span className="font-semibold text-white/82">
+                                  {pluralize(row.programItemsBefore, "program item")}
+                                </span>
+                                {" / "}
+                                <span className="font-semibold text-white/82">
+                                  {pluralize(row.dancesBefore, "dance")}
+                                </span>
+                              </p>
+                              {momHelperEnabled && row.isQuickChange ? (
+                                <div className="mt-2 flex items-start gap-2 rounded-[6px] border border-[#f59e0b]/60 bg-[#2b1707] p-2 text-[#fed7aa]">
+                                  <AlertTriangle aria-hidden="true" className="mt-0.5 size-4 shrink-0" />
+                                  <p>
+                                    Quick change: only {pluralize(row.dancesBefore, "dance")} before this routine.
+                                  </p>
+                                </div>
+                              ) : null}
+                            </div>
+                          </div>
                           <button
                             type="button"
-                            onClick={() => setActiveDance(row.item)}
-                            className="block text-left text-base font-semibold leading-6 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1C4EFF]"
+                            onClick={() => toggleDance(row.item.id)}
+                            aria-label={`Remove ${row.item.title}`}
+                            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/10 text-white/60 transition hover:bg-white/10 hover:text-white"
                           >
-                            {row.item.title}
+                            <X aria-hidden="true" className="size-4" />
                           </button>
-                          <p className="mt-1 text-xs font-medium text-white/50">
-                            {row.item.teacher ?? "Teacher not listed"}
-                            {row.item.songTitle ? ` · ${row.item.songTitle}` : ""}
-                          </p>
-                          <div className="mt-3 grid gap-1 text-xs leading-5 text-white/62">
-                            <p>
-                              {row.isFirstTrackedDance ? "Before this dance" : "Since previous tracked dance"}:{" "}
-                              <span className="font-semibold text-white/82">
-                                {pluralize(row.programItemsBefore, "program item")}
-                              </span>
-                              {" / "}
-                              <span className="font-semibold text-white/82">
-                                {pluralize(row.dancesBefore, "dance")}
-                              </span>
-                            </p>
-                            {momHelperEnabled && row.isQuickChange ? (
-                              <div className="mt-2 flex items-start gap-2 rounded-[6px] border border-[#f59e0b]/60 bg-[#2b1707] p-2 text-[#fed7aa]">
-                                <AlertTriangle aria-hidden="true" className="mt-0.5 size-4 shrink-0" />
-                                <p>
-                                  Quick change: only {pluralize(row.dancesBefore, "dance")} before this routine.
-                                </p>
-                              </div>
-                            ) : null}
-                          </div>
                         </div>
-                        <button
-                          type="button"
-                          onClick={() => toggleDance(row.item.id)}
-                          aria-label={`Remove ${row.item.title}`}
-                          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/10 text-white/60 transition hover:bg-white/10 hover:text-white"
-                        >
-                          <X aria-hidden="true" className="size-4" />
-                        </button>
-                      </div>
-                    </article>
-                  ))}
+                      </article>
+                    );
+                  })}
                 </div>
               )}
             </div>
@@ -738,6 +980,7 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
         <DanceDetailModal
           dance={activeDance}
           isTracked={selectedIdSet.has(activeDance.id)}
+          isOnStage={activeDance.id === liveItem?.id}
           onClose={() => setActiveDance(null)}
           onToggle={() => toggleDance(activeDance.id)}
         />
