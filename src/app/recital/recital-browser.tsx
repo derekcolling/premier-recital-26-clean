@@ -294,9 +294,10 @@ function ProgramItemCard({
   onToggle: () => void;
 }) {
   const itemNumber = item.order ?? item.position;
+  const stickyCardShellClassName = "sticky top-[4.5rem] z-20 bg-[#07080b] pt-2 sm:top-20";
 
   if (item.type !== "dance") {
-    return (
+    const nonDanceCard = (
       <div
         className={`grid min-w-0 grid-cols-[2.5rem_1fr] gap-3 rounded-[6px] border px-2 py-3 transition ${
           isCurrent
@@ -304,10 +305,6 @@ function ProgramItemCard({
             : isPerformed
               ? "border-white/8 bg-transparent text-white/38"
               : "border-white/10 bg-transparent text-white/70"
-        } ${
-          isCurrent
-            ? "sticky top-[4.75rem] z-20 before:absolute before:inset-x-[-1px] before:bottom-full before:h-3 before:bg-[#07080b] before:content-[''] sm:top-20"
-            : ""
         }`}
       >
         <div
@@ -333,6 +330,8 @@ function ProgramItemCard({
         </div>
       </div>
     );
+
+    return isCurrent ? <div className={stickyCardShellClassName}>{nonDanceCard}</div> : nonDanceCard;
   }
 
   const itemDetails = (
@@ -372,7 +371,7 @@ function ProgramItemCard({
   const itemDetailsClassName =
     "flex min-w-0 flex-1 items-center gap-3 rounded-[4px] p-1 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1C4EFF]";
 
-  return (
+  const danceCard = (
     <article
       className={`min-w-0 rounded-[6px] border transition ${
         isCurrent
@@ -382,10 +381,6 @@ function ProgramItemCard({
           : isPerformed
             ? "border-white/8 bg-white/[0.025] opacity-55"
             : "border-white/10 bg-white/5 hover:border-[#1C4EFF] hover:bg-white/8"
-      } ${
-        isCurrent
-          ? "sticky top-[4.75rem] z-20 before:absolute before:inset-x-[-1px] before:bottom-full before:h-3 before:bg-[#07080b] before:content-[''] sm:top-20"
-          : ""
       }`}
     >
       <div className="flex items-stretch gap-2 p-2">
@@ -411,6 +406,8 @@ function ProgramItemCard({
       </div>
     </article>
   );
+
+  return isCurrent ? <div className={stickyCardShellClassName}>{danceCard}</div> : danceCard;
 }
 
 function DanceDetailModal({
