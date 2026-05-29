@@ -304,7 +304,7 @@ function ProgramItemCard({
             : isPerformed
               ? "border-white/8 bg-transparent text-white/38"
               : "border-white/10 bg-transparent text-white/70"
-        }`}
+        } ${isCurrent ? "sticky top-[4.75rem] z-20 sm:top-20" : ""}`}
       >
         <div
           className={`flex h-10 w-10 items-center justify-center rounded-[4px] text-xs font-bold ${
@@ -335,11 +335,7 @@ function ProgramItemCard({
     <>
       <span
         className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-[4px] text-sm font-bold ${
-          isCurrent
-            ? "bg-[#f5c542] text-[#171001]"
-            : isTracked
-              ? "bg-[#1C4EFF] text-white"
-              : "border border-white/10 bg-black/10 text-white"
+          isCurrent ? "bg-[#f5c542] text-[#171001]" : "border border-white/10 bg-black/10 text-white"
         }`}
       >
         {itemNumber}
@@ -373,12 +369,10 @@ function ProgramItemCard({
       className={`min-w-0 rounded-[6px] border transition ${
         isCurrent
           ? "border-[#f5c542] bg-[#2a2108] shadow-[0_0_0_1px_rgba(245,197,66,0.22)]"
-          : isTracked
-            ? "border-[#1C4EFF] bg-[#0b1d3d]"
-            : isPerformed
-              ? "border-white/8 bg-white/[0.025] opacity-55"
-              : "border-white/10 bg-white/5 hover:border-[#1C4EFF] hover:bg-white/8"
-      }`}
+          : isPerformed
+            ? "border-white/8 bg-white/[0.025] opacity-55"
+            : "border-white/10 bg-white/5 hover:border-[#1C4EFF] hover:bg-white/8"
+      } ${isCurrent ? "sticky top-[4.75rem] z-20 sm:top-20" : ""}`}
     >
       <div className="flex items-stretch gap-2 p-2">
         {canOpenDetails ? (
@@ -395,11 +389,7 @@ function ProgramItemCard({
             onClick={onToggle}
             aria-label={`${isTracked ? "Remove" : "Track"} ${item.title}`}
             aria-pressed={isTracked}
-            className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition ${
-              isTracked
-                ? "bg-[#1C4EFF] text-white"
-                : "border border-white/15 text-white/75 hover:border-[#1C4EFF] hover:bg-[#1C4EFF] hover:text-white"
-            }`}
+            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/15 text-white/75 transition hover:border-[#1C4EFF] hover:bg-[#1C4EFF] hover:text-white"
           >
             {isTracked ? <Check aria-hidden="true" className="size-5" /> : <Plus aria-hidden="true" className="size-5" />}
           </button>
