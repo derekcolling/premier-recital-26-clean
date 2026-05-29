@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { Fragment, useEffect, useMemo, useState } from "react";
 import {
   AlertTriangle,
   ArrowUp,
@@ -828,63 +828,69 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
                 <div className="grid gap-2">
                   {trackedRows.map((row) => {
                     const liveStatus = getDanceLiveStatus(currentShow, row.item, liveState);
+                    const showQuickChangeMarker = quickChangeEnabled && row.isQuickChange;
 
                     return (
-                      <article key={row.item.id} className="min-w-0 rounded-[6px] border border-white/10 bg-white/5 p-3">
-                        <div className="flex items-start gap-3">
-                          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[4px] bg-[#1C4EFF] text-sm font-bold text-white">
-                            {row.item.order}
+                      <Fragment key={row.item.id}>
+                        {showQuickChangeMarker ? (
+                          <div className="flex min-w-0 items-center gap-2 rounded-[6px] border border-[#f59e0b]/70 bg-[#2b1707] px-3 py-2 text-[#fed7aa]">
+                            <AlertTriangle aria-hidden="true" className="size-4 shrink-0 text-[#ffb45c]" />
+                            <span className="shrink-0 text-[11px] font-bold uppercase tracking-[0.14em] text-[#ffb45c]">
+                              Quick Change
+                            </span>
+                            <span className="min-w-0 text-xs font-semibold leading-5 text-[#fed7aa]/90">
+                              {pluralize(row.dancesBefore, "dance")} between routines
+                            </span>
                           </div>
-                          <div className="min-w-0 flex-1">
-                            <div className="flex flex-wrap items-start gap-2">
-                              <button
-                                type="button"
-                                onClick={() => setActiveDance(row.item)}
-                                className="min-w-0 flex-1 text-left text-base font-semibold leading-6 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1C4EFF]"
-                              >
-                                {row.item.title}
-                              </button>
-                              <span
-                                className={`shrink-0 rounded-full border px-2.5 py-1 text-[11px] font-bold ${getLiveStatusClass(liveStatus)}`}
-                              >
-                                {liveStatus.label}
-                              </span>
+                        ) : null}
+                        <article className="min-w-0 rounded-[6px] border border-white/10 bg-white/5 p-3">
+                          <div className="flex items-start gap-3">
+                            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[4px] bg-[#1C4EFF] text-sm font-bold text-white">
+                              {row.item.order}
                             </div>
-                            <p className="mt-1 text-xs font-medium text-white/50">
-                              {row.item.teacher ?? "Teacher not listed"}
-                              {row.item.songTitle ? ` · ${row.item.songTitle}` : ""}
-                            </p>
-                            <div className="mt-3 grid gap-1 text-xs leading-5 text-white/62">
-                              <p>
-                                {row.isFirstTrackedDance ? "Before this dance" : "Since previous tracked dance"}:{" "}
-                                <span className="font-semibold text-white/82">
-                                  {pluralize(row.programItemsBefore, "program item")}
+                            <div className="min-w-0 flex-1">
+                              <div className="flex flex-wrap items-start gap-2">
+                                <button
+                                  type="button"
+                                  onClick={() => setActiveDance(row.item)}
+                                  className="min-w-0 flex-1 text-left text-base font-semibold leading-6 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1C4EFF]"
+                                >
+                                  {row.item.title}
+                                </button>
+                                <span
+                                  className={`shrink-0 rounded-full border px-2.5 py-1 text-[11px] font-bold ${getLiveStatusClass(liveStatus)}`}
+                                >
+                                  {liveStatus.label}
                                 </span>
-                                {" / "}
-                                <span className="font-semibold text-white/82">
-                                  {pluralize(row.dancesBefore, "dance")}
-                                </span>
+                              </div>
+                              <p className="mt-1 text-xs font-medium text-white/50">
+                                {row.item.teacher ?? "Teacher not listed"}
+                                {row.item.songTitle ? ` · ${row.item.songTitle}` : ""}
                               </p>
-                              {quickChangeEnabled && row.isQuickChange ? (
-                                <div className="mt-2 flex items-start gap-2 rounded-[6px] border border-[#f59e0b]/60 bg-[#2b1707] p-2 text-[#fed7aa]">
-                                  <AlertTriangle aria-hidden="true" className="mt-0.5 size-4 shrink-0" />
-                                  <p>
-                                    Quick change: only {pluralize(row.dancesBefore, "dance")} before this routine.
-                                  </p>
-                                </div>
-                              ) : null}
+                              <div className="mt-3 grid gap-1 text-xs leading-5 text-white/62">
+                                <p>
+                                  {row.isFirstTrackedDance ? "Before this dance" : "Since previous tracked dance"}:{" "}
+                                  <span className="font-semibold text-white/82">
+                                    {pluralize(row.programItemsBefore, "program item")}
+                                  </span>
+                                  {" / "}
+                                  <span className="font-semibold text-white/82">
+                                    {pluralize(row.dancesBefore, "dance")}
+                                  </span>
+                                </p>
+                              </div>
                             </div>
+                            <button
+                              type="button"
+                              onClick={() => toggleDance(row.item.id)}
+                              aria-label={`Remove ${row.item.title}`}
+                              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/10 text-white/60 transition hover:bg-white/10 hover:text-white"
+                            >
+                              <X aria-hidden="true" className="size-4" />
+                            </button>
                           </div>
-                          <button
-                            type="button"
-                            onClick={() => toggleDance(row.item.id)}
-                            aria-label={`Remove ${row.item.title}`}
-                            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/10 text-white/60 transition hover:bg-white/10 hover:text-white"
-                          >
-                            <X aria-hidden="true" className="size-4" />
-                          </button>
-                        </div>
-                      </article>
+                        </article>
+                      </Fragment>
                     );
                   })}
                 </div>
