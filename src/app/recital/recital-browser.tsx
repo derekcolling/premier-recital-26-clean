@@ -21,7 +21,7 @@ import {
 import { Input } from "@/components/ui/input";
 import type { Elev8ProgramData, Elev8ProgramItem, Elev8ProgramShow } from "@/lib/elev8-program";
 import { fallbackLiveState, fetchLiveState, isUninitializedLiveState } from "@/lib/live-state-client";
-import { findLiveItem, findLiveShow } from "@/lib/live-position";
+import { findLiveShow, getLiveProgramDisplay, getProgramItemNumber } from "@/lib/live-position";
 import type { LiveState } from "@/lib/live-state-types";
 
 type BrowserMode = "live-program" | "full-program" | "my-dances" | "info";
@@ -162,6 +162,27 @@ function getScheduledShow(shows: Elev8ProgramShow[], now = new Date()) {
 function getAutoShowNumber(program: Elev8ProgramData, liveState: LiveState) {
   const liveShow = findLiveShow(program, liveState);
   return liveShow?.showNumber ?? getScheduledShow(program.shows)?.showNumber ?? program.shows[0]?.showNumber ?? 1;
+}
+
+function getFirstShow(shows: Elev8ProgramShow[]) {
+  return [...shows].sort((first, second) => parseShowStart(first).getTime() - parseShowStart(second).getTime())[0] ?? null;
+}
+
+function getFirstDanceIndex(show: Elev8ProgramShow) {
+  return show.items.findIndex((item) => item.type === "dance");
+}
+
+function formatCountdown(targetTime: number, nowTime: number) {
+  const totalSeconds = Math.max(0, Math.floor((targetTime - nowTime) / 1000));
+  const days = Math.floor(totalSeconds / 86400);
+  const hours = Math.floor((totalSeconds % 86400) / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+  const paddedMinutes = String(minutes).padStart(2, "0");
+  const paddedSeconds = String(seconds).padStart(2, "0");
+
+  if (days > 0) return `${days}d ${hours}h ${minutes}m`;
+  return `${hours}h ${paddedMinutes}m ${paddedSeconds}s`;
 }
 
 function normalizeSearchValue(value: string) {
@@ -310,6 +331,58 @@ function ShowProgramSelector({
   );
 }
 
+function FirstShowCountdownCard({ show }: { show: Elev8ProgramShow }) {
+  const [now, setNow] = useState<Date | null>(null);
+  const showStart = useMemo(() => parseShowStart(show), [show]);
+  const showEnd = useMemo(() => getEstimatedShowEnd(show), [show]);
+  const nowTime = now?.getTime() ?? null;
+  const showStartTime = showStart.getTime();
+  const showEndTime = showEnd.getTime();
+  const hasStarted = nowTime !== null && nowTime >= showStartTime;
+  const hasEnded = nowTime !== null && nowTime >= showEndTime;
+  const countdownLabel =
+    nowTime === null
+      ? "--"
+      : hasEnded
+        ? "Ended"
+        : hasStarted
+          ? "Underway"
+          : formatCountdown(showStartTime, nowTime);
+
+  useEffect(() => {
+    const updateNow = () => setNow(new Date());
+    const timeout = window.setTimeout(updateNow, 0);
+    const interval = window.setInterval(updateNow, 1000);
+
+    return () => {
+      window.clearTimeout(timeout);
+      window.clearInterval(interval);
+    };
+  }, []);
+
+  return (
+    <section className="relative isolate grid overflow-hidden rounded-[8px] bg-[#1C4EFF] p-3 shadow-[0_18px_45px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.18)] sm:grid-cols-[1fr_auto] sm:items-center">
+      <div aria-hidden="true" className="absolute -bottom-10 -left-8 h-24 w-44 rotate-[-10deg] border-t border-white/20 bg-white/8" />
+      <div aria-hidden="true" className="absolute right-0 top-0 h-full w-28 bg-white/10" />
+
+      <div className="relative min-w-0 py-1">
+        <h2 className="text-2xl font-black leading-7 text-white sm:text-3xl sm:leading-8">{show.title}</h2>
+        <p className="mt-1 text-sm font-bold uppercase tracking-[0.12em] text-[#f5c542]">
+          {show.day} · {show.startTime}
+        </p>
+      </div>
+      <div className="relative mt-3 flex min-h-[5.75rem] flex-col items-center justify-center rounded-[6px] border border-[#f5c542]/40 bg-[#f5c542] px-4 py-3 text-[#171001] shadow-[0_0_0_3px_rgba(28,78,255,0.18),0_12px_28px_rgba(245,197,66,0.16)] sm:mt-0 sm:w-[16rem] sm:min-w-[16rem]">
+        <p className="w-[10ch] whitespace-nowrap text-left text-[10px] font-black uppercase tracking-[0.12em] text-[#171001]/60">
+          {hasEnded ? "Status" : hasStarted ? "Now" : "Starts In"}
+        </p>
+        <p className="mt-1 block min-h-9 whitespace-nowrap text-center tabular-nums text-3xl font-black leading-9 text-[#171001] sm:text-[2.125rem] sm:leading-10">
+          {countdownLabel}
+        </p>
+      </div>
+    </section>
+  );
+}
+
 function ProgramItemCard({
   item,
   isTracked,
@@ -329,7 +402,7 @@ function ProgramItemCard({
   onOpen: () => void;
   onToggle: () => void;
 }) {
-  const itemNumber = item.order ?? item.position;
+  const itemNumber = getProgramItemNumber(item);
   const stickyCardShellClassName = "sticky top-[4.5rem] z-20 bg-[#07080b] pt-2 sm:top-20";
 
   if (item.type !== "dance") {
@@ -590,11 +663,24 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
   const currentShow = program.shows.find((show) => show.showNumber === selectedShowNumber) ?? program.shows[0];
   const normalizedQuery = normalizeSearchValue(query);
   const searchTokens = useMemo(() => getSearchTokens(query), [query]);
-  const liveShow = findLiveShow(program, liveState);
-  const activeLiveItem = findLiveItem(liveShow, liveState);
+  const liveProgramDisplay = useMemo(() => getLiveProgramDisplay(program, liveState), [program, liveState]);
+  const liveShow = liveProgramDisplay.show;
+  const activeLiveItem = liveProgramDisplay.kind === "showing" ? liveProgramDisplay.item : null;
   const liveItem = liveShow && currentShow && liveShow.id === currentShow.id ? activeLiveItem : null;
   const liveItemIndex = liveItem && currentShow ? currentShow.items.findIndex((item) => item.id === liveItem.id) : -1;
   const isLiveProgramMode = Boolean(liveItem && liveItemIndex >= 0 && !normalizedQuery);
+  const firstShow = useMemo(() => getFirstShow(program.shows), [program.shows]);
+  const firstDanceIndex = firstShow ? getFirstDanceIndex(firstShow) : -1;
+  const hasAdvancedPastFirstShow =
+    firstShow && liveShow ? parseShowStart(liveShow).getTime() > parseShowStart(firstShow).getTime() : false;
+  const hasActivatedFirstDance = Boolean(
+    firstShow &&
+      firstDanceIndex >= 0 &&
+      (hasAdvancedPastFirstShow ||
+        (liveProgramDisplay.kind === "showing" &&
+          liveProgramDisplay.show.id === firstShow.id &&
+          liveProgramDisplay.itemIndex >= firstDanceIndex)),
+  );
 
   const programItems = useMemo(() => {
     if (!currentShow) return [];
@@ -788,16 +874,19 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
       <section className="bg-[#07080b] px-3 pb-28 pt-3 sm:px-4 lg:px-8">
         <div className="mx-auto grid w-full max-w-3xl gap-4 [&>*]:min-w-0">
           {mode !== "info" ? (
-            <ShowProgramSelector
-              currentShow={currentShow}
-              shows={program.shows}
-              allowAutoFollow={mode === "live-program"}
-              isAutoFollowing={isAutoFollowingShow}
-              onSelectShow={(showNumber) => selectShow(showNumber, { manual: true })}
-              onResumeAuto={resumeAutoFollowingShow}
-              searchValue={query}
-              onSearchChange={setQuery}
-            />
+            <>
+              {firstShow && !hasActivatedFirstDance ? <FirstShowCountdownCard show={firstShow} /> : null}
+              <ShowProgramSelector
+                currentShow={currentShow}
+                shows={program.shows}
+                allowAutoFollow={mode === "live-program"}
+                isAutoFollowing={isAutoFollowingShow}
+                onSelectShow={(showNumber) => selectShow(showNumber, { manual: true })}
+                onResumeAuto={resumeAutoFollowingShow}
+                searchValue={query}
+                onSearchChange={setQuery}
+              />
+            </>
           ) : null}
 
           {mode === "live-program" ? (

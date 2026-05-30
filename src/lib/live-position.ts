@@ -9,8 +9,18 @@ export type DanceLiveStatus =
   | { kind: "away"; label: string; dancesAway: number }
   | { kind: "already-performed"; label: "Already performed" };
 
+export type LiveProgramDisplay =
+  | { kind: "idle"; show: null; item: null; itemNumber: null }
+  | { kind: "waiting"; show: Elev8ProgramShow; item: null; itemNumber: null }
+  | { kind: "showing"; show: Elev8ProgramShow; item: Elev8ProgramItem; itemNumber: number; itemIndex: number }
+  | { kind: "invalid"; show: Elev8ProgramShow | null; item: null; itemNumber: null };
+
 function pluralize(count: number, singular: string, plural = `${singular}s`) {
   return `${count} ${count === 1 ? singular : plural}`;
+}
+
+export function getProgramItemNumber(item: Elev8ProgramItem) {
+  return item.order ?? item.position;
 }
 
 export function findLiveShow(program: Elev8ProgramData, liveState: LiveState) {
@@ -20,6 +30,36 @@ export function findLiveShow(program: Elev8ProgramData, liveState: LiveState) {
 export function findLiveItem(show: Elev8ProgramShow | null, liveState: LiveState) {
   if (!show || !liveState.currentItemId) return null;
   return show.items.find((item) => item.id === liveState.currentItemId) ?? null;
+}
+
+export function getLiveProgramDisplay(program: Elev8ProgramData, liveState: LiveState): LiveProgramDisplay {
+  const show = findLiveShow(program, liveState);
+
+  if (!show) {
+    return liveState.activeShowId
+      ? { kind: "invalid", show: null, item: null, itemNumber: null }
+      : { kind: "idle", show: null, item: null, itemNumber: null };
+  }
+
+  if (!liveState.currentItemId) {
+    return { kind: "waiting", show, item: null, itemNumber: null };
+  }
+
+  const itemIndex = show.items.findIndex((item) => item.id === liveState.currentItemId);
+
+  if (itemIndex < 0) {
+    return { kind: "invalid", show, item: null, itemNumber: null };
+  }
+
+  const item = show.items[itemIndex];
+
+  return {
+    kind: "showing",
+    show,
+    item,
+    itemNumber: getProgramItemNumber(item),
+    itemIndex,
+  };
 }
 
 export function getNextProgramItem(show: Elev8ProgramShow, currentItemId: string | null) {
