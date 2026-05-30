@@ -21,7 +21,7 @@ import {
 import { Input } from "@/components/ui/input";
 import type { Elev8ProgramData, Elev8ProgramItem, Elev8ProgramShow } from "@/lib/elev8-program";
 import { fallbackLiveState, fetchLiveState, isUninitializedLiveState } from "@/lib/live-state-client";
-import { findLiveShow, getLiveProgramDisplay, getProgramItemNumber } from "@/lib/live-position";
+import { findLiveShow, getDanceLiveStatus, getLiveProgramDisplay, getProgramItemNumber } from "@/lib/live-position";
 import type { LiveState } from "@/lib/live-state-types";
 
 type BrowserMode = "live-program" | "full-program" | "my-dances" | "info";
@@ -1000,6 +1000,17 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
                 <div className="grid gap-2">
                   {trackedRows.map((row) => {
                     const showQuickChangeMarker = quickChangeEnabled && row.isQuickChange;
+                    const liveStatus = getDanceLiveStatus(currentShow, row.item, liveState);
+                    const liveStatusClassName =
+                      liveStatus.kind === "on-stage-now"
+                        ? "border-[#f5c542]/70 bg-[#f5c542] text-[#171001]"
+                        : liveStatus.kind === "up-next"
+                          ? "border-[#22c55e]/70 bg-[#052e1a] text-[#bbf7d0]"
+                          : liveStatus.kind === "away"
+                            ? "border-[#1C4EFF]/70 bg-[#071b55] text-[#c7d2fe]"
+                            : liveStatus.kind === "already-performed"
+                              ? "border-white/10 bg-white/[0.04] text-white/45"
+                              : "border-white/10 bg-black/20 text-white/55";
 
                     return (
                       <Fragment key={row.item.id}>
@@ -1028,6 +1039,11 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
                                 >
                                   {row.item.title}
                                 </button>
+                                <span
+                                  className={`shrink-0 rounded-[5px] border px-2.5 py-1 text-[11px] font-black uppercase tracking-[0.08em] ${liveStatusClassName}`}
+                                >
+                                  {liveStatus.label}
+                                </span>
                               </div>
                               <p className="mt-1 text-xs font-medium text-white/50">
                                 {row.item.teacher ?? "Teacher not listed"}
