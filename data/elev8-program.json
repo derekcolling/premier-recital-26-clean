@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-05-29T01:12:48.439Z",
+  "generatedAt": "2026-05-30T14:10:46.167Z",
   "source": {
     "documentId": "1qvnxz1AeP8AqHeDMiqoTn5VDaWfVElCJfSP0S2U_hj0",
     "documentTitle": "Copy of Recital Show Order + Notes",
@@ -140,7 +140,7 @@
           "type": "filler",
           "position": 5,
           "order": 5,
-          "title": "Mommy & Me Filler",
+          "title": "Mommy & ME Dance",
           "songTitle": null,
           "teacher": "Jillian Richard",
           "teachers": [
@@ -157,7 +157,7 @@
           "type": "dance",
           "position": 6,
           "order": 6,
-          "title": "Ballet Aqua (Tuesday & Thursday)",
+          "title": "Aqua Ballet (Tuesday & Thursday)",
           "songTitle": "Princess Florine Variation",
           "teacher": "Marlee Bailey Samani",
           "teachers": [
@@ -191,10 +191,27 @@
           "sourceLine": 44
         },
         {
-          "id": "show-1-07-rhinestones-1-wednesday",
+          "id": "show-1-out-of-this-world",
           "type": "dance",
           "position": 7,
           "order": 7,
+          "title": "Out Of This World",
+          "songTitle": null,
+          "teacher": "Jamie Barry",
+          "teachers": [
+            "Jamie Barry"
+          ],
+          "dancers": [],
+          "programNote": null,
+          "stageNote": null,
+          "trackable": true,
+          "sourceLine": null
+        },
+        {
+          "id": "show-1-07-rhinestones-1-wednesday",
+          "type": "dance",
+          "position": 8,
+          "order": 8,
           "title": "Rhinestones 1 (Wednesday)",
           "songTitle": "Supermodel",
           "teacher": "Jordan West",
@@ -215,8 +232,8 @@
         {
           "id": "show-1-08-pearl-hip-hop-thursday-and-silver-gold-hip-hop",
           "type": "dance",
-          "position": 8,
-          "order": 8,
+          "position": 9,
+          "order": 9,
           "title": "Pearl Hip Hop (Thursday) & Silver/Gold Hip Hop",
           "songTitle": "Party People",
           "teacher": "Val Elazegui",
@@ -259,8 +276,8 @@
         {
           "id": "show-1-09-i-never-dreamed-youd-leave-in-summer",
           "type": "dance",
-          "position": 9,
-          "order": 9,
+          "position": 10,
+          "order": 10,
           "title": "I Never Dreamed You'd Leave in Summer",
           "songTitle": null,
           "teacher": "Keri LaGrand",
@@ -278,8 +295,8 @@
         {
           "id": "show-1-10-gold-combo",
           "type": "dance",
-          "position": 10,
-          "order": 10,
+          "position": 11,
+          "order": 11,
           "title": "Gold Combo",
           "songTitle": "New Attitude",
           "teacher": "Tasha Spalding",
@@ -306,8 +323,8 @@
         {
           "id": "show-1-11-islands",
           "type": "dance",
-          "position": 11,
-          "order": 11,
+          "position": 12,
+          "order": 12,
           "title": "Islands",
           "songTitle": null,
           "teacher": "Emily Adair",
@@ -329,9 +346,9 @@
         {
           "id": "show-1-12-ballet-silver-thursday",
           "type": "dance",
-          "position": 12,
-          "order": 12,
-          "title": "Ballet Silver (Thursday)",
+          "position": 13,
+          "order": 13,
+          "title": "Silver Ballet (Thursday)",
           "songTitle": "Pink Pony Club",
           "teacher": "Tasha Spalding",
           "teachers": [
@@ -355,8 +372,8 @@
         {
           "id": "show-1-13-lets-party",
           "type": "dance",
-          "position": 13,
-          "order": 13,
+          "position": 14,
+          "order": 14,
           "title": "Let's Party",
           "songTitle": null,
           "teacher": "Liz Crocker",
@@ -383,8 +400,8 @@
         {
           "id": "show-1-14-paw-patrol",
           "type": "dance",
-          "position": 14,
-          "order": 14,
+          "position": 15,
+          "order": 15,
           "title": "Paw Patrol",
           "songTitle": null,
           "teacher": "Tasha Spalding",
@@ -407,8 +424,8 @@
         {
           "id": "show-1-15-gold-tap-monday",
           "type": "dance",
-          "position": 15,
-          "order": 15,
+          "position": 16,
+          "order": 16,
           "title": "Gold Tap (Monday)",
           "songTitle": "The Lonely Goatherd",
           "teacher": "Tasha Spalding",
@@ -436,7 +453,7 @@
         {
           "id": "show-1-intermission-117",
           "type": "intermission",
-          "position": 16,
+          "position": 17,
           "order": null,
           "title": "Intermission",
           "songTitle": null,
@@ -452,8 +469,8 @@
         {
           "id": "show-1-16-daddy-daughter-dance",
           "type": "featured",
-          "position": 17,
-          "order": 16,
+          "position": 18,
+          "order": 17,
           "title": "Daddy Daughter Dance",
           "songTitle": "Cinderella",
           "teacher": "Jamie Barry",
@@ -469,8 +486,8 @@
         {
           "id": "show-1-17-funky-monkey",
           "type": "dance",
-          "position": 18,
-          "order": 17,
+          "position": 19,
+          "order": 18,
           "title": "Funky Monkey",
           "songTitle": null,
           "teacher": "Jillian Richard & Jessie McElwain",
@@ -501,8 +518,8 @@
         {
           "id": "show-1-18-bad-guy",
           "type": "dance",
-          "position": 19,
-          "order": 18,
+          "position": 20,
+          "order": 19,
           "title": "Bad Guy",
           "songTitle": null,
           "teacher": "Jamie Barry",
@@ -531,8 +548,8 @@
         {
           "id": "show-1-19-rhinestones-2-monday",
           "type": "dance",
-          "position": 20,
-          "order": 19,
+          "position": 21,
+          "order": 20,
           "title": "Rhinestones 2 (Monday)",
           "songTitle": "I Like to Move It",
           "teacher": "Tasha Spalding",
@@ -555,8 +572,8 @@
         {
           "id": "show-1-20-pearl-silver-tap-wednesday",
           "type": "dance",
-          "position": 21,
-          "order": 20,
+          "position": 22,
+          "order": 21,
           "title": "Pearl/Silver Tap (Wednesday)",
           "songTitle": "Sunshine Day",
           "teacher": "Tasha Spalding",
@@ -582,8 +599,8 @@
         {
           "id": "show-1-21-tiny-tendu-tuesday",
           "type": "dance",
-          "position": 22,
-          "order": 21,
+          "position": 23,
+          "order": 22,
           "title": "Tiny Tendu (Tuesday)",
           "songTitle": "Just Like a Butterfly",
           "teacher": "Tasha Spalding",
@@ -604,8 +621,8 @@
         {
           "id": "show-1-22-outta-my-hair",
           "type": "dance",
-          "position": 23,
-          "order": 22,
+          "position": 24,
+          "order": 23,
           "title": "Outta My Hair",
           "songTitle": null,
           "teacher": "Val Elazegui",
@@ -629,8 +646,8 @@
         {
           "id": "show-1-23-rio",
           "type": "dance",
-          "position": 24,
-          "order": 23,
+          "position": 25,
+          "order": 24,
           "title": "Rio",
           "songTitle": null,
           "teacher": "Tasha Spalding",
@@ -654,8 +671,8 @@
         {
           "id": "show-1-24-always-remember-us-this-way",
           "type": "dance",
-          "position": 25,
-          "order": 24,
+          "position": 26,
+          "order": 25,
           "title": "Always Remember Us This Way",
           "songTitle": null,
           "teacher": "Kalley Jurgielski",
@@ -673,9 +690,9 @@
         {
           "id": "show-1-25-ballet-gold-tuesday",
           "type": "dance",
-          "position": 26,
-          "order": 25,
-          "title": "Ballet Gold (Tuesday)",
+          "position": 27,
+          "order": 26,
+          "title": "Gold Ballet (Tuesday)",
           "songTitle": "Golden",
           "teacher": "Emily Adair",
           "teachers": [
@@ -699,8 +716,8 @@
         {
           "id": "show-1-26-puttin-on-the-ritz",
           "type": "dance",
-          "position": 27,
-          "order": 26,
+          "position": 28,
+          "order": 27,
           "title": "Puttin' on the Ritz",
           "songTitle": null,
           "teacher": "Jamie Barry",
@@ -722,8 +739,8 @@
         {
           "id": "show-1-27-pearl-silver-combo",
           "type": "dance",
-          "position": 28,
-          "order": 27,
+          "position": 29,
+          "order": 28,
           "title": "Pearl/Silver Combo",
           "songTitle": "Grow",
           "teacher": "Liz Crocker",
@@ -753,8 +770,8 @@
         {
           "id": "show-1-28-the-pirates-who-dont-do-anything",
           "type": "dance",
-          "position": 29,
-          "order": 28,
+          "position": 30,
+          "order": 29,
           "title": "The Pirates Who Don't Do Anything",
           "songTitle": null,
           "teacher": "Tasha Spalding",
@@ -776,8 +793,8 @@
         {
           "id": "show-1-29-shes-in-love",
           "type": "dance",
-          "position": 30,
-          "order": 29,
+          "position": 31,
+          "order": 30,
           "title": "She's In Love",
           "songTitle": null,
           "teacher": "Katelyn Falconer",
@@ -801,9 +818,9 @@
         {
           "id": "show-1-30-ballet-pearl-and-silver-tuesday-and-ballet-pearl-silver-gold-saturday",
           "type": "dance",
-          "position": 31,
-          "order": 30,
-          "title": "Ballet Pearl & Silver (Tuesday) & Ballet Pearl/Silver/Gold (Saturday)",
+          "position": 32,
+          "order": 31,
+          "title": "Pearl & Silver Ballet (Tuesday) & Pearl/Silver/Gold Ballet (Saturday)",
           "songTitle": "Shake It Off",
           "teacher": "Emily Adair",
           "teachers": [
@@ -836,8 +853,8 @@
         {
           "id": "show-1-31-all-through-the-night",
           "type": "dance",
-          "position": 32,
-          "order": 31,
+          "position": 33,
+          "order": 32,
           "title": "All Through The Night",
           "songTitle": null,
           "teacher": "Jamie Barry",
@@ -855,8 +872,8 @@
         {
           "id": "show-1-32-you-raise-me-up",
           "type": "dance",
-          "position": 33,
-          "order": 32,
+          "position": 34,
+          "order": 33,
           "title": "You Raise Me Up",
           "songTitle": null,
           "teacher": "Jamie Barry",
@@ -882,8 +899,8 @@
         {
           "id": "show-1-33-the-mouse-house",
           "type": "dance",
-          "position": 34,
-          "order": 33,
+          "position": 35,
+          "order": 34,
           "title": "The Mouse House",
           "songTitle": null,
           "teacher": "Val Elazegui",
@@ -902,8 +919,8 @@
         {
           "id": "show-1-34-pearl-silver-gold-aqua-musical-theater",
           "type": "dance",
-          "position": 35,
-          "order": 34,
+          "position": 36,
+          "order": 35,
           "title": "Pearl/Silver/Gold/Aqua Musical Theater",
           "songTitle": "The Greatest Show",
           "teacher": "Katelyn Falconer",
@@ -941,8 +958,8 @@
         {
           "id": "show-1-35-rhinestones-2-tuesday",
           "type": "dance",
-          "position": 36,
-          "order": 35,
+          "position": 37,
+          "order": 36,
           "title": "Rhinestones 2 (Tuesday)",
           "songTitle": "It’s a Girl Party",
           "teacher": "Jordan West",
@@ -963,8 +980,8 @@
         {
           "id": "show-1-36-frozen-heart",
           "type": "dance",
-          "position": 37,
-          "order": 36,
+          "position": 38,
+          "order": 37,
           "title": "Frozen Heart",
           "songTitle": null,
           "teacher": "Jillian Richard & Jessie McElwain",
@@ -987,8 +1004,8 @@
         {
           "id": "show-1-37-finale",
           "type": "finale",
-          "position": 38,
-          "order": 37,
+          "position": 39,
+          "order": 38,
           "title": "Finale",
           "songTitle": "Dance With Me Tonight",
           "teacher": "Jamie Barry",
@@ -1002,9 +1019,9 @@
           "sourceLine": 287
         }
       ],
-      "itemCount": 38,
-      "danceCount": 34,
-      "trackableCount": 34
+      "itemCount": 39,
+      "danceCount": 35,
+      "trackableCount": 35
     },
     {
       "id": "show-2",
@@ -1276,27 +1293,10 @@
           "sourceLine": 433
         },
         {
-          "id": "show-2-11-mommy-and-me-filler",
-          "type": "filler",
-          "position": 11,
-          "order": 11,
-          "title": "Mommy & Me Filler",
-          "songTitle": null,
-          "teacher": "Jillian Richard",
-          "teachers": [
-            "Jillian Richard"
-          ],
-          "dancers": [],
-          "programNote": null,
-          "stageNote": null,
-          "trackable": false,
-          "sourceLine": 437
-        },
-        {
           "id": "show-2-12-diamond-tap-tuesday-and-thursday",
           "type": "dance",
-          "position": 12,
-          "order": 12,
+          "position": 11,
+          "order": 11,
           "title": "Diamond Tap (Tuesday & Thursday)",
           "songTitle": "Witch Doctor",
           "teacher": "Abigail Pilecki",
@@ -1317,8 +1317,8 @@
         {
           "id": "show-2-13-watch-this",
           "type": "dance",
-          "position": 13,
-          "order": 13,
+          "position": 12,
+          "order": 12,
           "title": "Watch This",
           "songTitle": null,
           "teacher": "Jamie Barry",
@@ -1343,8 +1343,8 @@
         {
           "id": "show-2-14-high-school-dance-team-thursday",
           "type": "dance",
-          "position": 14,
-          "order": 14,
+          "position": 13,
+          "order": 13,
           "title": "High School Dance Team (Thursday)",
           "songTitle": "Throwback",
           "teacher": "Liz Crocker",
@@ -1373,8 +1373,8 @@
         {
           "id": "show-2-15-aqua-opal-combo",
           "type": "dance",
-          "position": 15,
-          "order": 15,
+          "position": 14,
+          "order": 14,
           "title": "Aqua/Opal Combo",
           "songTitle": "Wanna Be",
           "teacher": "Jamie Barry",
@@ -1408,8 +1408,8 @@
         {
           "id": "show-2-16-you-ain-t-no-celebrity",
           "type": "dance",
-          "position": 16,
-          "order": 16,
+          "position": 15,
+          "order": 15,
           "title": "You Ain’t No Celebrity",
           "songTitle": null,
           "teacher": "Aaron Czuprenski",
@@ -1433,8 +1433,8 @@
         {
           "id": "show-2-17-velma-and-roxie",
           "type": "dance",
-          "position": 17,
-          "order": 17,
+          "position": 16,
+          "order": 16,
           "title": "Velma & Roxie",
           "songTitle": null,
           "teacher": "Jamie Barry",
@@ -1453,8 +1453,8 @@
         {
           "id": "show-2-18-teach-me-how-to-shimmy",
           "type": "dance",
-          "position": 18,
-          "order": 18,
+          "position": 17,
+          "order": 17,
           "title": "Teach Me How to Shimmy",
           "songTitle": null,
           "teacher": "Jamie Barry",
@@ -1479,8 +1479,8 @@
         {
           "id": "show-2-19-dang",
           "type": "dance",
-          "position": 19,
-          "order": 19,
+          "position": 18,
+          "order": 18,
           "title": "Dang",
           "songTitle": null,
           "teacher": "Kalley Jurgielski",
@@ -1504,8 +1504,8 @@
         {
           "id": "show-2-20-gold-diamond-tap-tuesday-thursday",
           "type": "dance",
-          "position": 20,
-          "order": 20,
+          "position": 19,
+          "order": 19,
           "title": "Gold/Diamond Tap (Tuesday/Thursday)",
           "songTitle": "Opalite",
           "teacher": "Abigail Pilecki",
@@ -1536,7 +1536,7 @@
         {
           "id": "show-2-intermission-482",
           "type": "intermission",
-          "position": 21,
+          "position": 20,
           "order": null,
           "title": "Intermission",
           "songTitle": null,
@@ -1552,8 +1552,8 @@
         {
           "id": "show-2-21-dudes-dance",
           "type": "featured",
-          "position": 22,
-          "order": 21,
+          "position": 21,
+          "order": 20,
           "title": "Dudes Dance",
           "songTitle": "We Will Rock You",
           "teacher": "Jamie Barry",
@@ -1569,8 +1569,8 @@
         {
           "id": "show-2-22-right-about-now",
           "type": "dance",
-          "position": 23,
-          "order": 22,
+          "position": 22,
+          "order": 21,
           "title": "Right About Now",
           "songTitle": null,
           "teacher": "Jamie Barry",
@@ -1599,8 +1599,8 @@
         {
           "id": "show-2-23-candy-man",
           "type": "dance",
-          "position": 24,
-          "order": 23,
+          "position": 23,
+          "order": 22,
           "title": "Candy Man",
           "songTitle": null,
           "teacher": "Liz Crocker",
@@ -1625,8 +1625,8 @@
         {
           "id": "show-2-24-you-took-my-look",
           "type": "dance",
-          "position": 25,
-          "order": 24,
+          "position": 24,
+          "order": 23,
           "title": "You Took My Look",
           "songTitle": null,
           "teacher": "Tasha Spalding",
@@ -1650,8 +1650,8 @@
         {
           "id": "show-2-25-i-feel-like-dancing",
           "type": "dance",
-          "position": 26,
-          "order": 25,
+          "position": 25,
+          "order": 24,
           "title": "I Feel Like Dancing",
           "songTitle": null,
           "teacher": "Abigail Pilecki",
@@ -1675,9 +1675,9 @@
         {
           "id": "show-2-26-jail-house-rock",
           "type": "dance",
-          "position": 27,
-          "order": 26,
-          "title": "Jail House Rock",
+          "position": 26,
+          "order": 25,
+          "title": "Jailhouse Rock",
           "songTitle": null,
           "teacher": "Jamie Barry",
           "teachers": [
@@ -1702,8 +1702,8 @@
         {
           "id": "show-2-27-up-all-night",
           "type": "dance",
-          "position": 28,
-          "order": 27,
+          "position": 27,
+          "order": 26,
           "title": "Up All Night",
           "songTitle": null,
           "teacher": "Kalley",
@@ -1742,8 +1742,8 @@
         {
           "id": "show-2-28-aqua-opal-hip-hop-diamond-hip-hop",
           "type": "dance",
-          "position": 29,
-          "order": 28,
+          "position": 28,
+          "order": 27,
           "title": "Aqua/Opal Hip Hop + Diamond Hip Hop",
           "songTitle": "Get Silly",
           "teacher": "Kalley",
@@ -1780,8 +1780,8 @@
         {
           "id": "show-2-29-vortex",
           "type": "dance",
-          "position": 30,
-          "order": 29,
+          "position": 29,
+          "order": 28,
           "title": "Vortex",
           "songTitle": null,
           "teacher": "Ava Curbow",
@@ -1799,8 +1799,8 @@
         {
           "id": "show-2-30-quake",
           "type": "dance",
-          "position": 31,
-          "order": 30,
+          "position": 30,
+          "order": 29,
           "title": "Quake",
           "songTitle": null,
           "teacher": "Jillian Richard & Jessie McElwain",
@@ -1830,8 +1830,8 @@
         {
           "id": "show-2-31-uncovered",
           "type": "dance",
-          "position": 32,
-          "order": 31,
+          "position": 31,
+          "order": 30,
           "title": "Uncovered",
           "songTitle": null,
           "teacher": "Marlee Bailey Samani",
@@ -1846,6 +1846,23 @@
           "stageNote": null,
           "trackable": true,
           "sourceLine": 534
+        },
+        {
+          "id": "show-2-you-lost-me",
+          "type": "dance",
+          "position": 32,
+          "order": 31,
+          "title": "You Lost Me",
+          "songTitle": null,
+          "teacher": null,
+          "teachers": [],
+          "dancers": [
+            "Lucy Knutson"
+          ],
+          "programNote": null,
+          "stageNote": null,
+          "trackable": true,
+          "sourceLine": null
         },
         {
           "id": "show-2-32-tea-party",
@@ -2073,8 +2090,8 @@
         }
       ],
       "itemCount": 41,
-      "danceCount": 37,
-      "trackableCount": 37
+      "danceCount": 38,
+      "trackableCount": 38
     },
     {
       "id": "show-3",
@@ -2416,7 +2433,7 @@
           "type": "dance",
           "position": 13,
           "order": 13,
-          "title": "Ballet Opal",
+          "title": "Opal Ballet",
           "songTitle": "Fairy of the Golden Vine",
           "teacher": "Marlee Bailey Samani",
           "teachers": [
@@ -2697,7 +2714,7 @@
           "type": "dance",
           "position": 24,
           "order": 23,
-          "title": "Thursday",
+          "title": "Thursdays",
           "songTitle": null,
           "teacher": "Emily Adair",
           "teachers": [
@@ -2750,7 +2767,7 @@
           "type": "dance",
           "position": 26,
           "order": 25,
-          "title": "Ballet Topaz / Sapphire",
+          "title": "Topaz / Sapphire Ballet",
           "songTitle": "Song Compilation",
           "teacher": "Marlee Bailey Samani",
           "teachers": [
@@ -3003,7 +3020,7 @@
           "type": "dance",
           "position": 35,
           "order": 34,
-          "title": "Ballet Diamond",
+          "title": "Diamond Ballet",
           "songTitle": "NAME??",
           "teacher": "Emily Adair",
           "teachers": [
@@ -3481,27 +3498,10 @@
           "sourceLine": 987
         },
         {
-          "id": "show-4-09-mommy-and-me-filler",
-          "type": "filler",
-          "position": 9,
-          "order": 9,
-          "title": "Mommy & Me Filler",
-          "songTitle": null,
-          "teacher": "Jillian Richard",
-          "teachers": [
-            "Jillian Richard"
-          ],
-          "dancers": [],
-          "programNote": null,
-          "stageNote": null,
-          "trackable": false,
-          "sourceLine": 991
-        },
-        {
           "id": "show-4-10-mama-knows-best",
           "type": "dance",
-          "position": 10,
-          "order": 10,
+          "position": 9,
+          "order": 9,
           "title": "Mama Knows Best",
           "songTitle": null,
           "teacher": "Liz Crocker",
@@ -3528,8 +3528,8 @@
         {
           "id": "show-4-11-untamed",
           "type": "dance",
-          "position": 11,
-          "order": 11,
+          "position": 10,
+          "order": 10,
           "title": "Untamed",
           "songTitle": null,
           "teacher": "Matthew Deloch",
@@ -3583,8 +3583,8 @@
         {
           "id": "show-4-12-girls-just-want-to-have-fun",
           "type": "dance",
-          "position": 12,
-          "order": 12,
+          "position": 11,
+          "order": 11,
           "title": "Girls Just Want to Have Fun",
           "songTitle": null,
           "teacher": "Jillian Richard",
@@ -3603,8 +3603,8 @@
         {
           "id": "show-4-13-i-lived",
           "type": "dance",
-          "position": 13,
-          "order": 13,
+          "position": 12,
+          "order": 12,
           "title": "I Lived",
           "songTitle": null,
           "teacher": "Jamie Barry",
@@ -3623,8 +3623,8 @@
         {
           "id": "show-4-14-platinum-combo-thursday",
           "type": "dance",
-          "position": 14,
-          "order": 14,
+          "position": 13,
+          "order": 13,
           "title": "Platinum Combo (Thursday)",
           "songTitle": "Set Fire to the Rain",
           "teacher": "Jamie Barry",
@@ -3651,9 +3651,9 @@
         {
           "id": "show-4-15-ballet-onyx-monday-and-tuesday",
           "type": "dance",
-          "position": 15,
-          "order": 15,
-          "title": "Ballet Onyx (Monday & Tuesday)",
+          "position": 14,
+          "order": 14,
+          "title": "Onyx Ballet (Monday & Tuesday)",
           "songTitle": "Swan",
           "teacher": "Marlee Bailey Samani",
           "teachers": [
@@ -3687,8 +3687,8 @@
         {
           "id": "show-4-16-no-hard-feelings",
           "type": "dance",
-          "position": 16,
-          "order": 16,
+          "position": 15,
+          "order": 15,
           "title": "No Hard Feelings",
           "songTitle": null,
           "teacher": "Jamie Barry",
@@ -3706,8 +3706,8 @@
         {
           "id": "show-4-17-call-me-back",
           "type": "dance",
-          "position": 17,
-          "order": 17,
+          "position": 16,
+          "order": 16,
           "title": "Call Me Back",
           "songTitle": null,
           "teacher": "Liz Crocker",
@@ -3732,8 +3732,8 @@
         {
           "id": "show-4-18-moulin-rouge",
           "type": "dance",
-          "position": 18,
-          "order": 18,
+          "position": 17,
+          "order": 17,
           "title": "Moulin Rouge",
           "songTitle": null,
           "teacher": "Jamie Barry",
@@ -3763,7 +3763,7 @@
         {
           "id": "show-4-intermission-1064",
           "type": "intermission",
-          "position": 19,
+          "position": 18,
           "order": null,
           "title": "Intermission",
           "songTitle": null,
@@ -3779,8 +3779,8 @@
         {
           "id": "show-4-19-dudes-dance",
           "type": "featured",
-          "position": 20,
-          "order": 19,
+          "position": 19,
+          "order": 18,
           "title": "Dudes Dance",
           "songTitle": "We Will Rock You",
           "teacher": "Jamie Barry",
@@ -3796,8 +3796,8 @@
         {
           "id": "show-4-20-heaven",
           "type": "dance",
-          "position": 21,
-          "order": 20,
+          "position": 20,
+          "order": 19,
           "title": "Heaven",
           "songTitle": null,
           "teacher": "Keri LaGrand",
@@ -3821,8 +3821,8 @@
         {
           "id": "show-4-21-bloodbag",
           "type": "dance",
-          "position": 22,
-          "order": 21,
+          "position": 21,
+          "order": 20,
           "title": "Bloodbag",
           "songTitle": null,
           "teacher": "Madeline",
@@ -3848,8 +3848,8 @@
         {
           "id": "show-4-22-bad-thing",
           "type": "dance",
-          "position": 23,
-          "order": 22,
+          "position": 22,
+          "order": 21,
           "title": "Bad Thing",
           "songTitle": null,
           "teacher": "Christina Grady",
@@ -3873,8 +3873,8 @@
         {
           "id": "show-4-23-bite-your-tongue",
           "type": "dance",
-          "position": 24,
-          "order": 23,
+          "position": 23,
+          "order": 22,
           "title": "Bite Your Tongue",
           "songTitle": null,
           "teacher": "Matthew Deloch",
@@ -3894,8 +3894,8 @@
         {
           "id": "show-4-24-college-dance-team-thursday",
           "type": "dance",
-          "position": 25,
-          "order": 24,
+          "position": 24,
+          "order": 23,
           "title": "College Dance Team (Thursday)",
           "songTitle": "Dangerously in Love",
           "teacher": "Chasity Tyus",
@@ -3925,8 +3925,8 @@
         {
           "id": "show-4-25-goodbye-yellow-brick-road",
           "type": "dance",
-          "position": 26,
-          "order": 25,
+          "position": 25,
+          "order": 24,
           "title": "Goodbye Yellow Brick Road",
           "songTitle": null,
           "teacher": "Keri LaGrand",
@@ -3944,8 +3944,8 @@
         {
           "id": "show-4-26-gossip",
           "type": "dance",
-          "position": 27,
-          "order": 26,
+          "position": 26,
+          "order": 25,
           "title": "Gossip",
           "songTitle": null,
           "teacher": "Aaron Czuprenski",
@@ -3969,8 +3969,8 @@
         {
           "id": "show-4-27-onyx-contemporary-tuesday",
           "type": "dance",
-          "position": 28,
-          "order": 27,
+          "position": 27,
+          "order": 26,
           "title": "Onyx Contemporary (Tuesday)",
           "songTitle": "Something in the Heavens",
           "teacher": "Abigail Pilecki",
@@ -3998,8 +3998,8 @@
         {
           "id": "show-4-28-warrior",
           "type": "dance",
-          "position": 29,
-          "order": 28,
+          "position": 28,
+          "order": 27,
           "title": "Warrior",
           "songTitle": null,
           "teacher": "Kalley",
@@ -4029,8 +4029,8 @@
         {
           "id": "show-4-29-the-end",
           "type": "dance",
-          "position": 30,
-          "order": 29,
+          "position": 29,
+          "order": 28,
           "title": "The End",
           "songTitle": null,
           "teacher": "Sammee Schirmer",
@@ -4048,8 +4048,8 @@
         {
           "id": "show-4-30-stop-in-nevada",
           "type": "dance",
-          "position": 31,
-          "order": 30,
+          "position": 30,
+          "order": 29,
           "title": "Stop in Nevada",
           "songTitle": null,
           "teacher": "Kalley",
@@ -4072,8 +4072,8 @@
         {
           "id": "show-4-31-die-on-this-hill",
           "type": "dance",
-          "position": 32,
-          "order": 31,
+          "position": 31,
+          "order": 30,
           "title": "Die on This Hill",
           "songTitle": null,
           "teacher": "Lonni Olson",
@@ -4094,8 +4094,8 @@
         {
           "id": "show-4-32-take-it",
           "type": "dance",
-          "position": 33,
-          "order": 32,
+          "position": 32,
+          "order": 31,
           "title": "Take It",
           "songTitle": null,
           "teacher": "Jamie Barry",
@@ -4120,8 +4120,8 @@
         {
           "id": "show-4-33-purple-hat",
           "type": "dance",
-          "position": 34,
-          "order": 33,
+          "position": 33,
+          "order": 32,
           "title": "Purple Hat",
           "songTitle": null,
           "teacher": "Jamie Barry",
@@ -4162,8 +4162,8 @@
         {
           "id": "show-4-34-ode-to-a-love-lost",
           "type": "dance",
-          "position": 35,
-          "order": 34,
+          "position": 34,
+          "order": 33,
           "title": "Ode to a Love Lost",
           "songTitle": null,
           "teacher": "Madeline Mihacevich",
@@ -4181,8 +4181,8 @@
         {
           "id": "show-4-35-onyx-platinum-sapphire-musical-theater-thursday",
           "type": "dance",
-          "position": 36,
-          "order": 35,
+          "position": 35,
+          "order": 34,
           "title": "Onyx/Platinum/Sapphire Musical Theater (Thursday)",
           "songTitle": "Go To the Movies",
           "teacher": "Katelyn Falconer",
@@ -4209,8 +4209,8 @@
         {
           "id": "show-4-36-onyx-tap-tuesday-and-thursday",
           "type": "dance",
-          "position": 37,
-          "order": 36,
+          "position": 36,
+          "order": 35,
           "title": "Onyx Tap (Tuesday & Thursday)",
           "songTitle": "Idol",
           "teacher": "Abigail Pilecki",
@@ -4234,8 +4234,8 @@
         {
           "id": "show-4-37-canned-heat",
           "type": "dance",
-          "position": 38,
-          "order": 37,
+          "position": 37,
+          "order": 36,
           "title": "Canned Heat",
           "songTitle": null,
           "teacher": "Jillian Richard & Jessie McElwain",
@@ -4267,8 +4267,8 @@
         {
           "id": "show-4-38-sapphire-combo-monday",
           "type": "dance",
-          "position": 39,
-          "order": 38,
+          "position": 38,
+          "order": 37,
           "title": "Sapphire Combo (Monday)",
           "songTitle": "Jealous Type",
           "teacher": "Jamie Barry",
@@ -4304,8 +4304,8 @@
         {
           "id": "show-4-39-finale",
           "type": "finale",
-          "position": 40,
-          "order": 39,
+          "position": 39,
+          "order": 38,
           "title": "Finale",
           "songTitle": "Dance With Me Tonight",
           "teacher": "Jamie Barry",
@@ -4319,7 +4319,7 @@
           "sourceLine": 1167
         }
       ],
-      "itemCount": 40,
+      "itemCount": 39,
       "danceCount": 36,
       "trackableCount": 36
     }
