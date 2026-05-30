@@ -742,14 +742,8 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
         const nextState = await fetchLiveState();
         if (!isMounted) return;
 
-        setLiveState((previousState) => {
-          if (isUninitializedLiveState(nextState) && !isUninitializedLiveState(previousState)) {
-            return previousState;
-          }
-
-          cacheLiveState(nextState);
-          return nextState;
-        });
+        setLiveState(nextState);
+        cacheLiveState(nextState);
       } catch {
         // Keep the last known live item visible through transient polling failures.
       }

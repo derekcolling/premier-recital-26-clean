@@ -13,9 +13,10 @@ async function parseLiveStateResponse(response: Response) {
 }
 
 export async function fetchLiveState() {
-  const response = await fetch(LIVE_STATE_ENDPOINT, {
+  const liveStateUrl = `${LIVE_STATE_ENDPOINT}?t=${Date.now()}`;
+  const response = await fetch(liveStateUrl, {
     cache: "no-store",
-    headers: { Accept: "application/json" },
+    headers: { Accept: "application/json", "Cache-Control": "no-cache" },
   });
 
   return parseLiveStateResponse(response);

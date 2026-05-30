@@ -1,4 +1,4 @@
-const CACHE_NAME = "premier-events-pwa-v3";
+const CACHE_NAME = "premier-events-pwa-v4";
 const APP_SHELL = ["/", "/manifest.webmanifest"];
 
 self.addEventListener("install", (event) => {
@@ -19,6 +19,14 @@ self.addEventListener("activate", (event) => {
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
   if (!event.request.url.startsWith(self.location.origin)) return;
+
+  const requestUrl = new URL(event.request.url);
+  const isLiveStateRequest = requestUrl.pathname.endsWith("/api/elev8/live");
+
+  if (isLiveStateRequest) {
+    event.respondWith(fetch(event.request, { cache: "no-store" }));
+    return;
+  }
 
   event.respondWith(
     fetch(event.request)

@@ -127,11 +127,7 @@ export function Elev8Admin({ program }: { program: Elev8ProgramData }) {
         const nextState = await fetchLiveState();
         if (!isMounted) return;
 
-        setLiveState((previousState) =>
-          isUninitializedLiveState(nextState) && !isUninitializedLiveState(previousState)
-            ? previousState
-            : nextState,
-        );
+        setLiveState(nextState);
         if (!isUninitializedLiveState(nextState)) {
           setSelectedShowId(nextState.activeShowId ?? firstShowId);
         }
