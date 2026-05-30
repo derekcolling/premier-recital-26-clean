@@ -1854,15 +1854,17 @@
           "order": 31,
           "title": "You Lost Me",
           "songTitle": null,
-          "teacher": null,
-          "teachers": [],
+          "teacher": "Lonni Olson",
+          "teachers": [
+            "Lonni Olson"
+          ],
           "dancers": [
             "Lucy Knutson"
           ],
-          "programNote": null,
+          "programNote": "Lucy Knutson Senior Solo",
           "stageNote": null,
           "trackable": true,
-          "sourceLine": null
+          "sourceLine": 538
         },
         {
           "id": "show-2-32-tea-party",

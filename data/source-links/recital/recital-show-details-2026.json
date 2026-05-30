@@ -2358,16 +2358,18 @@
           "match_key": "finale"
         },
         {
-          "raw_heading": "Lucy Knutson Senior Solo (You Lost Me) -",
+          "raw_heading": "Lucy Knutson Senior Solo (You Lost Me) - Lonni Olson",
           "title": "You Lost Me",
           "song_title": null,
-          "instructor": null,
-          "category": "dance",
-          "source_line": null,
+          "instructor": "Lonni Olson",
+          "category": "solo",
+          "source_line": 538,
           "show_number": 2,
           "order": 31,
           "id": "show-2-you-lost-me",
-          "instructors": [],
+          "instructors": [
+            "Lonni Olson"
+          ],
           "dancers": [
             "Lucy Knutson"
           ],
