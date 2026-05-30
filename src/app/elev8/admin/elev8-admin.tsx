@@ -41,8 +41,7 @@ function getItemTypeLabel(item: Elev8ProgramItem) {
   if (item.type === "intermission") return "Intermission";
   if (item.type === "finale") return "Finale";
   if (item.type === "featured") return "Featured";
-  if (item.type === "filler") return "Filler";
-  return "Marker";
+  return "Program";
 }
 
 function getSelectedShow(program: Elev8ProgramData, selectedShowId: string) {

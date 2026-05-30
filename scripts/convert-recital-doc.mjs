@@ -235,7 +235,7 @@ function extractSongAndTitle(rawTitle) {
 
 function getCategory(title) {
   if (/finale/i.test(title)) return "finale";
-  if (/filler/i.test(title)) return "filler";
+  if (/filler/i.test(title)) return "program";
   if (/dudes dance|daddy daughter/i.test(title)) return "featured";
   return "dance";
 }

@@ -46,7 +46,7 @@
         },
         {
           "type": "routine",
-          "routine_id": "show-1-05-mommy-and-me-filler"
+          "routine_id": "show-1-05-mommy-and-me-dance"
         },
         {
           "type": "routine",
@@ -292,11 +292,11 @@
           "title": "Mommy & ME Dance",
           "song_title": null,
           "instructor": "Jillian Richard",
-          "category": "filler",
+          "category": "program",
           "source_line": 41,
           "show_number": 1,
           "order": 5,
-          "id": "show-1-05-mommy-and-me-filler",
+          "id": "show-1-05-mommy-and-me-dance",
           "instructors": [
             "Jillian Richard"
           ],
@@ -1075,9 +1075,9 @@
           "match_key": "pearl silver gold aqua musical theater"
         },
         {
-          "raw_heading": "Rhinestones 2 (Tuesday) (It’s a Girl Party) - Jordan West",
+          "raw_heading": "Rhinestones 2 (Tuesday) (It\u2019s a Girl Party) - Jordan West",
           "title": "Rhinestones 2 (Tuesday)",
-          "song_title": "It’s a Girl Party",
+          "song_title": "It\u2019s a Girl Party",
           "instructor": "Jordan West",
           "category": "dance",
           "source_line": 276,
@@ -1121,7 +1121,7 @@
           "match_key": "frozen heart"
         },
         {
-          "raw_heading": "FINALE: “Dance With Me Tonight - Jamie Barry",
+          "raw_heading": "FINALE: \u201cDance With Me Tonight - Jamie Barry",
           "title": "Finale",
           "song_title": "Dance With Me Tonight",
           "instructor": "Jamie Barry",
@@ -1708,8 +1708,8 @@
           "match_key": "aqua opal combo"
         },
         {
-          "raw_heading": "You Ain’t No Celebrity - Aaron Czuprenski",
-          "title": "You Ain’t No Celebrity",
+          "raw_heading": "You Ain\u2019t No Celebrity - Aaron Czuprenski",
+          "title": "You Ain\u2019t No Celebrity",
           "song_title": null,
           "instructor": "Aaron Czuprenski",
           "category": "dance",
@@ -2341,7 +2341,7 @@
           "match_key": "telephone"
         },
         {
-          "raw_heading": "FINALE - “Dance With Me Tonight” - Jamie Barry",
+          "raw_heading": "FINALE - \u201cDance With Me Tonight\u201d - Jamie Barry",
           "title": "Finale",
           "song_title": "Dance With Me Tonight",
           "instructor": "Jamie Barry",
@@ -2441,7 +2441,7 @@
           "type": "routine",
           "routine_id": "show-3-08-i-don-t-remember",
           "order": 8,
-          "title": "I Don’t Remember",
+          "title": "I Don\u2019t Remember",
           "source_line": 674
         },
         {
@@ -2691,7 +2691,7 @@
       ],
       "routines": [
         {
-          "raw_heading": "Platinum/Sapphire Contemporary (Sign of the Times) – Jamie Barry",
+          "raw_heading": "Platinum/Sapphire Contemporary (Sign of the Times) \u2013 Jamie Barry",
           "title": "Platinum/Sapphire Contemporary",
           "song_title": "Sign of the Times",
           "instructor": "Jamie Barry",
@@ -2745,7 +2745,7 @@
           "match_key": "platinum sapphire contemporary"
         },
         {
-          "raw_heading": "Slow Me Down – Kalley Jurgielski",
+          "raw_heading": "Slow Me Down \u2013 Kalley Jurgielski",
           "title": "Slow Me Down",
           "song_title": null,
           "instructor": "Kalley Jurgielski",
@@ -2771,7 +2771,7 @@
           "match_key": "slow me down"
         },
         {
-          "raw_heading": "Snow Angels – Tasha Spalding & Liz Crocker",
+          "raw_heading": "Snow Angels \u2013 Tasha Spalding & Liz Crocker",
           "title": "Snow Angels",
           "song_title": null,
           "instructor": "Tasha Spalding & Liz Crocker",
@@ -2789,7 +2789,7 @@
             "Britton Wirfel",
             "Brooklyn Woolery",
             "Chloe Morris",
-            "Eloise O’Connor",
+            "Eloise O\u2019Connor",
             "Evietta Welsh",
             "Hadley Wassenberg",
             "Reagan Rojas",
@@ -2801,7 +2801,7 @@
           "match_key": "snow angels"
         },
         {
-          "raw_heading": "Diamond Combo (Thumbs) – Katelyn Falconer",
+          "raw_heading": "Diamond Combo (Thumbs) \u2013 Katelyn Falconer",
           "title": "Diamond Combo",
           "song_title": "Thumbs",
           "instructor": "Katelyn Falconer",
@@ -2852,7 +2852,7 @@
           "match_key": "ode to a love lost"
         },
         {
-          "raw_heading": "Sunday Kind of Love – Emily Zachary",
+          "raw_heading": "Sunday Kind of Love \u2013 Emily Zachary",
           "title": "Sunday Kind of Love",
           "song_title": null,
           "instructor": "Emily Zachary",
@@ -2877,7 +2877,7 @@
           "match_key": "sunday kind of love"
         },
         {
-          "raw_heading": "Badder Than You– Katelyn Falconer",
+          "raw_heading": "Badder Than You\u2013 Katelyn Falconer",
           "title": "Badder Than You",
           "song_title": null,
           "instructor": "Katelyn Falconer",
@@ -2897,8 +2897,8 @@
           "match_key": "badder than you"
         },
         {
-          "raw_heading": "I Don’t Remember – Jamie Barry",
-          "title": "I Don’t Remember",
+          "raw_heading": "I Don\u2019t Remember \u2013 Jamie Barry",
+          "title": "I Don\u2019t Remember",
           "song_title": null,
           "instructor": "Jamie Barry",
           "category": "dance",
@@ -2943,7 +2943,7 @@
           "match_key": "no hard feelings"
         },
         {
-          "raw_heading": "Happy Feet – Tasha Spalding",
+          "raw_heading": "Happy Feet \u2013 Tasha Spalding",
           "title": "Happy Feet",
           "song_title": null,
           "instructor": "Tasha Spalding",
@@ -2966,7 +2966,7 @@
           "match_key": "happy feet"
         },
         {
-          "raw_heading": "Not About You – Derrick Schrader",
+          "raw_heading": "Not About You \u2013 Derrick Schrader",
           "title": "Not About You",
           "song_title": null,
           "instructor": "Derrick Schrader",
@@ -2986,7 +2986,7 @@
           "match_key": "not about you"
         },
         {
-          "raw_heading": "Water From the Moon – Keri LaGrand",
+          "raw_heading": "Water From the Moon \u2013 Keri LaGrand",
           "title": "Water From the Moon",
           "song_title": null,
           "instructor": "Keri LaGrand",
@@ -3058,7 +3058,7 @@
           "match_key": "opal ballet"
         },
         {
-          "raw_heading": "Like Jennie – Katelyn Falconer",
+          "raw_heading": "Like Jennie \u2013 Katelyn Falconer",
           "title": "Like Jennie",
           "song_title": null,
           "instructor": "Katelyn Falconer",
@@ -3085,7 +3085,7 @@
           "match_key": "like jennie"
         },
         {
-          "raw_heading": "Diamond Tap (Monday) (I Can Hear the Bells)– Abigail",
+          "raw_heading": "Diamond Tap (Monday) (I Can Hear the Bells)\u2013 Abigail",
           "title": "Diamond Tap (Monday)",
           "song_title": "I Can Hear the Bells",
           "instructor": "Abigail",
@@ -3129,7 +3129,7 @@
           "match_key": "death wish"
         },
         {
-          "raw_heading": "Crush On You – Jamie Barry",
+          "raw_heading": "Crush On You \u2013 Jamie Barry",
           "title": "Crush On You",
           "song_title": null,
           "instructor": "Jamie Barry",
@@ -3183,7 +3183,7 @@
           "match_key": "opal diamond contemporary monday"
         },
         {
-          "raw_heading": "Onyx Combo (Who Are You) – Kalley Jurgielski",
+          "raw_heading": "Onyx Combo (Who Are You) \u2013 Kalley Jurgielski",
           "title": "Onyx Combo",
           "song_title": "Who Are You",
           "instructor": "Kalley Jurgielski",
@@ -3212,7 +3212,7 @@
           "match_key": "onyx combo"
         },
         {
-          "raw_heading": "The Chain – Jamie Barry",
+          "raw_heading": "The Chain \u2013 Jamie Barry",
           "title": "The Chain",
           "song_title": null,
           "instructor": "Jamie Barry",
@@ -3239,7 +3239,7 @@
           "match_key": "the chain"
         },
         {
-          "raw_heading": "Red Ribbon – Jillian Richard & Jessie McElwain",
+          "raw_heading": "Red Ribbon \u2013 Jillian Richard & Jessie McElwain",
           "title": "Red Ribbon",
           "song_title": null,
           "instructor": "Jillian Richard & Jessie McElwain",
@@ -3308,7 +3308,7 @@
           "match_key": "thursdays"
         },
         {
-          "raw_heading": "The Journey – Jamie Barry",
+          "raw_heading": "The Journey \u2013 Jamie Barry",
           "title": "The Journey",
           "song_title": null,
           "instructor": "Jamie Barry",
@@ -3382,7 +3382,7 @@
           "match_key": "topaz sapphire ballet"
         },
         {
-          "raw_heading": "Good Morning – Abigail Pilecki",
+          "raw_heading": "Good Morning \u2013 Abigail Pilecki",
           "title": "Good Morning",
           "song_title": null,
           "instructor": "Abigail Pilecki",
@@ -3402,7 +3402,7 @@
           "match_key": "good morning"
         },
         {
-          "raw_heading": "Change Is Everything – Liz Crocker & Tasha Spalding",
+          "raw_heading": "Change Is Everything \u2013 Liz Crocker & Tasha Spalding",
           "title": "Change Is Everything",
           "song_title": null,
           "instructor": "Liz Crocker & Tasha Spalding",
@@ -3455,7 +3455,7 @@
           "match_key": "all through the night"
         },
         {
-          "raw_heading": "Onyx Hip Hop – Kalley Jurgielski",
+          "raw_heading": "Onyx Hip Hop \u2013 Kalley Jurgielski",
           "title": "Onyx Hip Hop",
           "song_title": null,
           "instructor": "Kalley Jurgielski",
@@ -3484,7 +3484,7 @@
           "match_key": "onyx hip hop"
         },
         {
-          "raw_heading": "Troop Beverly Hills – Tasha Spalding",
+          "raw_heading": "Troop Beverly Hills \u2013 Tasha Spalding",
           "title": "Troop Beverly Hills",
           "song_title": null,
           "instructor": "Tasha Spalding",
@@ -3514,7 +3514,7 @@
           "match_key": "troop beverly hills"
         },
         {
-          "raw_heading": "Ballad of a Thin Man – Kalley Jurgielski",
+          "raw_heading": "Ballad of a Thin Man \u2013 Kalley Jurgielski",
           "title": "Ballad of a Thin Man",
           "song_title": null,
           "instructor": "Kalley Jurgielski",
@@ -3543,7 +3543,7 @@
           "match_key": "ballad of a thin man"
         },
         {
-          "raw_heading": "Schoolin Life – Kalley Jurgielski",
+          "raw_heading": "Schoolin Life \u2013 Kalley Jurgielski",
           "title": "Schoolin Life",
           "song_title": null,
           "instructor": "Kalley Jurgielski",
@@ -3625,7 +3625,7 @@
           "match_key": "diamond ballet"
         },
         {
-          "raw_heading": "Diamond/Opal Tap (Beat It) – Tasha",
+          "raw_heading": "Diamond/Opal Tap (Beat It) \u2013 Tasha",
           "title": "Diamond/Opal Tap",
           "song_title": "Beat It",
           "instructor": "Tasha",
@@ -3690,7 +3690,7 @@
           "match_key": "platinum onyx tap thursday"
         },
         {
-          "raw_heading": "Me Against the Music – Kalley Jurgielski",
+          "raw_heading": "Me Against the Music \u2013 Kalley Jurgielski",
           "title": "Me Against the Music",
           "song_title": null,
           "instructor": "Kalley Jurgielski",
@@ -3710,7 +3710,7 @@
           "match_key": "me against the music"
         },
         {
-          "raw_heading": "Platinum/Sapphire Tap (Nice To Each Other) – Abigail Pilecki",
+          "raw_heading": "Platinum/Sapphire Tap (Nice To Each Other) \u2013 Abigail Pilecki",
           "title": "Platinum/Sapphire Tap",
           "song_title": "Nice To Each Other",
           "instructor": "Abigail Pilecki",
@@ -3746,7 +3746,7 @@
           "match_key": "platinum sapphire tap"
         },
         {
-          "raw_heading": "Vogue – Jillian Richard & Jessie McElwain",
+          "raw_heading": "Vogue \u2013 Jillian Richard & Jessie McElwain",
           "title": "Vogue",
           "song_title": null,
           "instructor": "Jillian Richard & Jessie McElwain",
@@ -3780,7 +3780,7 @@
           "match_key": "vogue"
         },
         {
-          "raw_heading": "See You Again – Jamie Barry",
+          "raw_heading": "See You Again \u2013 Jamie Barry",
           "title": "See You Again",
           "song_title": null,
           "instructor": "Jamie Barry",
@@ -3806,7 +3806,7 @@
           "match_key": "see you again"
         },
         {
-          "raw_heading": "FINALE - “Dance With Me Tonight” - Jamie Barry",
+          "raw_heading": "FINALE - \u201cDance With Me Tonight\u201d - Jamie Barry",
           "title": "Finale",
           "song_title": "Dance With Me Tonight",
           "instructor": "Jamie Barry",
@@ -5016,7 +5016,7 @@
           "match_key": "sapphire combo monday"
         },
         {
-          "raw_heading": "FINALE - “Dance With Me Tonight” - Jamie Barry",
+          "raw_heading": "FINALE - \u201cDance With Me Tonight\u201d - Jamie Barry",
           "title": "Finale",
           "song_title": "Dance With Me Tonight",
           "instructor": "Jamie Barry",
@@ -5109,7 +5109,7 @@
     "Ella Jergens",
     "Ellie Hughes",
     "Eloise O'Connor",
-    "Eloise O’Connor",
+    "Eloise O\u2019Connor",
     "Eloise Oconnor",
     "Eloise Walker",
     "Emerson Penny",

@@ -112,8 +112,6 @@ function getTypeLabel(item: Elev8ProgramItem) {
   switch (item.type) {
     case "intermission":
       return "Intermission";
-    case "filler":
-      return "Filler";
     case "featured":
       return "Featured";
     case "finale":

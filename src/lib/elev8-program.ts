@@ -1,7 +1,7 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 
-export type ProgramItemType = "dance" | "filler" | "featured" | "finale" | "intermission" | "marker";
+export type ProgramItemType = "dance" | "featured" | "finale" | "intermission" | "marker";
 
 export type Elev8ProgramItem = {
   id: string;

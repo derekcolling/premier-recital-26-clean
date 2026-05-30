@@ -13,8 +13,11 @@ export const metadata: Metadata = {
     title: "ELEV8 Recital",
   },
   icons: {
-    icon: `${basePath}/icons/icon-192.png`,
-    apple: `${basePath}/icons/icon-192.png`,
+    icon: [
+      { url: `${basePath}/icons/favicon-32.png`, sizes: "32x32", type: "image/png" },
+      { url: `${basePath}/icons/icon-192.png`, sizes: "192x192", type: "image/png" },
+    ],
+    apple: `${basePath}/icons/apple-touch-icon.png`,
   },
 };
 

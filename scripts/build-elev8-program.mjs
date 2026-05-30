@@ -43,7 +43,7 @@ function slugify(value) {
 }
 
 function toItemType(routine) {
-  if (routine.category === "filler") return "filler";
+  if (routine.category === "program") return "marker";
   if (routine.category === "featured") return "featured";
   if (routine.category === "finale") return "finale";
   return "dance";
