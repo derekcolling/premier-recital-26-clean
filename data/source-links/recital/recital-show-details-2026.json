@@ -16,8 +16,8 @@
     "show_count": 4,
     "routine_count": 158,
     "dancer_name_count": 183,
-    "routines_with_dancers": 147,
-    "routines_without_dancers": 11
+    "routines_with_dancers": 148,
+    "routines_without_dancers": 10
   },
   "shows": [
     {
@@ -30,108 +30,67 @@
       "items": [
         {
           "type": "routine",
-          "routine_id": "show-1-01-big-bad-wolf",
-          "order": 1,
-          "title": "Big Bad Wolf",
-          "source_line": 24
+          "routine_id": "show-1-01-big-bad-wolf"
         },
         {
           "type": "routine",
-          "routine_id": "show-1-02-rhinestones-1-monday",
-          "order": 2,
-          "title": "Rhinestones 1 (Monday)",
-          "source_line": 28
+          "routine_id": "show-1-02-rhinestones-1-monday"
         },
         {
           "type": "routine",
-          "routine_id": "show-1-03-pink-cadillac",
-          "order": 3,
-          "title": "Pink Cadillac",
-          "source_line": 33
+          "routine_id": "show-1-03-pink-cadillac"
         },
         {
           "type": "routine",
-          "routine_id": "show-1-04-we-feel-cute",
-          "order": 4,
-          "title": "We Feel Cute",
-          "source_line": 37
+          "routine_id": "show-1-04-we-feel-cute"
         },
         {
           "type": "routine",
-          "routine_id": "show-1-05-mommy-and-me-filler",
-          "order": 5,
-          "title": "Mommy & Me Filler",
-          "source_line": 41
+          "routine_id": "show-1-05-mommy-and-me-filler"
         },
         {
           "type": "routine",
-          "routine_id": "show-1-06-ballet-aqua-tuesday-and-thursday",
-          "order": 6,
-          "title": "Ballet Aqua (Tuesday & Thursday)",
-          "source_line": 44
+          "routine_id": "show-1-06-ballet-aqua-tuesday-and-thursday"
         },
         {
           "type": "routine",
-          "routine_id": "show-1-07-rhinestones-1-wednesday",
-          "order": 7,
-          "title": "Rhinestones 1 (Wednesday)",
-          "source_line": 52
+          "routine_id": "show-1-out-of-this-world"
         },
         {
           "type": "routine",
-          "routine_id": "show-1-08-pearl-hip-hop-thursday-and-silver-gold-hip-hop",
-          "order": 8,
-          "title": "Pearl Hip Hop (Thursday) & Silver/Gold Hip Hop",
-          "source_line": 62
+          "routine_id": "show-1-07-rhinestones-1-wednesday"
         },
         {
           "type": "routine",
-          "routine_id": "show-1-09-i-never-dreamed-youd-leave-in-summer",
-          "order": 9,
-          "title": "I Never Dreamed You'd Leave in Summer",
-          "source_line": 66
+          "routine_id": "show-1-08-pearl-hip-hop-thursday-and-silver-gold-hip-hop"
         },
         {
           "type": "routine",
-          "routine_id": "show-1-10-gold-combo",
-          "order": 10,
-          "title": "Gold Combo",
-          "source_line": 75
+          "routine_id": "show-1-09-i-never-dreamed-youd-leave-in-summer"
         },
         {
           "type": "routine",
-          "routine_id": "show-1-11-islands",
-          "order": 11,
-          "title": "Islands",
-          "source_line": 79
+          "routine_id": "show-1-10-gold-combo"
         },
         {
           "type": "routine",
-          "routine_id": "show-1-12-ballet-silver-thursday",
-          "order": 12,
-          "title": "Ballet Silver (Thursday)",
-          "source_line": 83
+          "routine_id": "show-1-11-islands"
         },
         {
           "type": "routine",
-          "routine_id": "show-1-13-lets-party",
-          "order": 13,
-          "title": "Let's Party",
-          "source_line": 91
+          "routine_id": "show-1-12-ballet-silver-thursday"
         },
         {
           "type": "routine",
-          "routine_id": "show-1-14-paw-patrol",
-          "order": 14,
-          "title": "Paw Patrol",
-          "source_line": 98
+          "routine_id": "show-1-13-lets-party"
         },
         {
           "type": "routine",
-          "routine_id": "show-1-15-gold-tap-monday",
-          "order": 15,
-          "title": "Gold Tap (Monday)",
-          "source_line": 105
+          "routine_id": "show-1-14-paw-patrol"
+        },
+        {
+          "type": "routine",
+          "routine_id": "show-1-15-gold-tap-monday"
         },
         {
           "type": "intermission",
@@ -141,157 +100,91 @@
         },
         {
           "type": "routine",
-          "routine_id": "show-1-16-daddy-daughter-dance",
-          "order": 16,
-          "title": "Daddy Daughter Dance",
-          "source_line": 124
+          "routine_id": "show-1-16-daddy-daughter-dance"
         },
         {
           "type": "routine",
-          "routine_id": "show-1-17-funky-monkey",
-          "order": 17,
-          "title": "Funky Monkey",
-          "source_line": 130
+          "routine_id": "show-1-17-funky-monkey"
         },
         {
           "type": "routine",
-          "routine_id": "show-1-18-bad-guy",
-          "order": 18,
-          "title": "Bad Guy",
-          "source_line": 177
+          "routine_id": "show-1-18-bad-guy"
         },
         {
           "type": "routine",
-          "routine_id": "show-1-19-rhinestones-2-monday",
-          "order": 19,
-          "title": "Rhinestones 2 (Monday)",
-          "source_line": 181
+          "routine_id": "show-1-19-rhinestones-2-monday"
         },
         {
           "type": "routine",
-          "routine_id": "show-1-20-pearl-silver-tap-wednesday",
-          "order": 20,
-          "title": "Pearl/Silver Tap (Wednesday)",
-          "source_line": 188
+          "routine_id": "show-1-20-pearl-silver-tap-wednesday"
         },
         {
           "type": "routine",
-          "routine_id": "show-1-21-tiny-tendu-tuesday",
-          "order": 21,
-          "title": "Tiny Tendu (Tuesday)",
-          "source_line": 192
+          "routine_id": "show-1-21-tiny-tendu-tuesday"
         },
         {
           "type": "routine",
-          "routine_id": "show-1-22-outta-my-hair",
-          "order": 22,
-          "title": "Outta My Hair",
-          "source_line": 196
+          "routine_id": "show-1-22-outta-my-hair"
         },
         {
           "type": "routine",
-          "routine_id": "show-1-23-rio",
-          "order": 23,
-          "title": "Rio",
-          "source_line": 200
+          "routine_id": "show-1-23-rio"
         },
         {
           "type": "routine",
-          "routine_id": "show-1-24-always-remember-us-this-way",
-          "order": 24,
-          "title": "Always Remember Us This Way",
-          "source_line": 207
+          "routine_id": "show-1-24-always-remember-us-this-way"
         },
         {
           "type": "routine",
-          "routine_id": "show-1-25-ballet-gold-tuesday",
-          "order": 25,
-          "title": "Ballet Gold (Tuesday)",
-          "source_line": 211
+          "routine_id": "show-1-25-ballet-gold-tuesday"
         },
         {
           "type": "routine",
-          "routine_id": "show-1-26-puttin-on-the-ritz",
-          "order": 26,
-          "title": "Puttin' on the Ritz",
-          "source_line": 215
+          "routine_id": "show-1-26-puttin-on-the-ritz"
         },
         {
           "type": "routine",
-          "routine_id": "show-1-27-pearl-silver-combo",
-          "order": 27,
-          "title": "Pearl/Silver Combo",
-          "source_line": 219
+          "routine_id": "show-1-27-pearl-silver-combo"
         },
         {
           "type": "routine",
-          "routine_id": "show-1-28-the-pirates-who-dont-do-anything",
-          "order": 28,
-          "title": "The Pirates Who Don't Do Anything",
-          "source_line": 227
+          "routine_id": "show-1-28-the-pirates-who-dont-do-anything"
         },
         {
           "type": "routine",
-          "routine_id": "show-1-29-shes-in-love",
-          "order": 29,
-          "title": "She's In Love",
-          "source_line": 230
+          "routine_id": "show-1-29-shes-in-love"
         },
         {
           "type": "routine",
-          "routine_id": "show-1-30-ballet-pearl-and-silver-tuesday-and-ballet-pearl-silver-gold-saturday",
-          "order": 30,
-          "title": "Ballet Pearl & Silver (Tuesday) & Ballet Pearl/Silver/Gold (Saturday)",
-          "source_line": 248
+          "routine_id": "show-1-30-ballet-pearl-and-silver-tuesday-and-ballet-pearl-silver-gold-saturday"
         },
         {
           "type": "routine",
-          "routine_id": "show-1-31-all-through-the-night",
-          "order": 31,
-          "title": "All Through The Night",
-          "source_line": 252
+          "routine_id": "show-1-31-all-through-the-night"
         },
         {
           "type": "routine",
-          "routine_id": "show-1-32-you-raise-me-up",
-          "order": 32,
-          "title": "You Raise Me Up",
-          "source_line": 256
+          "routine_id": "show-1-32-you-raise-me-up"
         },
         {
           "type": "routine",
-          "routine_id": "show-1-33-the-mouse-house",
-          "order": 33,
-          "title": "The Mouse House",
-          "source_line": 263
+          "routine_id": "show-1-33-the-mouse-house"
         },
         {
           "type": "routine",
-          "routine_id": "show-1-34-pearl-silver-gold-aqua-musical-theater",
-          "order": 34,
-          "title": "Pearl/Silver/Gold/Aqua Musical Theater",
-          "source_line": 272
+          "routine_id": "show-1-34-pearl-silver-gold-aqua-musical-theater"
         },
         {
           "type": "routine",
-          "routine_id": "show-1-35-rhinestones-2-tuesday",
-          "order": 35,
-          "title": "Rhinestones 2 (Tuesday)",
-          "source_line": 276
+          "routine_id": "show-1-35-rhinestones-2-tuesday"
         },
         {
           "type": "routine",
-          "routine_id": "show-1-36-frozen-heart",
-          "order": 36,
-          "title": "Frozen Heart",
-          "source_line": 280
+          "routine_id": "show-1-36-frozen-heart"
         },
         {
           "type": "routine",
-          "routine_id": "show-1-37-finale",
-          "order": 37,
-          "title": "Finale",
-          "source_line": 287
+          "routine_id": "show-1-37-finale"
         }
       ],
       "routines": [
@@ -395,8 +288,8 @@
           "match_key": "we feel cute"
         },
         {
-          "raw_heading": "Mommy & Me Filler - Jillian Richard",
-          "title": "Mommy & Me Filler",
+          "raw_heading": "Mommy & ME Dance - Jillian Richard",
+          "title": "Mommy & ME Dance",
           "song_title": null,
           "instructor": "Jillian Richard",
           "category": "filler",
@@ -409,11 +302,11 @@
           ],
           "dancers": [],
           "dancer_count": 0,
-          "match_key": "mommy and me filler"
+          "match_key": "mommy and me dance"
         },
         {
-          "raw_heading": "Ballet Aqua (Tuesday & Thursday) (Princess Florine Variation) -",
-          "title": "Ballet Aqua (Tuesday & Thursday)",
+          "raw_heading": "Aqua Ballet (Tuesday & Thursday) (Princess Florine Variation) - Marlee Bailey-Samani",
+          "title": "Aqua Ballet (Tuesday & Thursday)",
           "song_title": "Princess Florine Variation",
           "instructor": "Marlee Bailey Samani",
           "category": "dance",
@@ -447,7 +340,7 @@
             "Stella Chen"
           ],
           "dancer_count": 20,
-          "match_key": "ballet aqua tuesday and thursday"
+          "match_key": "aqua ballet tuesday and thursday"
         },
         {
           "raw_heading": "Rhinestones 1 (Wednesday) (Supermodel) - Jordan West",
@@ -457,7 +350,7 @@
           "category": "dance",
           "source_line": 52,
           "show_number": 1,
-          "order": 7,
+          "order": 8,
           "id": "show-1-07-rhinestones-1-wednesday",
           "instructors": [
             "Jordan West"
@@ -479,7 +372,7 @@
           "category": "dance",
           "source_line": 62,
           "show_number": 1,
-          "order": 8,
+          "order": 9,
           "id": "show-1-08-pearl-hip-hop-thursday-and-silver-gold-hip-hop",
           "instructors": [
             "Val Elazegui"
@@ -523,7 +416,7 @@
           "category": "dance",
           "source_line": 66,
           "show_number": 1,
-          "order": 9,
+          "order": 10,
           "id": "show-1-09-i-never-dreamed-youd-leave-in-summer",
           "instructors": [
             "Keri LaGrand"
@@ -542,7 +435,7 @@
           "category": "dance",
           "source_line": 75,
           "show_number": 1,
-          "order": 10,
+          "order": 11,
           "id": "show-1-10-gold-combo",
           "instructors": [
             "Tasha Spalding"
@@ -570,7 +463,7 @@
           "category": "dance",
           "source_line": 79,
           "show_number": 1,
-          "order": 11,
+          "order": 12,
           "id": "show-1-11-islands",
           "instructors": [
             "Emily Adair"
@@ -586,14 +479,14 @@
           "match_key": "islands"
         },
         {
-          "raw_heading": "Ballet Silver (Thursday) (Pink Pony Club) - Tasha Spalding",
-          "title": "Ballet Silver (Thursday)",
+          "raw_heading": "Silver Ballet (Thursday) (Pink Pony Club) - Tasha Spalding",
+          "title": "Silver Ballet (Thursday)",
           "song_title": "Pink Pony Club",
           "instructor": "Tasha Spalding",
           "category": "dance",
           "source_line": 83,
           "show_number": 1,
-          "order": 12,
+          "order": 13,
           "id": "show-1-12-ballet-silver-thursday",
           "instructors": [
             "Tasha Spalding"
@@ -609,7 +502,7 @@
             "Theodore Bednarz"
           ],
           "dancer_count": 8,
-          "match_key": "ballet silver thursday"
+          "match_key": "silver ballet thursday"
         },
         {
           "raw_heading": "Let's Party - Liz Crocker",
@@ -619,7 +512,7 @@
           "category": "dance",
           "source_line": 91,
           "show_number": 1,
-          "order": 13,
+          "order": 14,
           "id": "show-1-13-lets-party",
           "instructors": [
             "Liz Crocker"
@@ -647,7 +540,7 @@
           "category": "dance",
           "source_line": 98,
           "show_number": 1,
-          "order": 14,
+          "order": 15,
           "id": "show-1-14-paw-patrol",
           "instructors": [
             "Tasha Spalding"
@@ -671,7 +564,7 @@
           "category": "dance",
           "source_line": 105,
           "show_number": 1,
-          "order": 15,
+          "order": 16,
           "id": "show-1-15-gold-tap-monday",
           "instructors": [
             "Tasha Spalding"
@@ -700,7 +593,7 @@
           "category": "featured",
           "source_line": 124,
           "show_number": 1,
-          "order": 16,
+          "order": 17,
           "id": "show-1-16-daddy-daughter-dance",
           "instructors": [
             "Jamie Barry"
@@ -717,7 +610,7 @@
           "category": "dance",
           "source_line": 130,
           "show_number": 1,
-          "order": 17,
+          "order": 18,
           "id": "show-1-17-funky-monkey",
           "instructors": [
             "Jillian Richard",
@@ -749,7 +642,7 @@
           "category": "dance",
           "source_line": 177,
           "show_number": 1,
-          "order": 18,
+          "order": 19,
           "id": "show-1-18-bad-guy",
           "instructors": [
             "Jamie Barry"
@@ -779,7 +672,7 @@
           "category": "dance",
           "source_line": 181,
           "show_number": 1,
-          "order": 19,
+          "order": 20,
           "id": "show-1-19-rhinestones-2-monday",
           "instructors": [
             "Tasha Spalding"
@@ -803,7 +696,7 @@
           "category": "dance",
           "source_line": 188,
           "show_number": 1,
-          "order": 20,
+          "order": 21,
           "id": "show-1-20-pearl-silver-tap-wednesday",
           "instructors": [
             "Tasha Spalding"
@@ -830,7 +723,7 @@
           "category": "dance",
           "source_line": 192,
           "show_number": 1,
-          "order": 21,
+          "order": 22,
           "id": "show-1-21-tiny-tendu-tuesday",
           "instructors": [
             "Tasha Spalding"
@@ -852,7 +745,7 @@
           "category": "dance",
           "source_line": 196,
           "show_number": 1,
-          "order": 22,
+          "order": 23,
           "id": "show-1-22-outta-my-hair",
           "instructors": [
             "Val Elazegui"
@@ -877,7 +770,7 @@
           "category": "dance",
           "source_line": 200,
           "show_number": 1,
-          "order": 23,
+          "order": 24,
           "id": "show-1-23-rio",
           "instructors": [
             "Tasha Spalding"
@@ -902,7 +795,7 @@
           "category": "dance",
           "source_line": 207,
           "show_number": 1,
-          "order": 24,
+          "order": 25,
           "id": "show-1-24-always-remember-us-this-way",
           "instructors": [
             "Kalley Jurgielski"
@@ -914,14 +807,14 @@
           "match_key": "always remember us this way"
         },
         {
-          "raw_heading": "Ballet Gold (Tuesday) (Golden) - Emily Adair",
-          "title": "Ballet Gold (Tuesday)",
+          "raw_heading": "Gold Ballet (Tuesday) (Golden) - Emily Adair",
+          "title": "Gold Ballet (Tuesday)",
           "song_title": "Golden",
           "instructor": "Emily Adair",
           "category": "dance",
           "source_line": 211,
           "show_number": 1,
-          "order": 25,
+          "order": 26,
           "id": "show-1-25-ballet-gold-tuesday",
           "instructors": [
             "Emily Adair"
@@ -937,7 +830,7 @@
             "Sophie Berney"
           ],
           "dancer_count": 8,
-          "match_key": "ballet gold tuesday"
+          "match_key": "gold ballet tuesday"
         },
         {
           "raw_heading": "Puttin' on the Ritz - Jamie Barry",
@@ -947,7 +840,7 @@
           "category": "dance",
           "source_line": 215,
           "show_number": 1,
-          "order": 26,
+          "order": 27,
           "id": "show-1-26-puttin-on-the-ritz",
           "instructors": [
             "Jamie Barry"
@@ -970,7 +863,7 @@
           "category": "dance",
           "source_line": 219,
           "show_number": 1,
-          "order": 27,
+          "order": 28,
           "id": "show-1-27-pearl-silver-combo",
           "instructors": [
             "Liz Crocker"
@@ -1001,7 +894,7 @@
           "category": "dance",
           "source_line": 227,
           "show_number": 1,
-          "order": 28,
+          "order": 29,
           "id": "show-1-28-the-pirates-who-dont-do-anything",
           "instructors": [
             "Tasha Spalding"
@@ -1024,7 +917,7 @@
           "category": "dance",
           "source_line": 230,
           "show_number": 1,
-          "order": 29,
+          "order": 30,
           "id": "show-1-29-shes-in-love",
           "instructors": [
             "Katelyn Falconer"
@@ -1042,14 +935,14 @@
           "match_key": "shes in love"
         },
         {
-          "raw_heading": "Ballet Pearl & Silver (Tuesday) & Ballet Pearl/Silver/Gold (Saturday) (Shake It Off) - Emily Adair",
-          "title": "Ballet Pearl & Silver (Tuesday) & Ballet Pearl/Silver/Gold (Saturday)",
+          "raw_heading": "Pearl & Silver Ballet (Tuesday) & Pearl/Silver/Gold Ballet (Saturday) (Shake It Off) - Emily Adair",
+          "title": "Pearl & Silver Ballet (Tuesday) & Pearl/Silver/Gold Ballet (Saturday)",
           "song_title": "Shake It Off",
           "instructor": "Emily Adair",
           "category": "dance",
           "source_line": 248,
           "show_number": 1,
-          "order": 30,
+          "order": 31,
           "id": "show-1-30-ballet-pearl-and-silver-tuesday-and-ballet-pearl-silver-gold-saturday",
           "instructors": [
             "Emily Adair"
@@ -1074,7 +967,7 @@
             "Victoria Nogueras"
           ],
           "dancer_count": 17,
-          "match_key": "ballet pearl and silver tuesday and ballet pearl silver gold saturday"
+          "match_key": "pearl and silver ballet tuesday and pearl silver gold ballet saturday"
         },
         {
           "raw_heading": "All Through The Night - Jamie Barry",
@@ -1084,7 +977,7 @@
           "category": "dance",
           "source_line": 252,
           "show_number": 1,
-          "order": 31,
+          "order": 32,
           "id": "show-1-31-all-through-the-night",
           "instructors": [
             "Jamie Barry"
@@ -1103,7 +996,7 @@
           "category": "dance",
           "source_line": 256,
           "show_number": 1,
-          "order": 32,
+          "order": 33,
           "id": "show-1-32-you-raise-me-up",
           "instructors": [
             "Jamie Barry"
@@ -1130,7 +1023,7 @@
           "category": "dance",
           "source_line": 263,
           "show_number": 1,
-          "order": 33,
+          "order": 34,
           "id": "show-1-33-the-mouse-house",
           "instructors": [
             "Val Elazegui"
@@ -1150,7 +1043,7 @@
           "category": "dance",
           "source_line": 272,
           "show_number": 1,
-          "order": 34,
+          "order": 35,
           "id": "show-1-34-pearl-silver-gold-aqua-musical-theater",
           "instructors": [
             "Katelyn Falconer"
@@ -1189,7 +1082,7 @@
           "category": "dance",
           "source_line": 276,
           "show_number": 1,
-          "order": 35,
+          "order": 36,
           "id": "show-1-35-rhinestones-2-tuesday",
           "instructors": [
             "Jordan West"
@@ -1211,7 +1104,7 @@
           "category": "dance",
           "source_line": 280,
           "show_number": 1,
-          "order": 36,
+          "order": 37,
           "id": "show-1-36-frozen-heart",
           "instructors": [
             "Jillian Richard",
@@ -1235,7 +1128,7 @@
           "category": "finale",
           "source_line": 287,
           "show_number": 1,
-          "order": 37,
+          "order": 38,
           "id": "show-1-37-finale",
           "instructors": [
             "Jamie Barry"
@@ -1243,10 +1136,27 @@
           "dancers": [],
           "dancer_count": 0,
           "match_key": "finale"
+        },
+        {
+          "raw_heading": "Out Of This World - Jamie Barry",
+          "title": "Out Of This World",
+          "song_title": null,
+          "instructor": "Jamie Barry",
+          "category": "dance",
+          "source_line": null,
+          "show_number": 1,
+          "order": 7,
+          "id": "show-1-out-of-this-world",
+          "instructors": [
+            "Jamie Barry"
+          ],
+          "dancers": [],
+          "dancer_count": 0,
+          "match_key": "out of this world"
         }
       ],
-      "routine_count": 37,
-      "item_count": 38
+      "routine_count": 38,
+      "item_count": 39
     },
     {
       "show_number": 2,
@@ -1258,143 +1168,79 @@
       "items": [
         {
           "type": "routine",
-          "routine_id": "show-2-01-oh-yeah",
-          "order": 1,
-          "title": "Oh Yeah",
-          "source_line": 359
+          "routine_id": "show-2-01-oh-yeah"
         },
         {
           "type": "routine",
-          "routine_id": "show-2-02-girls-night-out",
-          "order": 2,
-          "title": "Girls Night Out",
-          "source_line": 363
+          "routine_id": "show-2-02-girls-night-out"
         },
         {
           "type": "routine",
-          "routine_id": "show-2-03-diamond-opal-musical-theater",
-          "order": 3,
-          "title": "Diamond/Opal Musical Theater",
-          "source_line": 367
+          "routine_id": "show-2-03-diamond-opal-musical-theater"
         },
         {
           "type": "routine",
-          "routine_id": "show-2-04-always-remember-us-this-way",
-          "order": 4,
-          "title": "Always Remember Us This Way",
-          "source_line": 371
+          "routine_id": "show-2-04-always-remember-us-this-way"
         },
         {
           "type": "routine",
-          "routine_id": "show-2-05-peas-in-a-pod",
-          "order": 5,
-          "title": "Peas in a Pod",
-          "source_line": 375
+          "routine_id": "show-2-05-peas-in-a-pod"
         },
         {
           "type": "routine",
-          "routine_id": "show-2-06-intro-to-movement-tuesday",
-          "order": 6,
-          "title": "Intro to Movement (Tuesday)",
-          "source_line": 379
+          "routine_id": "show-2-06-intro-to-movement-tuesday"
         },
         {
           "type": "routine",
-          "routine_id": "show-2-07-my-mind",
-          "order": 7,
-          "title": "My Mind",
-          "source_line": 383
+          "routine_id": "show-2-07-my-mind"
         },
         {
           "type": "routine",
-          "routine_id": "show-2-08-do-your-thing",
-          "order": 8,
-          "title": "Do Your Thing",
-          "source_line": 387
+          "routine_id": "show-2-08-do-your-thing"
         },
         {
           "type": "routine",
-          "routine_id": "show-2-09-shout",
-          "order": 9,
-          "title": "Shout",
-          "source_line": 391
+          "routine_id": "show-2-09-shout"
         },
         {
           "type": "routine",
-          "routine_id": "show-2-10-platinum-ballet",
-          "order": 10,
-          "title": "Platinum Ballet",
-          "source_line": 433
+          "routine_id": "show-2-10-platinum-ballet"
         },
         {
           "type": "routine",
-          "routine_id": "show-2-11-mommy-and-me-filler",
-          "order": 11,
-          "title": "Mommy & Me Filler",
-          "source_line": 437
+          "routine_id": "show-2-12-diamond-tap-tuesday-and-thursday"
         },
         {
           "type": "routine",
-          "routine_id": "show-2-12-diamond-tap-tuesday-and-thursday",
-          "order": 12,
-          "title": "Diamond Tap (Tuesday & Thursday)",
-          "source_line": 440
+          "routine_id": "show-2-13-watch-this"
         },
         {
           "type": "routine",
-          "routine_id": "show-2-13-watch-this",
-          "order": 13,
-          "title": "Watch This",
-          "source_line": 444
+          "routine_id": "show-2-14-high-school-dance-team-thursday"
         },
         {
           "type": "routine",
-          "routine_id": "show-2-14-high-school-dance-team-thursday",
-          "order": 14,
-          "title": "High School Dance Team (Thursday)",
-          "source_line": 448
+          "routine_id": "show-2-15-aqua-opal-combo"
         },
         {
           "type": "routine",
-          "routine_id": "show-2-15-aqua-opal-combo",
-          "order": 15,
-          "title": "Aqua/Opal Combo",
-          "source_line": 452
+          "routine_id": "show-2-16-you-ain-t-no-celebrity"
         },
         {
           "type": "routine",
-          "routine_id": "show-2-16-you-ain-t-no-celebrity",
-          "order": 16,
-          "title": "You Ain’t No Celebrity",
-          "source_line": 455
+          "routine_id": "show-2-17-velma-and-roxie"
         },
         {
           "type": "routine",
-          "routine_id": "show-2-17-velma-and-roxie",
-          "order": 17,
-          "title": "Velma & Roxie",
-          "source_line": 459
+          "routine_id": "show-2-18-teach-me-how-to-shimmy"
         },
         {
           "type": "routine",
-          "routine_id": "show-2-18-teach-me-how-to-shimmy",
-          "order": 18,
-          "title": "Teach Me How to Shimmy",
-          "source_line": 463
+          "routine_id": "show-2-19-dang"
         },
         {
           "type": "routine",
-          "routine_id": "show-2-19-dang",
-          "order": 19,
-          "title": "Dang",
-          "source_line": 470
-        },
-        {
-          "type": "routine",
-          "routine_id": "show-2-20-gold-diamond-tap-tuesday-thursday",
-          "order": 20,
-          "title": "Gold/Diamond Tap (Tuesday/Thursday)",
-          "source_line": 474
+          "routine_id": "show-2-20-gold-diamond-tap-tuesday-thursday"
         },
         {
           "type": "intermission",
@@ -1404,143 +1250,87 @@
         },
         {
           "type": "routine",
-          "routine_id": "show-2-21-dudes-dance",
-          "order": 21,
-          "title": "Dudes Dance",
-          "source_line": 487
+          "routine_id": "show-2-21-dudes-dance"
         },
         {
           "type": "routine",
-          "routine_id": "show-2-22-right-about-now",
-          "order": 22,
-          "title": "Right About Now",
-          "source_line": 493
+          "routine_id": "show-2-22-right-about-now"
         },
         {
           "type": "routine",
-          "routine_id": "show-2-23-candy-man",
-          "order": 23,
-          "title": "Candy Man",
-          "source_line": 497
+          "routine_id": "show-2-23-candy-man"
         },
         {
           "type": "routine",
-          "routine_id": "show-2-24-you-took-my-look",
-          "order": 24,
-          "title": "You Took My Look",
-          "source_line": 501
+          "routine_id": "show-2-24-you-took-my-look"
         },
         {
           "type": "routine",
-          "routine_id": "show-2-25-i-feel-like-dancing",
-          "order": 25,
-          "title": "I Feel Like Dancing",
-          "source_line": 508
+          "routine_id": "show-2-25-i-feel-like-dancing"
         },
         {
           "type": "routine",
-          "routine_id": "show-2-26-jail-house-rock",
-          "order": 26,
-          "title": "Jail House Rock",
-          "source_line": 510
+          "routine_id": "show-2-26-jail-house-rock"
         },
         {
           "type": "routine",
-          "routine_id": "show-2-27-up-all-night",
-          "order": 27,
-          "title": "Up All Night",
-          "source_line": 517
+          "routine_id": "show-2-27-up-all-night"
         },
         {
           "type": "routine",
-          "routine_id": "show-2-28-aqua-opal-hip-hop-diamond-hip-hop",
-          "order": 28,
-          "title": "Aqua/Opal Hip Hop + Diamond Hip Hop",
-          "source_line": 521
+          "routine_id": "show-2-28-aqua-opal-hip-hop-diamond-hip-hop"
         },
         {
           "type": "routine",
-          "routine_id": "show-2-29-vortex",
-          "order": 29,
-          "title": "Vortex",
-          "source_line": 525
+          "routine_id": "show-2-29-vortex"
         },
         {
           "type": "routine",
-          "routine_id": "show-2-30-quake",
-          "order": 30,
-          "title": "Quake",
-          "source_line": 529
+          "routine_id": "show-2-30-quake"
         },
         {
           "type": "routine",
-          "routine_id": "show-2-31-uncovered",
-          "order": 31,
-          "title": "Uncovered",
-          "source_line": 534
+          "routine_id": "show-2-31-uncovered"
         },
         {
           "type": "routine",
-          "routine_id": "show-2-32-tea-party",
-          "order": 32,
-          "title": "Tea Party",
-          "source_line": 541
+          "routine_id": "show-2-you-lost-me"
         },
         {
           "type": "routine",
-          "routine_id": "show-2-33-andy-griffith",
-          "order": 33,
-          "title": "Andy Griffith",
-          "source_line": 548
+          "routine_id": "show-2-32-tea-party"
         },
         {
           "type": "routine",
-          "routine_id": "show-2-34-gasp",
-          "order": 34,
-          "title": "Gasp",
-          "source_line": 552
+          "routine_id": "show-2-33-andy-griffith"
         },
         {
           "type": "routine",
-          "routine_id": "show-2-35-war-of-the-mind",
-          "order": 35,
-          "title": "War of the Mind",
-          "source_line": 556
+          "routine_id": "show-2-34-gasp"
         },
         {
           "type": "routine",
-          "routine_id": "show-2-36-elementary-dance-team-thursday",
-          "order": 36,
-          "title": "Elementary Dance Team (Thursday)",
-          "source_line": 560
+          "routine_id": "show-2-35-war-of-the-mind"
         },
         {
           "type": "routine",
-          "routine_id": "show-2-37-red-light-green-light",
-          "order": 37,
-          "title": "Red Light Green Light",
-          "source_line": 568
+          "routine_id": "show-2-36-elementary-dance-team-thursday"
         },
         {
           "type": "routine",
-          "routine_id": "show-2-38-your-song",
-          "order": 38,
-          "title": "Your Song",
-          "source_line": 573
+          "routine_id": "show-2-37-red-light-green-light"
         },
         {
           "type": "routine",
-          "routine_id": "show-2-39-telephone",
-          "order": 39,
-          "title": "Telephone",
-          "source_line": 577
+          "routine_id": "show-2-38-your-song"
         },
         {
           "type": "routine",
-          "routine_id": "show-2-40-finale",
-          "order": 40,
-          "title": "Finale",
-          "source_line": 582
+          "routine_id": "show-2-39-telephone"
+        },
+        {
+          "type": "routine",
+          "routine_id": "show-2-40-finale"
         }
       ],
       "routines": [
@@ -1805,23 +1595,6 @@
           "match_key": "platinum ballet"
         },
         {
-          "raw_heading": "Mommy & Me Filler - Jillian Richard",
-          "title": "Mommy & Me Filler",
-          "song_title": null,
-          "instructor": "Jillian Richard",
-          "category": "filler",
-          "source_line": 437,
-          "show_number": 2,
-          "order": 11,
-          "id": "show-2-11-mommy-and-me-filler",
-          "instructors": [
-            "Jillian Richard"
-          ],
-          "dancers": [],
-          "dancer_count": 0,
-          "match_key": "mommy and me filler"
-        },
-        {
           "raw_heading": "Diamond Tap (Tuesday & Thursday) (Witch Doctor) - Abigail Pilecki",
           "title": "Diamond Tap (Tuesday & Thursday)",
           "song_title": "Witch Doctor",
@@ -1829,7 +1602,7 @@
           "category": "dance",
           "source_line": 440,
           "show_number": 2,
-          "order": 12,
+          "order": 11,
           "id": "show-2-12-diamond-tap-tuesday-and-thursday",
           "instructors": [
             "Abigail Pilecki"
@@ -1851,7 +1624,7 @@
           "category": "dance",
           "source_line": 444,
           "show_number": 2,
-          "order": 13,
+          "order": 12,
           "id": "show-2-13-watch-this",
           "instructors": [
             "Jamie Barry"
@@ -1877,7 +1650,7 @@
           "category": "dance",
           "source_line": 448,
           "show_number": 2,
-          "order": 14,
+          "order": 13,
           "id": "show-2-14-high-school-dance-team-thursday",
           "instructors": [
             "Liz Crocker"
@@ -1907,7 +1680,7 @@
           "category": "dance",
           "source_line": 452,
           "show_number": 2,
-          "order": 15,
+          "order": 14,
           "id": "show-2-15-aqua-opal-combo",
           "instructors": [
             "Jamie Barry"
@@ -1942,7 +1715,7 @@
           "category": "dance",
           "source_line": 455,
           "show_number": 2,
-          "order": 16,
+          "order": 15,
           "id": "show-2-16-you-ain-t-no-celebrity",
           "instructors": [
             "Aaron Czuprenski"
@@ -1967,7 +1740,7 @@
           "category": "dance",
           "source_line": 459,
           "show_number": 2,
-          "order": 17,
+          "order": 16,
           "id": "show-2-17-velma-and-roxie",
           "instructors": [
             "Jamie Barry"
@@ -1987,7 +1760,7 @@
           "category": "dance",
           "source_line": 463,
           "show_number": 2,
-          "order": 18,
+          "order": 17,
           "id": "show-2-18-teach-me-how-to-shimmy",
           "instructors": [
             "Jamie Barry"
@@ -2013,7 +1786,7 @@
           "category": "dance",
           "source_line": 470,
           "show_number": 2,
-          "order": 19,
+          "order": 18,
           "id": "show-2-19-dang",
           "instructors": [
             "Kalley Jurgielski"
@@ -2038,7 +1811,7 @@
           "category": "dance",
           "source_line": 474,
           "show_number": 2,
-          "order": 20,
+          "order": 19,
           "id": "show-2-20-gold-diamond-tap-tuesday-thursday",
           "instructors": [
             "Abigail Pilecki"
@@ -2070,7 +1843,7 @@
           "category": "featured",
           "source_line": 487,
           "show_number": 2,
-          "order": 21,
+          "order": 20,
           "id": "show-2-21-dudes-dance",
           "instructors": [
             "Jamie Barry"
@@ -2087,7 +1860,7 @@
           "category": "dance",
           "source_line": 493,
           "show_number": 2,
-          "order": 22,
+          "order": 21,
           "id": "show-2-22-right-about-now",
           "instructors": [
             "Jamie Barry"
@@ -2117,7 +1890,7 @@
           "category": "dance",
           "source_line": 497,
           "show_number": 2,
-          "order": 23,
+          "order": 22,
           "id": "show-2-23-candy-man",
           "instructors": [
             "Liz Crocker"
@@ -2143,7 +1916,7 @@
           "category": "dance",
           "source_line": 501,
           "show_number": 2,
-          "order": 24,
+          "order": 23,
           "id": "show-2-24-you-took-my-look",
           "instructors": [
             "Tasha Spalding"
@@ -2168,7 +1941,7 @@
           "category": "dance",
           "source_line": 508,
           "show_number": 2,
-          "order": 25,
+          "order": 24,
           "id": "show-2-25-i-feel-like-dancing",
           "instructors": [
             "Abigail Pilecki"
@@ -2186,14 +1959,14 @@
           "match_key": "i feel like dancing"
         },
         {
-          "raw_heading": "Jail House Rock - Jamie Barry",
-          "title": "Jail House Rock",
+          "raw_heading": "Jailhouse Rock - Jamie Barry",
+          "title": "Jailhouse Rock",
           "song_title": null,
           "instructor": "Jamie Barry",
           "category": "dance",
           "source_line": 510,
           "show_number": 2,
-          "order": 26,
+          "order": 25,
           "id": "show-2-26-jail-house-rock",
           "instructors": [
             "Jamie Barry"
@@ -2210,7 +1983,7 @@
             "Maggie Clayton"
           ],
           "dancer_count": 9,
-          "match_key": "jail house rock"
+          "match_key": "jailhouse rock"
         },
         {
           "raw_heading": "Up All Night -Kalley",
@@ -2220,7 +1993,7 @@
           "category": "dance",
           "source_line": 517,
           "show_number": 2,
-          "order": 27,
+          "order": 26,
           "id": "show-2-27-up-all-night",
           "instructors": [
             "Kalley"
@@ -2260,7 +2033,7 @@
           "category": "dance",
           "source_line": 521,
           "show_number": 2,
-          "order": 28,
+          "order": 27,
           "id": "show-2-28-aqua-opal-hip-hop-diamond-hip-hop",
           "instructors": [
             "Kalley"
@@ -2298,7 +2071,7 @@
           "category": "dance",
           "source_line": 525,
           "show_number": 2,
-          "order": 29,
+          "order": 28,
           "id": "show-2-29-vortex",
           "instructors": [
             "Ava Curbow"
@@ -2317,7 +2090,7 @@
           "category": "dance",
           "source_line": 529,
           "show_number": 2,
-          "order": 30,
+          "order": 29,
           "id": "show-2-30-quake",
           "instructors": [
             "Jillian Richard",
@@ -2348,7 +2121,7 @@
           "category": "dance",
           "source_line": 534,
           "show_number": 2,
-          "order": 31,
+          "order": 30,
           "id": "show-2-31-uncovered",
           "instructors": [
             "Marlee Bailey Samani"
@@ -2583,6 +2356,23 @@
           "dancers": [],
           "dancer_count": 0,
           "match_key": "finale"
+        },
+        {
+          "raw_heading": "Lucy Knutson Senior Solo (You Lost Me) -",
+          "title": "You Lost Me",
+          "song_title": null,
+          "instructor": null,
+          "category": "dance",
+          "source_line": null,
+          "show_number": 2,
+          "order": 31,
+          "id": "show-2-you-lost-me",
+          "instructors": [],
+          "dancers": [
+            "Lucy Knutson"
+          ],
+          "dancer_count": 1,
+          "match_key": "you lost me"
         }
       ],
       "routine_count": 40,
@@ -3225,8 +3015,8 @@
           "match_key": "water from the moon"
         },
         {
-          "raw_heading": "Ballet Opal (Fairy of the Golden Vine) – Marlee Bailey Samani",
-          "title": "Ballet Opal",
+          "raw_heading": "Opal Ballet (Fairy of the Golden Vine) - Marlee Bailey-Samani",
+          "title": "Opal Ballet",
           "song_title": "Fairy of the Golden Vine",
           "instructor": "Marlee Bailey Samani",
           "category": "dance",
@@ -3263,7 +3053,7 @@
             "Sophia Pasko"
           ],
           "dancer_count": 23,
-          "match_key": "ballet opal"
+          "match_key": "opal ballet"
         },
         {
           "raw_heading": "Like Jennie – Katelyn Falconer",
@@ -3490,8 +3280,8 @@
           "match_key": "dudes dance"
         },
         {
-          "raw_heading": "Thursday – Emily Adair",
-          "title": "Thursday",
+          "raw_heading": "Thursdays - Emily Adair",
+          "title": "Thursdays",
           "song_title": null,
           "instructor": "Emily Adair",
           "category": "dance",
@@ -3513,7 +3303,7 @@
             "Viktoria Kliukevicius"
           ],
           "dancer_count": 8,
-          "match_key": "thursday"
+          "match_key": "thursdays"
         },
         {
           "raw_heading": "The Journey – Jamie Barry",
@@ -3543,8 +3333,8 @@
           "match_key": "the journey"
         },
         {
-          "raw_heading": "Ballet Topaz / Sapphire (Song Compilation) – Marlee Bailey Samani",
-          "title": "Ballet Topaz / Sapphire",
+          "raw_heading": "Topaz / Sapphire Ballet (Song Compilation) - Marlee Bailey-Samani",
+          "title": "Topaz / Sapphire Ballet",
           "song_title": "Song Compilation",
           "instructor": "Marlee Bailey Samani",
           "category": "dance",
@@ -3587,7 +3377,7 @@
             "Violet Lewis"
           ],
           "dancer_count": 29,
-          "match_key": "ballet topaz sapphire"
+          "match_key": "topaz sapphire ballet"
         },
         {
           "raw_heading": "Good Morning – Abigail Pilecki",
@@ -3796,8 +3586,8 @@
           "match_key": "gasp"
         },
         {
-          "raw_heading": "Ballet Diamond (NAME??) – Emily Adair",
-          "title": "Ballet Diamond",
+          "raw_heading": "Diamond Ballet (NAME??) - Emily Adair",
+          "title": "Diamond Ballet",
           "song_title": "NAME??",
           "instructor": "Emily Adair",
           "category": "dance",
@@ -3830,7 +3620,7 @@
             "Viktoria Kliukevicius"
           ],
           "dancer_count": 19,
-          "match_key": "ballet diamond"
+          "match_key": "diamond ballet"
         },
         {
           "raw_heading": "Diamond/Opal Tap (Beat It) – Tasha",
@@ -4044,129 +3834,71 @@
       "items": [
         {
           "type": "routine",
-          "routine_id": "show-4-01-yaya",
-          "order": 1,
-          "title": "YaYa",
-          "source_line": 952
+          "routine_id": "show-4-01-yaya"
         },
         {
           "type": "routine",
-          "routine_id": "show-4-02-platinum-hip-hop-monday-and-sapphire-hip-hop-monday",
-          "order": 2,
-          "title": "Platinum Hip Hop (Monday) & Sapphire Hip Hop (Monday)",
-          "source_line": 962
+          "routine_id": "show-4-02-platinum-hip-hop-monday-and-sapphire-hip-hop-monday"
         },
         {
           "type": "routine",
-          "routine_id": "show-4-03-always-remember-us-this-way",
-          "order": 3,
-          "title": "Always Remember Us This Way",
-          "source_line": 966
+          "routine_id": "show-4-03-always-remember-us-this-way"
         },
         {
           "type": "routine",
-          "routine_id": "show-4-04-samba",
-          "order": 4,
-          "title": "Samba",
-          "source_line": 970
+          "routine_id": "show-4-04-samba"
         },
         {
           "type": "routine",
-          "routine_id": "show-4-05-loathing",
-          "order": 5,
-          "title": "Loathing",
-          "source_line": 974
+          "routine_id": "show-4-05-loathing"
         },
         {
           "type": "routine",
-          "routine_id": "show-4-06-id-rather-go-blind",
-          "order": 6,
-          "title": "I'd Rather Go Blind",
-          "source_line": 979
+          "routine_id": "show-4-06-id-rather-go-blind"
         },
         {
           "type": "routine",
-          "routine_id": "show-4-07-i-never-dreamed-youd-leave-in-summer",
-          "order": 7,
-          "title": "I Never Dreamed You'd Leave in Summer",
-          "source_line": 983
+          "routine_id": "show-4-07-i-never-dreamed-youd-leave-in-summer"
         },
         {
           "type": "routine",
-          "routine_id": "show-4-08-opal-tap-monday",
-          "order": 8,
-          "title": "Opal Tap (Monday)",
-          "source_line": 987
+          "routine_id": "show-4-08-opal-tap-monday"
         },
         {
           "type": "routine",
-          "routine_id": "show-4-09-mommy-and-me-filler",
-          "order": 9,
-          "title": "Mommy & Me Filler",
-          "source_line": 991
+          "routine_id": "show-4-10-mama-knows-best"
         },
         {
           "type": "routine",
-          "routine_id": "show-4-10-mama-knows-best",
-          "order": 10,
-          "title": "Mama Knows Best",
-          "source_line": 994
+          "routine_id": "show-4-11-untamed"
         },
         {
           "type": "routine",
-          "routine_id": "show-4-11-untamed",
-          "order": 11,
-          "title": "Untamed",
-          "source_line": 998
+          "routine_id": "show-4-12-girls-just-want-to-have-fun"
         },
         {
           "type": "routine",
-          "routine_id": "show-4-12-girls-just-want-to-have-fun",
-          "order": 12,
-          "title": "Girls Just Want to Have Fun",
-          "source_line": 1002
+          "routine_id": "show-4-13-i-lived"
         },
         {
           "type": "routine",
-          "routine_id": "show-4-13-i-lived",
-          "order": 13,
-          "title": "I Lived",
-          "source_line": 1006
+          "routine_id": "show-4-14-platinum-combo-thursday"
         },
         {
           "type": "routine",
-          "routine_id": "show-4-14-platinum-combo-thursday",
-          "order": 14,
-          "title": "Platinum Combo (Thursday)",
-          "source_line": 1010
+          "routine_id": "show-4-15-ballet-onyx-monday-and-tuesday"
         },
         {
           "type": "routine",
-          "routine_id": "show-4-15-ballet-onyx-monday-and-tuesday",
-          "order": 15,
-          "title": "Ballet Onyx (Monday & Tuesday)",
-          "source_line": 1038
+          "routine_id": "show-4-16-no-hard-feelings"
         },
         {
           "type": "routine",
-          "routine_id": "show-4-16-no-hard-feelings",
-          "order": 16,
-          "title": "No Hard Feelings",
-          "source_line": 1042
+          "routine_id": "show-4-17-call-me-back"
         },
         {
           "type": "routine",
-          "routine_id": "show-4-17-call-me-back",
-          "order": 17,
-          "title": "Call Me Back",
-          "source_line": 1049
-        },
-        {
-          "type": "routine",
-          "routine_id": "show-4-18-moulin-rouge",
-          "order": 18,
-          "title": "Moulin Rouge",
-          "source_line": 1057
+          "routine_id": "show-4-18-moulin-rouge"
         },
         {
           "type": "intermission",
@@ -4176,150 +3908,87 @@
         },
         {
           "type": "routine",
-          "routine_id": "show-4-19-dudes-dance",
-          "order": 19,
-          "title": "Dudes Dance",
-          "source_line": 1070
+          "routine_id": "show-4-19-dudes-dance"
         },
         {
           "type": "routine",
-          "routine_id": "show-4-20-heaven",
-          "order": 20,
-          "title": "Heaven",
-          "source_line": 1076
+          "routine_id": "show-4-20-heaven"
         },
         {
           "type": "routine",
-          "routine_id": "show-4-21-bloodbag",
-          "order": 21,
-          "title": "Bloodbag",
-          "source_line": 1080
+          "routine_id": "show-4-21-bloodbag"
         },
         {
           "type": "routine",
-          "routine_id": "show-4-22-bad-thing",
-          "order": 22,
-          "title": "Bad Thing",
-          "source_line": 1089
+          "routine_id": "show-4-22-bad-thing"
         },
         {
           "type": "routine",
-          "routine_id": "show-4-23-bite-your-tongue",
-          "order": 23,
-          "title": "Bite Your Tongue",
-          "source_line": 1093
+          "routine_id": "show-4-23-bite-your-tongue"
         },
         {
           "type": "routine",
-          "routine_id": "show-4-24-college-dance-team-thursday",
-          "order": 24,
-          "title": "College Dance Team (Thursday)",
-          "source_line": 1097
+          "routine_id": "show-4-24-college-dance-team-thursday"
         },
         {
           "type": "routine",
-          "routine_id": "show-4-25-goodbye-yellow-brick-road",
-          "order": 25,
-          "title": "Goodbye Yellow Brick Road",
-          "source_line": 1101
+          "routine_id": "show-4-25-goodbye-yellow-brick-road"
         },
         {
           "type": "routine",
-          "routine_id": "show-4-26-gossip",
-          "order": 26,
-          "title": "Gossip",
-          "source_line": 1105
+          "routine_id": "show-4-26-gossip"
         },
         {
           "type": "routine",
-          "routine_id": "show-4-27-onyx-contemporary-tuesday",
-          "order": 27,
-          "title": "Onyx Contemporary (Tuesday)",
-          "source_line": 1113
+          "routine_id": "show-4-27-onyx-contemporary-tuesday"
         },
         {
           "type": "routine",
-          "routine_id": "show-4-28-warrior",
-          "order": 28,
-          "title": "Warrior",
-          "source_line": 1115
+          "routine_id": "show-4-28-warrior"
         },
         {
           "type": "routine",
-          "routine_id": "show-4-29-the-end",
-          "order": 29,
-          "title": "The End",
-          "source_line": 1119
+          "routine_id": "show-4-29-the-end"
         },
         {
           "type": "routine",
-          "routine_id": "show-4-30-stop-in-nevada",
-          "order": 30,
-          "title": "Stop in Nevada",
-          "source_line": 1123
+          "routine_id": "show-4-30-stop-in-nevada"
         },
         {
           "type": "routine",
-          "routine_id": "show-4-31-die-on-this-hill",
-          "order": 31,
-          "title": "Die on This Hill",
-          "source_line": 1127
+          "routine_id": "show-4-31-die-on-this-hill"
         },
         {
           "type": "routine",
-          "routine_id": "show-4-32-take-it",
-          "order": 32,
-          "title": "Take It",
-          "source_line": 1131
+          "routine_id": "show-4-32-take-it"
         },
         {
           "type": "routine",
-          "routine_id": "show-4-33-purple-hat",
-          "order": 33,
-          "title": "Purple Hat",
-          "source_line": 1138
+          "routine_id": "show-4-33-purple-hat"
         },
         {
           "type": "routine",
-          "routine_id": "show-4-34-ode-to-a-love-lost",
-          "order": 34,
-          "title": "Ode to a Love Lost",
-          "source_line": 1142
+          "routine_id": "show-4-34-ode-to-a-love-lost"
         },
         {
           "type": "routine",
-          "routine_id": "show-4-35-onyx-platinum-sapphire-musical-theater-thursday",
-          "order": 35,
-          "title": "Onyx/Platinum/Sapphire Musical Theater (Thursday)",
-          "source_line": 1146
+          "routine_id": "show-4-35-onyx-platinum-sapphire-musical-theater-thursday"
         },
         {
           "type": "routine",
-          "routine_id": "show-4-36-onyx-tap-tuesday-and-thursday",
-          "order": 36,
-          "title": "Onyx Tap (Tuesday & Thursday)",
-          "source_line": 1153
+          "routine_id": "show-4-36-onyx-tap-tuesday-and-thursday"
         },
         {
           "type": "routine",
-          "routine_id": "show-4-37-canned-heat",
-          "order": 37,
-          "title": "Canned Heat",
-          "source_line": 1157
+          "routine_id": "show-4-37-canned-heat"
         },
         {
           "type": "routine",
-          "routine_id": "show-4-38-sapphire-combo-monday",
-          "order": 38,
-          "title": "Sapphire Combo (Monday)",
-          "source_line": 1161
+          "routine_id": "show-4-38-sapphire-combo-monday"
         },
         {
           "type": "routine",
-          "routine_id": "show-4-39-finale",
-          "order": 39,
-          "title": "Finale",
-          "source_line": 1167
+          "routine_id": "show-4-39-finale"
         }
       ],
       "routines": [
@@ -4557,23 +4226,6 @@
           "match_key": "opal tap monday"
         },
         {
-          "raw_heading": "Mommy & Me Filler - Jillian Richard",
-          "title": "Mommy & Me Filler",
-          "song_title": null,
-          "instructor": "Jillian Richard",
-          "category": "filler",
-          "source_line": 991,
-          "show_number": 4,
-          "order": 9,
-          "id": "show-4-09-mommy-and-me-filler",
-          "instructors": [
-            "Jillian Richard"
-          ],
-          "dancers": [],
-          "dancer_count": 0,
-          "match_key": "mommy and me filler"
-        },
-        {
           "raw_heading": "Mama Knows Best - Liz Crocker",
           "title": "Mama Knows Best",
           "song_title": null,
@@ -4581,7 +4233,7 @@
           "category": "dance",
           "source_line": 994,
           "show_number": 4,
-          "order": 10,
+          "order": 9,
           "id": "show-4-10-mama-knows-best",
           "instructors": [
             "Liz Crocker"
@@ -4609,7 +4261,7 @@
           "category": "dance",
           "source_line": 998,
           "show_number": 4,
-          "order": 11,
+          "order": 10,
           "id": "show-4-11-untamed",
           "instructors": [
             "Matthew Deloch"
@@ -4664,7 +4316,7 @@
           "category": "dance",
           "source_line": 1002,
           "show_number": 4,
-          "order": 12,
+          "order": 11,
           "id": "show-4-12-girls-just-want-to-have-fun",
           "instructors": [
             "Jillian Richard"
@@ -4684,7 +4336,7 @@
           "category": "dance",
           "source_line": 1006,
           "show_number": 4,
-          "order": 13,
+          "order": 12,
           "id": "show-4-13-i-lived",
           "instructors": [
             "Jamie Barry"
@@ -4704,7 +4356,7 @@
           "category": "dance",
           "source_line": 1010,
           "show_number": 4,
-          "order": 14,
+          "order": 13,
           "id": "show-4-14-platinum-combo-thursday",
           "instructors": [
             "Jamie Barry"
@@ -4725,14 +4377,14 @@
           "match_key": "platinum combo thursday"
         },
         {
-          "raw_heading": "Ballet Onyx (Monday & Tuesday) (Swan)- Marlee Bailey Samani",
-          "title": "Ballet Onyx (Monday & Tuesday)",
+          "raw_heading": "Onyx Ballet (Monday & Tuesday) (Swan) - Marlee Bailey-Samani",
+          "title": "Onyx Ballet (Monday & Tuesday)",
           "song_title": "Swan",
           "instructor": "Marlee Bailey Samani",
           "category": "dance",
           "source_line": 1038,
           "show_number": 4,
-          "order": 15,
+          "order": 14,
           "id": "show-4-15-ballet-onyx-monday-and-tuesday",
           "instructors": [
             "Marlee Bailey Samani"
@@ -4758,7 +4410,7 @@
             "Vivian Bertrand"
           ],
           "dancer_count": 18,
-          "match_key": "ballet onyx monday and tuesday"
+          "match_key": "onyx ballet monday and tuesday"
         },
         {
           "raw_heading": "No Hard Feelings - Jamie Barry",
@@ -4768,7 +4420,7 @@
           "category": "dance",
           "source_line": 1042,
           "show_number": 4,
-          "order": 16,
+          "order": 15,
           "id": "show-4-16-no-hard-feelings",
           "instructors": [
             "Jamie Barry"
@@ -4787,7 +4439,7 @@
           "category": "dance",
           "source_line": 1049,
           "show_number": 4,
-          "order": 17,
+          "order": 16,
           "id": "show-4-17-call-me-back",
           "instructors": [
             "Liz Crocker"
@@ -4813,7 +4465,7 @@
           "category": "dance",
           "source_line": 1057,
           "show_number": 4,
-          "order": 18,
+          "order": 17,
           "id": "show-4-18-moulin-rouge",
           "instructors": [
             "Jamie Barry"
@@ -4844,7 +4496,7 @@
           "category": "featured",
           "source_line": 1070,
           "show_number": 4,
-          "order": 19,
+          "order": 18,
           "id": "show-4-19-dudes-dance",
           "instructors": [
             "Jamie Barry"
@@ -4861,7 +4513,7 @@
           "category": "dance",
           "source_line": 1076,
           "show_number": 4,
-          "order": 20,
+          "order": 19,
           "id": "show-4-20-heaven",
           "instructors": [
             "Keri LaGrand"
@@ -4886,7 +4538,7 @@
           "category": "dance",
           "source_line": 1080,
           "show_number": 4,
-          "order": 21,
+          "order": 20,
           "id": "show-4-21-bloodbag",
           "instructors": [
             "Madeline"
@@ -4913,7 +4565,7 @@
           "category": "dance",
           "source_line": 1089,
           "show_number": 4,
-          "order": 22,
+          "order": 21,
           "id": "show-4-22-bad-thing",
           "instructors": [
             "Christina Grady"
@@ -4938,7 +4590,7 @@
           "category": "dance",
           "source_line": 1093,
           "show_number": 4,
-          "order": 23,
+          "order": 22,
           "id": "show-4-23-bite-your-tongue",
           "instructors": [
             "Matthew Deloch"
@@ -4959,7 +4611,7 @@
           "category": "dance",
           "source_line": 1097,
           "show_number": 4,
-          "order": 24,
+          "order": 23,
           "id": "show-4-24-college-dance-team-thursday",
           "instructors": [
             "Chasity Tyus"
@@ -4990,7 +4642,7 @@
           "category": "dance",
           "source_line": 1101,
           "show_number": 4,
-          "order": 25,
+          "order": 24,
           "id": "show-4-25-goodbye-yellow-brick-road",
           "instructors": [
             "Keri LaGrand"
@@ -5009,7 +4661,7 @@
           "category": "dance",
           "source_line": 1105,
           "show_number": 4,
-          "order": 26,
+          "order": 25,
           "id": "show-4-26-gossip",
           "instructors": [
             "Aaron Czuprenski"
@@ -5034,7 +4686,7 @@
           "category": "dance",
           "source_line": 1113,
           "show_number": 4,
-          "order": 27,
+          "order": 26,
           "id": "show-4-27-onyx-contemporary-tuesday",
           "instructors": [
             "Abigail Pilecki"
@@ -5063,7 +4715,7 @@
           "category": "dance",
           "source_line": 1115,
           "show_number": 4,
-          "order": 28,
+          "order": 27,
           "id": "show-4-28-warrior",
           "instructors": [
             "Kalley"
@@ -5094,7 +4746,7 @@
           "category": "dance",
           "source_line": 1119,
           "show_number": 4,
-          "order": 29,
+          "order": 28,
           "id": "show-4-29-the-end",
           "instructors": [
             "Sammee Schirmer"
@@ -5113,7 +4765,7 @@
           "category": "dance",
           "source_line": 1123,
           "show_number": 4,
-          "order": 30,
+          "order": 29,
           "id": "show-4-30-stop-in-nevada",
           "instructors": [
             "Kalley"
@@ -5137,7 +4789,7 @@
           "category": "dance",
           "source_line": 1127,
           "show_number": 4,
-          "order": 31,
+          "order": 30,
           "id": "show-4-31-die-on-this-hill",
           "instructors": [
             "Lonni Olson"
@@ -5159,7 +4811,7 @@
           "category": "dance",
           "source_line": 1131,
           "show_number": 4,
-          "order": 32,
+          "order": 31,
           "id": "show-4-32-take-it",
           "instructors": [
             "Jamie Barry"
@@ -5185,7 +4837,7 @@
           "category": "dance",
           "source_line": 1138,
           "show_number": 4,
-          "order": 33,
+          "order": 32,
           "id": "show-4-33-purple-hat",
           "instructors": [
             "Jamie Barry"
@@ -5227,7 +4879,7 @@
           "category": "dance",
           "source_line": 1142,
           "show_number": 4,
-          "order": 34,
+          "order": 33,
           "id": "show-4-34-ode-to-a-love-lost",
           "instructors": [
             "Madeline Mihacevich"
@@ -5246,7 +4898,7 @@
           "category": "dance",
           "source_line": 1146,
           "show_number": 4,
-          "order": 35,
+          "order": 34,
           "id": "show-4-35-onyx-platinum-sapphire-musical-theater-thursday",
           "instructors": [
             "Katelyn Falconer"
@@ -5274,7 +4926,7 @@
           "category": "dance",
           "source_line": 1153,
           "show_number": 4,
-          "order": 36,
+          "order": 35,
           "id": "show-4-36-onyx-tap-tuesday-and-thursday",
           "instructors": [
             "Abigail Pilecki"
@@ -5299,7 +4951,7 @@
           "category": "dance",
           "source_line": 1157,
           "show_number": 4,
-          "order": 37,
+          "order": 36,
           "id": "show-4-37-canned-heat",
           "instructors": [
             "Jillian Richard",
@@ -5332,7 +4984,7 @@
           "category": "dance",
           "source_line": 1161,
           "show_number": 4,
-          "order": 38,
+          "order": 37,
           "id": "show-4-38-sapphire-combo-monday",
           "instructors": [
             "Jamie Barry"
@@ -5369,7 +5021,7 @@
           "category": "finale",
           "source_line": 1167,
           "show_number": 4,
-          "order": 39,
+          "order": 38,
           "id": "show-4-39-finale",
           "instructors": [
             "Jamie Barry"
@@ -5379,8 +5031,8 @@
           "match_key": "finale"
         }
       ],
-      "routine_count": 39,
-      "item_count": 40
+      "routine_count": 38,
+      "item_count": 39
     }
   ],
   "dancers": [
