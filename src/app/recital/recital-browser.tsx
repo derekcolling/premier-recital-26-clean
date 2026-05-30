@@ -6,7 +6,6 @@ import { Fragment, useEffect, useMemo, useState } from "react";
 import {
   AlertTriangle,
   ArrowUp,
-  BookOpenText,
   Check,
   ChevronDown,
   Info,
@@ -694,7 +693,6 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
 
   const modeOptions = [
     { id: "live-program" as const, label: "Live Program", icon: Music2 },
-    { id: "full-program" as const, label: "Full Program", icon: BookOpenText },
     { id: "my-dances" as const, label: "My Dances", icon: ListChecks },
     { id: "info" as const, label: "Info", icon: Info },
   ];
@@ -719,14 +717,28 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
               </p>
             </div>
           </Link>
-          <Image
-            src={`${BASE_PATH}/premier-monogram.png`}
-            alt="Premier Dance"
-            width={203}
-            height={263}
-            priority
-            className="h-10 w-auto shrink-0 sm:h-12"
-          />
+          <a
+            href="https://premier.dance/premier-dance-recital-2026-elev8"
+            target="_blank"
+            rel="noreferrer"
+            className="flex min-h-11 w-[7.5rem] shrink-0 items-center justify-center gap-2 rounded-[6px] py-1 pl-3 pr-1 text-left text-xs font-bold leading-[0.95rem] text-white/78 transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1C4EFF] sm:w-auto sm:py-1 sm:pl-3 sm:pr-2 sm:text-sm sm:leading-4"
+          >
+            <span
+              aria-hidden="true"
+              className="block h-[1.7rem] w-[2.35rem] shrink-0 bg-current sm:h-[1.9rem] sm:w-[2.62rem]"
+              style={{
+                WebkitMaskImage: `url(${BASE_PATH}/program.svg)`,
+                WebkitMaskPosition: "center",
+                WebkitMaskRepeat: "no-repeat",
+                WebkitMaskSize: "contain",
+                maskImage: `url(${BASE_PATH}/program.svg)`,
+                maskPosition: "center",
+                maskRepeat: "no-repeat",
+                maskSize: "contain",
+              }}
+            />
+            <span className="max-w-16 sm:max-w-none">View Full Program</span>
+          </a>
         </div>
       </header>
 
@@ -977,7 +989,7 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
         aria-label="Recital sections"
         className="fixed inset-x-0 bottom-0 z-30 border-t border-white/10 bg-[#07080b]/95 px-3 pb-[calc(env(safe-area-inset-bottom)+0.5rem)] pt-2 backdrop-blur"
       >
-        <div className="mx-auto grid max-w-3xl grid-cols-4 gap-1 rounded-[10px] border border-white/10 bg-white/5 p-1 sm:gap-2">
+        <div className="mx-auto grid max-w-3xl grid-cols-3 gap-1 rounded-[10px] border border-white/10 bg-white/5 p-1 sm:gap-2">
           {modeOptions.map((item) => {
             const isSelected = mode === item.id;
             const Icon = item.icon;
@@ -989,9 +1001,7 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
                 onClick={() => {
                   setMode(item.id);
                   setQuery("");
-                  if (item.id === "full-program") {
-                    setIsAutoFollowingShow(false);
-                  } else if (item.id === "live-program" && mode !== "live-program") {
+                  if (item.id === "live-program" && mode !== "live-program") {
                     resumeAutoFollowingShow();
                   }
                 }}
