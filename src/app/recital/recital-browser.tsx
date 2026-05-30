@@ -971,10 +971,16 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
                         : liveStatus.kind === "up-next"
                           ? "border-[#22c55e]/70 bg-[#052e1a] text-[#bbf7d0]"
                           : liveStatus.kind === "away"
-                            ? "border-[#1C4EFF]/70 bg-[#071b55] text-[#c7d2fe]"
+                            ? "border-[#1C4EFF]/60 bg-[#071b55] text-[#c7d2fe]"
                             : liveStatus.kind === "already-performed"
                               ? "border-white/10 bg-white/[0.04] text-white/45"
                               : "border-white/10 bg-black/20 text-white/55";
+                    const liveStatusLabel =
+                      liveStatus.kind === "away"
+                        ? `${liveStatus.dancesAway} away`
+                        : liveStatus.kind === "already-performed"
+                          ? "Done"
+                          : liveStatus.label;
 
                     return (
                       <Fragment key={row.item.id}>
@@ -995,18 +1001,18 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
                               {row.item.order}
                             </div>
                             <div className="min-w-0 flex-1">
-                              <div className="flex flex-wrap items-start gap-2">
+                              <div className="grid min-w-0 gap-1">
                                 <button
                                   type="button"
                                   onClick={() => setActiveDance(row.item)}
-                                  className="min-w-0 flex-1 text-left text-base font-semibold leading-6 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1C4EFF]"
+                                  className="min-w-0 text-left text-base font-semibold leading-6 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1C4EFF]"
                                 >
                                   {row.item.title}
                                 </button>
                                 <span
-                                  className={`shrink-0 rounded-[5px] border px-2.5 py-1 text-[11px] font-black uppercase tracking-[0.08em] ${liveStatusClassName}`}
+                                  className={`w-fit max-w-full rounded-[5px] border px-2 py-0.5 text-[10px] font-black uppercase tracking-[0.08em] ${liveStatusClassName}`}
                                 >
-                                  {liveStatus.label}
+                                  {liveStatusLabel}
                                 </span>
                               </div>
                               <p className="mt-1 text-xs font-medium text-white/50">
