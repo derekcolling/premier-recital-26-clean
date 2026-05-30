@@ -647,6 +647,13 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
   const searchTokens = useMemo(() => getSearchTokens(query), [query]);
   const liveProgramDisplay = useMemo(() => getLiveProgramDisplay(program, liveState), [program, liveState]);
   const liveShow = liveProgramDisplay.show;
+  const explicitCountdownShow = useMemo(
+    () => program.shows.find((show) => show.id === liveState.countdownShowId) ?? null,
+    [liveState.countdownShowId, program.shows],
+  );
+  const shouldShowExplicitCountdown = Boolean(
+    explicitCountdownShow && !(liveState.activeShowId === explicitCountdownShow.id && liveState.currentItemId),
+  );
   const activeLiveItem = liveProgramDisplay.kind === "showing" ? liveProgramDisplay.item : null;
   const liveItem = liveShow && currentShow && liveShow.id === currentShow.id ? activeLiveItem : null;
   const liveItemIndex = liveItem && currentShow ? currentShow.items.findIndex((item) => item.id === liveItem.id) : -1;
@@ -848,7 +855,11 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
         <div className="mx-auto grid w-full max-w-3xl gap-4 [&>*]:min-w-0">
           {mode !== "info" ? (
             <>
-              {firstShow && !hasActivatedFirstDance ? <FirstShowCountdownCard show={firstShow} /> : null}
+              {shouldShowExplicitCountdown && explicitCountdownShow ? (
+                <FirstShowCountdownCard show={explicitCountdownShow} />
+              ) : firstShow && !hasActivatedFirstDance ? (
+                <FirstShowCountdownCard show={firstShow} />
+              ) : null}
               <ShowProgramSelector
                 currentShow={currentShow}
                 shows={program.shows}

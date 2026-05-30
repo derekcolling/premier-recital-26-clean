@@ -23,9 +23,11 @@ function getMemoryState() {
 
 function setMemoryState(update: LiveStateUpdate) {
   const globalState = globalThis as GlobalLiveState;
+  const previousState = getMemoryState();
   const nextState: LiveState = {
     activeShowId: update.activeShowId,
     currentItemId: update.currentItemId,
+    countdownShowId: "countdownShowId" in update ? (update.countdownShowId ?? null) : (previousState.countdownShowId ?? null),
     updatedAt: new Date().toISOString(),
   };
 
@@ -65,6 +67,7 @@ function parseRedisLiveState(value: unknown): LiveState {
   return {
     activeShowId: typeof candidate.activeShowId === "string" ? candidate.activeShowId : null,
     currentItemId: typeof candidate.currentItemId === "string" ? candidate.currentItemId : null,
+    countdownShowId: typeof candidate.countdownShowId === "string" ? candidate.countdownShowId : null,
     updatedAt: typeof candidate.updatedAt === "string" ? candidate.updatedAt : null,
   };
 }
@@ -91,9 +94,11 @@ class RedisLiveStateStore implements LiveStateStore {
   }
 
   async set(update: LiveStateUpdate) {
+    const previousState = await this.get();
     const nextState: LiveState = {
       activeShowId: update.activeShowId,
       currentItemId: update.currentItemId,
+      countdownShowId: "countdownShowId" in update ? (update.countdownShowId ?? null) : (previousState.countdownShowId ?? null),
       updatedAt: new Date().toISOString(),
     };
 
@@ -105,6 +110,7 @@ class RedisLiveStateStore implements LiveStateStore {
     const nextState: LiveState = {
       activeShowId: null,
       currentItemId: null,
+      countdownShowId: null,
       updatedAt: new Date().toISOString(),
     };
 
@@ -125,6 +131,7 @@ function parseSupabaseLiveState(row: SupabaseRuntimeEventRow | null | undefined)
         : typeof row.current_entry_no === "string"
           ? row.current_entry_no
           : null,
+    countdownShowId: typeof payload.countdownShowId === "string" ? payload.countdownShowId : null,
     updatedAt: typeof payload.updatedAt === "string" ? payload.updatedAt : row.observed_at ?? null,
   };
 }
@@ -176,9 +183,11 @@ class SupabaseRuntimeEventsLiveStateStore implements LiveStateStore {
   }
 
   async set(update: LiveStateUpdate) {
+    const previousState = await this.get();
     const nextState: LiveState = {
       activeShowId: update.activeShowId,
       currentItemId: update.currentItemId,
+      countdownShowId: "countdownShowId" in update ? (update.countdownShowId ?? null) : (previousState.countdownShowId ?? null),
       updatedAt: new Date().toISOString(),
     };
 

@@ -8,6 +8,7 @@ import {
   Check,
   ChevronLeft,
   ChevronRight,
+  Clock,
   CircleStop,
   Loader2,
   Radio,
@@ -114,6 +115,10 @@ export function Elev8Admin({ program }: { program: Elev8ProgramData }) {
     () => program.shows.find((show) => show.id === liveState.activeShowId) ?? null,
     [liveState.activeShowId, program.shows],
   );
+  const countdownShow = useMemo(
+    () => program.shows.find((show) => show.id === liveState.countdownShowId) ?? null,
+    [liveState.countdownShowId, program.shows],
+  );
   const activeItem = activeShow?.items.find((item) => item.id === liveState.currentItemId) ?? null;
   const activeItemIndex = activeShow && activeItem ? activeShow.items.findIndex((item) => item.id === activeItem.id) : -1;
   const activeItemNumber = activeItem ? getProgramItemNumber(activeItem) : null;
@@ -173,6 +178,24 @@ export function Elev8Admin({ program }: { program: Elev8ProgramData }) {
       setLiveState(nextState);
     } catch (liveStateError) {
       setError(liveStateError instanceof Error ? liveStateError.message : "Unable to clear live state.");
+    } finally {
+      setIsSaving(false);
+    }
+  }
+
+  async function setCountdownShow(countdownShowId: string | null) {
+    setIsSaving(true);
+    setError(null);
+
+    try {
+      const nextState = await saveLiveState({
+        activeShowId: liveState.activeShowId,
+        currentItemId: liveState.currentItemId,
+        countdownShowId,
+      });
+      setLiveState(nextState);
+    } catch (liveStateError) {
+      setError(liveStateError instanceof Error ? liveStateError.message : "Unable to save countdown state.");
     } finally {
       setIsSaving(false);
     }
@@ -317,6 +340,56 @@ export function Elev8Admin({ program }: { program: Elev8ProgramData }) {
                 <span className="truncate">Reset</span>
               </button>
             </div>
+          </section>
+
+          <section className="grid min-w-0 gap-3 rounded-[8px] border border-[#f5c542]/25 bg-[#2a2108]/70 p-3">
+            <div className="flex min-w-0 items-start justify-between gap-3">
+              <div className="min-w-0">
+                <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#f5c542]/80">Next Show Countdown</p>
+                <h2 className="mt-1 break-words text-lg font-bold text-white">
+                  {countdownShow ? `${countdownShow.title} · ${countdownShow.startTime}` : "Countdown card is off"}
+                </h2>
+                <p className="mt-1 text-sm leading-6 text-white/55">
+                  Shows a family-facing countdown card until you set a live item for that show.
+                </p>
+              </div>
+              <Clock aria-hidden="true" className="size-5 shrink-0 text-[#f5c542]" />
+            </div>
+
+            <div className="grid min-w-0 gap-2 sm:grid-cols-4">
+              {program.shows.map((show) => {
+                const isCountdown = liveState.countdownShowId === show.id;
+
+                return (
+                  <button
+                    key={show.id}
+                    type="button"
+                    onClick={() => setCountdownShow(show.id)}
+                    disabled={isSaving}
+                    className={`rounded-[6px] border p-3 text-left transition disabled:cursor-not-allowed disabled:opacity-50 ${
+                      isCountdown
+                        ? "border-[#f5c542] bg-[#f5c542] text-[#171001]"
+                        : "border-white/10 bg-black/20 text-white/72 hover:border-[#f5c542]"
+                    }`}
+                  >
+                    <span className={`block text-[10px] font-bold uppercase tracking-[0.14em] ${isCountdown ? "text-[#171001]/60" : "text-white/45"}`}>
+                      {show.day}
+                    </span>
+                    <span className="mt-1 block text-sm font-bold">{show.title}</span>
+                    <span className={`mt-0.5 block text-xs ${isCountdown ? "text-[#171001]/65" : "text-white/50"}`}>{show.startTime}</span>
+                  </button>
+                );
+              })}
+            </div>
+
+            <button
+              type="button"
+              onClick={() => setCountdownShow(null)}
+              disabled={isSaving || !liveState.countdownShowId}
+              className="flex min-h-11 items-center justify-center rounded-[6px] border border-white/10 px-3 text-sm font-bold text-white/70 transition hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-40"
+            >
+              Turn countdown card off
+            </button>
           </section>
 
           <section className="grid min-w-0 gap-2 rounded-[8px] border border-white/10 bg-white/5 p-2">

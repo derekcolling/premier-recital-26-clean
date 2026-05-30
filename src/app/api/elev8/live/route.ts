@@ -32,6 +32,8 @@ async function validateLiveStateUpdate(payload: unknown): Promise<LiveStateUpdat
   const update = payload as Partial<LiveStateUpdate>;
   const activeShowId = update.activeShowId ?? null;
   const rawCurrentItemId = update.currentItemId ?? null;
+  const hasCountdownShowId = Object.prototype.hasOwnProperty.call(update, "countdownShowId");
+  const countdownShowId = hasCountdownShowId ? (update.countdownShowId ?? null) : undefined;
 
   if (activeShowId !== null && typeof activeShowId !== "string") {
     return { error: "activeShowId must be a string or null." };
@@ -39,6 +41,10 @@ async function validateLiveStateUpdate(payload: unknown): Promise<LiveStateUpdat
 
   if (rawCurrentItemId !== null && typeof rawCurrentItemId !== "string") {
     return { error: "currentItemId must be a string or null." };
+  }
+
+  if (countdownShowId !== undefined && countdownShowId !== null && typeof countdownShowId !== "string") {
+    return { error: "countdownShowId must be a string or null." };
   }
 
   const currentItemId = normalizeCurrentItemId(rawCurrentItemId);
@@ -54,11 +60,15 @@ async function validateLiveStateUpdate(payload: unknown): Promise<LiveStateUpdat
     return { error: `Unknown show: ${activeShowId}.` };
   }
 
+  if (typeof countdownShowId === "string" && !program.shows.some((show) => show.id === countdownShowId)) {
+    return { error: `Unknown countdown show: ${countdownShowId}.` };
+  }
+
   if (activeShow && currentItemId && !activeShow.items.some((item) => item.id === currentItemId)) {
     return { error: `Item ${currentItemId} does not belong to ${activeShow.id}.` };
   }
 
-  return { activeShowId, currentItemId };
+  return hasCountdownShowId ? { activeShowId, currentItemId, countdownShowId: countdownShowId ?? null } : { activeShowId, currentItemId };
 }
 
 export async function GET() {
