@@ -164,17 +164,54 @@ function getAutoShowNumber(program: Elev8ProgramData, liveState: LiveState) {
   return liveShow?.showNumber ?? getScheduledShow(program.shows)?.showNumber ?? program.shows[0]?.showNumber ?? 1;
 }
 
-function getSearchText(item: Elev8ProgramItem) {
-  return [
-    item.title,
-    item.order?.toString() ?? "",
-    item.type,
-    item.teacher ?? "",
-    item.songTitle ?? "",
-    item.dancers.join(" "),
-  ]
-    .join(" ")
-    .toLowerCase();
+function normalizeSearchValue(value: string) {
+  return value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
+function getSearchTokens(value: string) {
+  const normalizedValue = normalizeSearchValue(value);
+  return normalizedValue ? normalizedValue.split(" ") : [];
+}
+
+function hasExactShortDancerNameMatch(item: Elev8ProgramItem, searchTokens: string[]) {
+  if (searchTokens.length !== 1 || searchTokens[0].length > 3) return false;
+
+  return item.dancers.some((dancer) => getSearchTokens(dancer).some((token) => token === searchTokens[0]));
+}
+
+function matchesDancerName(item: Elev8ProgramItem, searchTokens: string[]) {
+  if (searchTokens.length === 0) return true;
+  if (hasExactShortDancerNameMatch(item, searchTokens)) return true;
+  if (searchTokens.length === 1 && searchTokens[0].length <= 3) return false;
+
+  return item.dancers.some((dancer) => {
+    const dancerTokens = getSearchTokens(dancer);
+    return searchTokens.every((searchToken) => dancerTokens.some((dancerToken) => dancerToken.startsWith(searchToken)));
+  });
+}
+
+function matchesSearchFields(item: Elev8ProgramItem, searchTokens: string[]) {
+  const fieldTokens = getSearchTokens(
+    [
+      item.title,
+      item.order?.toString() ?? "",
+      item.type,
+      item.teacher ?? "",
+      item.songTitle ?? "",
+    ].join(" "),
+  );
+
+  return searchTokens.every((searchToken) => fieldTokens.some((fieldToken) => fieldToken.startsWith(searchToken)));
+}
+
+function matchesProgramSearch(item: Elev8ProgramItem, searchTokens: string[], exactShortDancerNameOnly: boolean) {
+  if (exactShortDancerNameOnly) return hasExactShortDancerNameMatch(item, searchTokens);
+  return matchesDancerName(item, searchTokens) || matchesSearchFields(item, searchTokens);
 }
 
 function getTrackedDanceRows(show: Elev8ProgramShow, selectedIds: Set<string>) {
@@ -551,7 +588,8 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
 
   const selectedIdSet = useMemo(() => new Set(selectedIds), [selectedIds]);
   const currentShow = program.shows.find((show) => show.showNumber === selectedShowNumber) ?? program.shows[0];
-  const normalizedQuery = query.trim().toLowerCase();
+  const normalizedQuery = normalizeSearchValue(query);
+  const searchTokens = useMemo(() => getSearchTokens(query), [query]);
   const liveShow = findLiveShow(program, liveState);
   const activeLiveItem = findLiveItem(liveShow, liveState);
   const liveItem = liveShow && currentShow && liveShow.id === currentShow.id ? activeLiveItem : null;
@@ -560,9 +598,14 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
 
   const programItems = useMemo(() => {
     if (!currentShow) return [];
-    if (!normalizedQuery) return currentShow.items;
-    return currentShow.items.filter((item) => getSearchText(item).includes(normalizedQuery));
-  }, [currentShow, normalizedQuery]);
+    if (searchTokens.length === 0) return currentShow.items;
+
+    const exactShortDancerNameOnly = currentShow.items.some((item) =>
+      hasExactShortDancerNameMatch(item, searchTokens),
+    );
+
+    return currentShow.items.filter((item) => matchesProgramSearch(item, searchTokens, exactShortDancerNameOnly));
+  }, [currentShow, searchTokens]);
 
   const liveProgramItems = isLiveProgramMode && currentShow ? currentShow.items.slice(liveItemIndex) : programItems;
   const fullProgramItems = programItems;
