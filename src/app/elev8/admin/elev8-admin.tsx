@@ -21,7 +21,7 @@ import {
   isUninitializedLiveState,
   saveLiveState,
 } from "@/lib/live-state-client";
-import { getNextProgramItem, getPreviousProgramItem } from "@/lib/live-position";
+import { getNextProgramItem, getPreviousProgramItem, getProgramItemNumber } from "@/lib/live-position";
 import type { LiveState } from "@/lib/live-state-types";
 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
@@ -71,7 +71,7 @@ function LiveItemRow({
             isCurrent ? "bg-[#1C4EFF] text-white" : "border border-white/10 bg-black/15 text-white/70"
           }`}
         >
-          {item.order ?? item.position}
+          {getProgramItemNumber(item)}
         </div>
         <div className="min-w-0 flex-1">
           <p className="truncate text-base font-semibold text-white">{item.title}</p>
@@ -116,7 +116,7 @@ export function Elev8Admin({ program }: { program: Elev8ProgramData }) {
   );
   const activeItem = activeShow?.items.find((item) => item.id === liveState.currentItemId) ?? null;
   const activeItemIndex = activeShow && activeItem ? activeShow.items.findIndex((item) => item.id === activeItem.id) : -1;
-  const activeItemNumber = activeItem ? (activeItem.order ?? activeItem.position) : null;
+  const activeItemNumber = activeItem ? getProgramItemNumber(activeItem) : null;
   const audiencePreviewItems = activeShow && activeItemIndex >= 0 ? activeShow.items.slice(activeItemIndex, activeItemIndex + 4) : [];
 
   useEffect(() => {
@@ -243,7 +243,9 @@ export function Elev8Admin({ program }: { program: Elev8ProgramData }) {
 
             <div className="grid gap-3 sm:grid-cols-[10rem_1fr]">
               <div className="rounded-[6px] border border-[#f5c542]/45 bg-[#2a2108] p-3 text-center shadow-[0_0_0_1px_rgba(245,197,66,0.12)]">
-                <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#f5c542]/80">Selected #</p>
+                <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#f5c542]/80">
+                  {activeItem?.type === "intermission" ? "Selected" : "Selected #"}
+                </p>
                 <p className="mt-1 text-5xl font-black leading-none text-[#f5c542]">{activeItemNumber ?? "—"}</p>
                 <p className="mt-2 text-[11px] font-bold uppercase tracking-[0.12em] text-white/55">
                   {activeItem ? getItemTypeLabel(activeItem) : "Waiting"}
@@ -257,18 +259,19 @@ export function Elev8Admin({ program }: { program: Elev8ProgramData }) {
                     <div className="min-w-0 rounded-[6px] border border-[#f5c542]/35 bg-[#f5c542]/10 p-3">
                       <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#f5c542]">Top card · On stage now</p>
                       <p className="mt-1 break-words text-lg font-bold leading-6 text-white">
-                        #{activeItemNumber} {activeItem.title}
+                        {activeItem.type === "intermission" ? activeItem.title : `#${activeItemNumber} ${activeItem.title}`}
                       </p>
                       <p className="mt-1 text-xs font-medium text-white/55">
-                        {activeItem.teacher ?? "Teacher not listed"}
-                        {activeItem.songTitle ? ` · ${activeItem.songTitle}` : ""}
+                        {activeItem.type === "intermission"
+                          ? (activeItem.programNote ?? "Intermission")
+                          : `${activeItem.teacher ?? "Teacher not listed"}${activeItem.songTitle ? ` · ${activeItem.songTitle}` : ""}`}
                       </p>
                     </div>
                     <div className="grid gap-1">
                       {audiencePreviewItems.slice(1).map((item, index) => (
                         <div key={item.id} className="flex min-w-0 items-center gap-2 rounded-[4px] border border-white/8 bg-white/[0.03] px-2 py-1.5">
                           <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-[4px] border border-white/10 text-[11px] font-bold text-white/70">
-                            {item.order ?? item.position}
+                            {getProgramItemNumber(item)}
                           </span>
                           <span className="min-w-0 flex-1 truncate text-xs font-semibold text-white/70">
                             {index === 0 ? "Next: " : "Then: "}{item.title}

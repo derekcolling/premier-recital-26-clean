@@ -12,7 +12,7 @@ export type DanceLiveStatus =
 export type LiveProgramDisplay =
   | { kind: "idle"; show: null; item: null; itemNumber: null }
   | { kind: "waiting"; show: Elev8ProgramShow; item: null; itemNumber: null }
-  | { kind: "showing"; show: Elev8ProgramShow; item: Elev8ProgramItem; itemNumber: number; itemIndex: number }
+  | { kind: "showing"; show: Elev8ProgramShow; item: Elev8ProgramItem; itemNumber: number | string; itemIndex: number }
   | { kind: "invalid"; show: Elev8ProgramShow | null; item: null; itemNumber: null };
 
 function pluralize(count: number, singular: string, plural = `${singular}s`) {
@@ -20,6 +20,7 @@ function pluralize(count: number, singular: string, plural = `${singular}s`) {
 }
 
 export function getProgramItemNumber(item: Elev8ProgramItem) {
+  if (item.type === "intermission") return "INT";
   return item.order ?? item.position;
 }
 
