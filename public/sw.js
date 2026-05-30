@@ -1,4 +1,4 @@
-const CACHE_NAME = "premier-events-pwa-v1";
+const CACHE_NAME = "premier-events-pwa-v2";
 const APP_SHELL = ["/", "/manifest.webmanifest"];
 
 self.addEventListener("install", (event) => {
