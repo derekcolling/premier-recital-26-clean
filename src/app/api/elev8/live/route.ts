@@ -14,11 +14,12 @@ function normalizeCurrentItemId(currentItemId: string | null) {
   return LEGACY_ITEM_ID_ALIASES[currentItemId] ?? currentItemId;
 }
 
-function liveStateResponse(payload: unknown, status = 200) {
+function liveStateResponse(payload: unknown, status = 200, backend = "unknown") {
   return NextResponse.json(payload, {
     status,
     headers: {
       "Cache-Control": "no-store",
+      "X-Live-State-Backend": backend,
     },
   });
 }
@@ -62,7 +63,7 @@ async function validateLiveStateUpdate(payload: unknown): Promise<LiveStateUpdat
 
 export async function GET() {
   const store = getLiveStateStore();
-  return liveStateResponse(await store.get());
+  return liveStateResponse(await store.get(), 200, store.backend);
 }
 
 export async function PUT(request: NextRequest) {
@@ -74,10 +75,10 @@ export async function PUT(request: NextRequest) {
   }
 
   const store = getLiveStateStore();
-  return liveStateResponse(await store.set(update));
+  return liveStateResponse(await store.set(update), 200, store.backend);
 }
 
 export async function DELETE() {
   const store = getLiveStateStore();
-  return liveStateResponse(await store.clear());
+  return liveStateResponse(await store.clear(), 200, store.backend);
 }

@@ -2,6 +2,7 @@ import { Redis } from "@upstash/redis";
 import { EMPTY_LIVE_STATE, type LiveState, type LiveStateUpdate } from "./live-state-types";
 
 export interface LiveStateStore {
+  backend: string;
   get(): Promise<LiveState>;
   set(update: LiveStateUpdate): Promise<LiveState>;
   clear(): Promise<LiveState>;
@@ -33,6 +34,7 @@ function setMemoryState(update: LiveStateUpdate) {
 }
 
 class MockLocalLiveStateStore implements LiveStateStore {
+  backend = "mock-local";
   async get() {
     return getMemoryState();
   }
@@ -77,6 +79,7 @@ function createRedisClient() {
 }
 
 class RedisLiveStateStore implements LiveStateStore {
+  backend = "upstash-redis";
   private readonly redis: Redis;
 
   constructor(redis: Redis) {
@@ -142,6 +145,7 @@ function getSupabaseRestConfig() {
 }
 
 class SupabaseRuntimeEventsLiveStateStore implements LiveStateStore {
+  backend = "supabase-runtime-events";
   private readonly restUrl: string;
   private readonly headers: Record<string, string>;
 
