@@ -376,6 +376,7 @@ function ProgramItemCard({
   const stickyCardShellClassName = "sticky top-[4.5rem] z-20 bg-[#07080b] pt-2 sm:top-20";
 
   if (item.type !== "dance") {
+    const currentTypeLabel = item.type === "intermission" ? "Intermission" : getTypeLabel(item);
     const nonDanceCard = (
       <div
         className={`grid min-w-0 grid-cols-[2.5rem_1fr] gap-3 rounded-[6px] border px-2 py-3 transition ${
@@ -396,7 +397,7 @@ function ProgramItemCard({
         <div className="min-w-0 border-l border-white/10 pl-3">
           <div className="flex flex-wrap items-center gap-2">
             <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#8ea4ff]">
-              {isCurrent ? "On stage now" : getTypeLabel(item)}
+              {isCurrent ? currentTypeLabel : getTypeLabel(item)}
             </p>
             {isPerformed ? (
               <span className="rounded-full border border-white/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.1em] text-white/35">
