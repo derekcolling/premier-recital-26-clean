@@ -47,6 +47,14 @@ class MockLocalLiveStateStore implements LiveStateStore {
 }
 
 const LIVE_STATE_REDIS_KEY = "premier-recital:elev8:live-state";
+const LIVE_STATE_SUPABASE_COMP_SLUG = "premier-recital-elev8";
+const LIVE_STATE_SUPABASE_SOURCE = "override";
+
+type SupabaseRuntimeEventRow = {
+  current_entry_no: string | null;
+  observed_at: string | null;
+  payload: unknown;
+};
 
 function parseRedisLiveState(value: unknown): LiveState {
   if (!value || typeof value !== "object") return EMPTY_LIVE_STATE;
@@ -102,6 +110,103 @@ class RedisLiveStateStore implements LiveStateStore {
   }
 }
 
+function parseSupabaseLiveState(row: SupabaseRuntimeEventRow | null | undefined): LiveState {
+  if (!row) return EMPTY_LIVE_STATE;
+
+  const payload = row.payload && typeof row.payload === "object" ? (row.payload as Partial<LiveState>) : {};
+  return {
+    activeShowId: typeof payload.activeShowId === "string" ? payload.activeShowId : null,
+    currentItemId:
+      typeof payload.currentItemId === "string"
+        ? payload.currentItemId
+        : typeof row.current_entry_no === "string"
+          ? row.current_entry_no
+          : null,
+    updatedAt: typeof payload.updatedAt === "string" ? payload.updatedAt : row.observed_at ?? null,
+  };
+}
+
+function getSupabaseRestConfig() {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+  if (!url || !serviceKey) return null;
+
+  return {
+    restUrl: `${url.replace(/\/$/, "")}/rest/v1/runtime_events`,
+    headers: {
+      apikey: serviceKey,
+      Authorization: `Bearer ${serviceKey}`,
+    },
+  };
+}
+
+class SupabaseRuntimeEventsLiveStateStore implements LiveStateStore {
+  private readonly restUrl: string;
+  private readonly headers: Record<string, string>;
+
+  constructor(config: { restUrl: string; headers: Record<string, string> }) {
+    this.restUrl = config.restUrl;
+    this.headers = config.headers;
+  }
+
+  async get() {
+    const params = new URLSearchParams({
+      select: "current_entry_no,observed_at,payload",
+      comp_slug: `eq.${LIVE_STATE_SUPABASE_COMP_SLUG}`,
+      source: `eq.${LIVE_STATE_SUPABASE_SOURCE}`,
+      order: "observed_at.desc",
+      limit: "1",
+    });
+    const response = await fetch(`${this.restUrl}?${params.toString()}`, {
+      cache: "no-store",
+      headers: this.headers,
+    });
+
+    if (!response.ok) {
+      throw new Error(`Unable to read live state from Supabase (${response.status}).`);
+    }
+
+    const rows = (await response.json()) as SupabaseRuntimeEventRow[];
+    return parseSupabaseLiveState(rows[0]);
+  }
+
+  async set(update: LiveStateUpdate) {
+    const nextState: LiveState = {
+      activeShowId: update.activeShowId,
+      currentItemId: update.currentItemId,
+      updatedAt: new Date().toISOString(),
+    };
+
+    const response = await fetch(this.restUrl, {
+      method: "POST",
+      cache: "no-store",
+      headers: {
+        ...this.headers,
+        "Content-Type": "application/json",
+        Prefer: "return=minimal",
+      },
+      body: JSON.stringify({
+        comp_slug: LIVE_STATE_SUPABASE_COMP_SLUG,
+        source: LIVE_STATE_SUPABASE_SOURCE,
+        current_entry_no: nextState.currentItemId,
+        stage: null,
+        payload: nextState,
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Unable to write live state to Supabase (${response.status}).`);
+    }
+
+    return nextState;
+  }
+
+  async clear() {
+    return this.set({ activeShowId: null, currentItemId: null });
+  }
+}
+
 let store: LiveStateStore | null = null;
 
 export function getLiveStateStore() {
@@ -115,6 +220,17 @@ export function getLiveStateStore() {
       }
 
       store = new RedisLiveStateStore(redis);
+      return store;
+    }
+    case "supabase-runtime-events": {
+      const config = getSupabaseRestConfig();
+      if (!config) {
+        throw new Error(
+          "LIVE_STATE_BACKEND=supabase-runtime-events requires NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY.",
+        );
+      }
+
+      store = new SupabaseRuntimeEventsLiveStateStore(config);
       return store;
     }
     case "mock-local":

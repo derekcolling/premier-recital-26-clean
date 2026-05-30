@@ -20,7 +20,7 @@ import {
 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import type { Elev8ProgramData, Elev8ProgramItem, Elev8ProgramShow } from "@/lib/elev8-program";
-import { fallbackLiveState, fetchLiveState, isUninitializedLiveState } from "@/lib/live-state-client";
+import { fallbackLiveState, fetchLiveState } from "@/lib/live-state-client";
 import { findLiveShow, getDanceLiveStatus, getLiveProgramDisplay, getProgramItemNumber } from "@/lib/live-position";
 import type { LiveState } from "@/lib/live-state-types";
 
@@ -51,34 +51,6 @@ function parseStoredIds(value: string | null) {
     return Array.isArray(parsed) ? parsed.filter((item): item is string => typeof item === "string") : [];
   } catch {
     return [];
-  }
-}
-
-function parseStoredLiveState(value: string | null) {
-  if (!value) return null;
-
-  try {
-    const parsed = JSON.parse(value) as LiveState;
-    const activeShowId = parsed.activeShowId ?? null;
-    const currentItemId = parsed.currentItemId ?? null;
-    const updatedAt = parsed.updatedAt ?? null;
-
-    if (activeShowId !== null && typeof activeShowId !== "string") return null;
-    if (currentItemId !== null && typeof currentItemId !== "string") return null;
-    if (updatedAt !== null && typeof updatedAt !== "string") return null;
-
-    return { activeShowId, currentItemId, updatedAt };
-  } catch {
-    return null;
-  }
-}
-
-function cacheLiveState(state: LiveState) {
-  try {
-    if (isUninitializedLiveState(state)) return;
-    window.localStorage.setItem(LIVE_STATE_CACHE_KEY, JSON.stringify(state));
-  } catch {
-    // Live state still updates for this session if localStorage is unavailable.
   }
 }
 
@@ -729,13 +701,12 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
 
   useEffect(() => {
     let isMounted = true;
-    const cachedStateTimer = window.setTimeout(() => {
-      const cachedState = parseStoredLiveState(window.localStorage.getItem(LIVE_STATE_CACHE_KEY));
 
-      if (isMounted && cachedState && !isUninitializedLiveState(cachedState)) {
-        setLiveState(cachedState);
-      }
-    }, 0);
+    try {
+      window.localStorage.removeItem(LIVE_STATE_CACHE_KEY);
+    } catch {
+      // Ignore localStorage failures; live state comes from the server.
+    }
 
     async function loadLiveState() {
       try {
@@ -743,18 +714,16 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
         if (!isMounted) return;
 
         setLiveState(nextState);
-        cacheLiveState(nextState);
       } catch {
-        // Keep the last known live item visible through transient polling failures.
+        // Keep the last known in-session live item visible through transient polling failures.
       }
     }
 
     void loadLiveState();
-    const interval = window.setInterval(loadLiveState, 3000);
+    const interval = window.setInterval(loadLiveState, 2000);
 
     return () => {
       isMounted = false;
-      window.clearTimeout(cachedStateTimer);
       window.clearInterval(interval);
     };
   }, []);
