@@ -5,6 +5,15 @@ import type { LiveStateUpdate } from "@/lib/live-state-types";
 
 export const dynamic = "force-dynamic";
 
+const LEGACY_ITEM_ID_ALIASES: Record<string, string> = {
+  "show-1-05-mommy-and-me-filler": "show-1-05-mommy-and-me-dance",
+};
+
+function normalizeCurrentItemId(currentItemId: string | null) {
+  if (!currentItemId) return currentItemId;
+  return LEGACY_ITEM_ID_ALIASES[currentItemId] ?? currentItemId;
+}
+
 function liveStateResponse(payload: unknown, status = 200) {
   return NextResponse.json(payload, {
     status,
@@ -21,15 +30,17 @@ async function validateLiveStateUpdate(payload: unknown): Promise<LiveStateUpdat
 
   const update = payload as Partial<LiveStateUpdate>;
   const activeShowId = update.activeShowId ?? null;
-  const currentItemId = update.currentItemId ?? null;
+  const rawCurrentItemId = update.currentItemId ?? null;
 
   if (activeShowId !== null && typeof activeShowId !== "string") {
     return { error: "activeShowId must be a string or null." };
   }
 
-  if (currentItemId !== null && typeof currentItemId !== "string") {
+  if (rawCurrentItemId !== null && typeof rawCurrentItemId !== "string") {
     return { error: "currentItemId must be a string or null." };
   }
+
+  const currentItemId = normalizeCurrentItemId(rawCurrentItemId);
 
   if (!activeShowId && currentItemId) {
     return { error: "currentItemId requires an activeShowId." };
