@@ -279,11 +279,22 @@ function ShowProgramSelector({
               className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-white/45"
             />
             <Input
+              type="search"
               value={searchValue}
               onChange={(event) => onSearchChange(event.target.value)}
               placeholder="Search"
-              className="min-h-12 rounded-[6px] border-white/15 bg-white/5 pl-10 text-base text-white placeholder:text-white/45 focus-visible:border-white focus-visible:ring-white/20"
+              className="min-h-12 rounded-[6px] border-white/15 bg-white/5 pl-10 pr-12 text-base text-white placeholder:text-white/45 focus-visible:border-white focus-visible:ring-white/20 [&::-webkit-search-cancel-button]:appearance-none"
             />
+            {searchValue ? (
+              <button
+                type="button"
+                onClick={() => onSearchChange("")}
+                className="absolute right-2 top-1/2 flex size-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/65 transition hover:border-white/25 hover:bg-white/10 hover:text-white"
+                aria-label="Clear search"
+              >
+                <X aria-hidden="true" className="size-4" />
+              </button>
+            ) : null}
           </label>
 
           {allowAutoFollow && !isAutoFollowing ? (
