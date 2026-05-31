@@ -28,6 +28,8 @@ function setMemoryState(update: LiveStateUpdate) {
     activeShowId: update.activeShowId,
     currentItemId: update.currentItemId,
     countdownShowId: "countdownShowId" in update ? (update.countdownShowId ?? null) : (previousState.countdownShowId ?? null),
+    isPaused: "isPaused" in update ? Boolean(update.isPaused) : (previousState.isPaused ?? false),
+    pauseLabel: "pauseLabel" in update ? (update.pauseLabel ?? null) : (previousState.pauseLabel ?? null),
     updatedAt: new Date().toISOString(),
   };
 
@@ -46,7 +48,7 @@ class MockLocalLiveStateStore implements LiveStateStore {
   }
 
   async clear() {
-    return setMemoryState({ activeShowId: null, currentItemId: null });
+    return setMemoryState({ activeShowId: null, currentItemId: null, isPaused: false, pauseLabel: null });
   }
 }
 
@@ -68,6 +70,8 @@ function parseRedisLiveState(value: unknown): LiveState {
     activeShowId: typeof candidate.activeShowId === "string" ? candidate.activeShowId : null,
     currentItemId: typeof candidate.currentItemId === "string" ? candidate.currentItemId : null,
     countdownShowId: typeof candidate.countdownShowId === "string" ? candidate.countdownShowId : null,
+    isPaused: typeof candidate.isPaused === "boolean" ? candidate.isPaused : false,
+    pauseLabel: typeof candidate.pauseLabel === "string" ? candidate.pauseLabel : null,
     updatedAt: typeof candidate.updatedAt === "string" ? candidate.updatedAt : null,
   };
 }
@@ -99,6 +103,8 @@ class RedisLiveStateStore implements LiveStateStore {
       activeShowId: update.activeShowId,
       currentItemId: update.currentItemId,
       countdownShowId: "countdownShowId" in update ? (update.countdownShowId ?? null) : (previousState.countdownShowId ?? null),
+      isPaused: "isPaused" in update ? Boolean(update.isPaused) : (previousState.isPaused ?? false),
+      pauseLabel: "pauseLabel" in update ? (update.pauseLabel ?? null) : (previousState.pauseLabel ?? null),
       updatedAt: new Date().toISOString(),
     };
 
@@ -111,6 +117,8 @@ class RedisLiveStateStore implements LiveStateStore {
       activeShowId: null,
       currentItemId: null,
       countdownShowId: null,
+      isPaused: false,
+      pauseLabel: null,
       updatedAt: new Date().toISOString(),
     };
 
@@ -132,6 +140,8 @@ function parseSupabaseLiveState(row: SupabaseRuntimeEventRow | null | undefined)
           ? row.current_entry_no
           : null,
     countdownShowId: typeof payload.countdownShowId === "string" ? payload.countdownShowId : null,
+    isPaused: typeof payload.isPaused === "boolean" ? payload.isPaused : false,
+    pauseLabel: typeof payload.pauseLabel === "string" ? payload.pauseLabel : null,
     updatedAt: typeof payload.updatedAt === "string" ? payload.updatedAt : row.observed_at ?? null,
   };
 }
@@ -188,6 +198,8 @@ class SupabaseRuntimeEventsLiveStateStore implements LiveStateStore {
       activeShowId: update.activeShowId,
       currentItemId: update.currentItemId,
       countdownShowId: "countdownShowId" in update ? (update.countdownShowId ?? null) : (previousState.countdownShowId ?? null),
+      isPaused: "isPaused" in update ? Boolean(update.isPaused) : (previousState.isPaused ?? false),
+      pauseLabel: "pauseLabel" in update ? (update.pauseLabel ?? null) : (previousState.pauseLabel ?? null),
       updatedAt: new Date().toISOString(),
     };
 
@@ -216,7 +228,7 @@ class SupabaseRuntimeEventsLiveStateStore implements LiveStateStore {
   }
 
   async clear() {
-    return this.set({ activeShowId: null, currentItemId: null });
+    return this.set({ activeShowId: null, currentItemId: null, isPaused: false, pauseLabel: null });
   }
 }
 

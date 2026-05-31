@@ -11,7 +11,9 @@ import {
   Clock,
   CircleStop,
   Loader2,
+  Pause,
   Radio,
+  Play,
   RotateCcw,
 } from "lucide-react";
 import type { Elev8ProgramData, Elev8ProgramItem, Elev8ProgramShow } from "@/lib/elev8-program";
@@ -110,6 +112,7 @@ export function Elev8Admin({ program }: { program: Elev8ProgramData }) {
   const selectedShow = getSelectedShow(program, selectedShowId);
   const currentItem = selectedShow?.items.find((item) => item.id === liveState.currentItemId) ?? null;
   const isSelectedShowActive = liveState.activeShowId === selectedShow?.id;
+  const isPaused = liveState.isPaused && Boolean(liveState.activeShowId);
 
   const activeShow = useMemo(
     () => program.shows.find((show) => show.id === liveState.activeShowId) ?? null,
@@ -159,11 +162,31 @@ export function Elev8Admin({ program }: { program: Elev8ProgramData }) {
     setError(null);
 
     try {
-      const nextState = await saveLiveState({ activeShowId, currentItemId });
+      const nextState = await saveLiveState({ activeShowId, currentItemId, isPaused: false, pauseLabel: null });
       setLiveState(nextState);
       if (nextState.activeShowId) setSelectedShowId(nextState.activeShowId);
     } catch (liveStateError) {
       setError(liveStateError instanceof Error ? liveStateError.message : "Unable to save live state.");
+    } finally {
+      setIsSaving(false);
+    }
+  }
+
+  async function setPauseState(isNextPaused: boolean) {
+    setIsSaving(true);
+    setError(null);
+
+    try {
+      const nextState = await saveLiveState({
+        activeShowId: liveState.activeShowId ?? selectedShow.id,
+        currentItemId: liveState.currentItemId,
+        isPaused: isNextPaused,
+        pauseLabel: isNextPaused ? "A short studio spotlight is happening" : null,
+      });
+      setLiveState(nextState);
+      if (nextState.activeShowId) setSelectedShowId(nextState.activeShowId);
+    } catch (liveStateError) {
+      setError(liveStateError instanceof Error ? liveStateError.message : "Unable to save pause state.");
     } finally {
       setIsSaving(false);
     }
@@ -251,7 +274,11 @@ export function Elev8Admin({ program }: { program: Elev8ProgramData }) {
               <div className="min-w-0">
                 <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-white/45">Live Control</p>
                 <h1 className="mt-1 break-words text-xl font-bold text-white">
-                  {activeShow && activeItem ? `${activeShow.title}: ${activeItem.title}` : "No item currently on stage"}
+                  {isPaused
+                    ? "Show is paused for a studio spotlight"
+                    : activeShow && activeItem
+                      ? `${activeShow.title}: ${activeItem.title}`
+                      : "No item currently on stage"}
                 </h1>
                 <p className="mt-1 text-sm text-white/55">
                   {activeShow ? activeShow.label : "Choose a show below to start the live tracker."}
@@ -267,13 +294,21 @@ export function Elev8Admin({ program }: { program: Elev8ProgramData }) {
                 </p>
                 <p className="mt-1 text-5xl font-black leading-none text-[#f5c542]">{activeItemNumber ?? "—"}</p>
                 <p className="mt-2 text-[11px] font-bold uppercase tracking-[0.12em] text-white/55">
-                  {activeItem ? getItemTypeLabel(activeItem) : "Waiting"}
+                  {isPaused ? "Paused" : activeItem ? getItemTypeLabel(activeItem) : "Waiting"}
                 </p>
               </div>
 
               <div className="grid min-w-0 gap-2 rounded-[6px] border border-white/10 bg-black/20 p-3">
                 <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-white/45">Audience App Is Showing</p>
-                {activeShow && activeItem ? (
+                {isPaused ? (
+                  <div className="min-w-0 rounded-[6px] border border-[#f5c542]/35 bg-[#f5c542]/10 p-3">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#f5c542]">Top card · Pause</p>
+                    <p className="mt-1 break-words text-lg font-bold leading-6 text-white">A short studio spotlight is happening</p>
+                    <p className="mt-1 text-xs font-medium text-white/55">
+                      Families will see that the show is paused instead of a dance being listed as on stage.
+                    </p>
+                  </div>
+                ) : activeShow && activeItem ? (
                   <>
                     <div className="min-w-0 rounded-[6px] border border-[#f5c542]/35 bg-[#f5c542]/10 p-3">
                       <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#f5c542]">Top card · On stage now</p>
@@ -340,6 +375,20 @@ export function Elev8Admin({ program }: { program: Elev8ProgramData }) {
                 <span className="truncate">Reset</span>
               </button>
             </div>
+
+            <button
+              type="button"
+              onClick={() => setPauseState(!isPaused)}
+              disabled={isSaving || !selectedShow}
+              className={`flex min-h-12 min-w-0 items-center justify-center gap-2 rounded-[6px] px-3 text-sm font-bold transition disabled:cursor-not-allowed disabled:opacity-50 ${
+                isPaused
+                  ? "border border-[#22c55e]/50 bg-[#052e1a] text-[#bbf7d0] hover:bg-[#064e2a]"
+                  : "border border-[#f5c542]/45 bg-[#2a2108] text-[#f5c542] hover:bg-[#3a2d0b]"
+              }`}
+            >
+              {isPaused ? <Play aria-hidden="true" className="size-4" /> : <Pause aria-hidden="true" className="size-4" />}
+              {isPaused ? "Resume show" : "Pause for studio spotlight"}
+            </button>
           </section>
 
           <section className="grid min-w-0 gap-3 rounded-[8px] border border-[#f5c542]/25 bg-[#2a2108]/70 p-3">

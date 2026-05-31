@@ -312,6 +312,18 @@ function ShowProgramSelector({
   );
 }
 
+function LivePauseCard({ label }: { label: string | null }) {
+  return (
+    <section className="grid gap-3 rounded-[8px] border border-[#f5c542]/35 bg-[#2a2108] p-4 shadow-[0_18px_45px_rgba(0,0,0,0.28)]">
+      <p className="text-[10px] font-black uppercase tracking-[0.16em] text-[#f5c542]">Show pause</p>
+      <h2 className="text-2xl font-black leading-8 text-white">{label ?? "A short studio spotlight is happening"}</h2>
+      <p className="text-sm font-medium leading-6 text-white/70">
+        The show is still moving, but no dance is on stage right now. We’ll update the tracker when the next routine begins.
+      </p>
+    </section>
+  );
+}
+
 function FirstShowCountdownCard({ show }: { show: Elev8ProgramShow }) {
   const [now, setNow] = useState<Date | null>(null);
   const showStart = useMemo(() => parseShowStart(show), [show]);
@@ -647,6 +659,7 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
   const searchTokens = useMemo(() => getSearchTokens(query), [query]);
   const liveProgramDisplay = useMemo(() => getLiveProgramDisplay(program, liveState), [program, liveState]);
   const liveShow = liveProgramDisplay.show;
+  const isLivePaused = liveState.isPaused && Boolean(liveState.activeShowId);
   const explicitCountdownShow = useMemo(
     () => program.shows.find((show) => show.id === liveState.countdownShowId) ?? null,
     [liveState.countdownShowId, program.shows],
@@ -654,7 +667,7 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
   const shouldShowExplicitCountdown = Boolean(
     explicitCountdownShow && !(liveState.activeShowId === explicitCountdownShow.id && liveState.currentItemId),
   );
-  const activeLiveItem = liveProgramDisplay.kind === "showing" ? liveProgramDisplay.item : null;
+  const activeLiveItem = liveProgramDisplay.kind === "showing" && !isLivePaused ? liveProgramDisplay.item : null;
   const liveItem = liveShow && currentShow && liveShow.id === currentShow.id ? activeLiveItem : null;
   const liveItemIndex = liveItem && currentShow ? currentShow.items.findIndex((item) => item.id === liveItem.id) : -1;
   const isLiveProgramMode = Boolean(liveItem && liveItemIndex >= 0 && !normalizedQuery);
@@ -860,6 +873,7 @@ export function RecitalBrowser({ program }: { program: Elev8ProgramData }) {
               ) : firstShow && !hasActivatedFirstDance ? (
                 <FirstShowCountdownCard show={firstShow} />
               ) : null}
+              {isLivePaused && mode === "live-program" ? <LivePauseCard label={liveState.pauseLabel} /> : null}
               <ShowProgramSelector
                 currentShow={currentShow}
                 shows={program.shows}

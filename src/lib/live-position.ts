@@ -120,6 +120,23 @@ export function getDanceLiveStatus(
   if (currentItem.type === "dance") {
     const currentDanceIndex = danceItems.findIndex((item) => item.id === currentItem.id);
 
+    if (liveState.isPaused) {
+      if (targetDanceIndex <= currentDanceIndex) {
+        return { kind: "already-performed", label: "Already performed" };
+      }
+
+      if (targetDanceIndex === currentDanceIndex + 1) {
+        return { kind: "up-next", label: "Up next" };
+      }
+
+      const dancesAway = Math.max(1, targetDanceIndex - currentDanceIndex - 1);
+      return {
+        kind: "away",
+        label: `${pluralize(dancesAway, "dance")} away`,
+        dancesAway,
+      };
+    }
+
     if (dance.id === currentItem.id) {
       return { kind: "on-stage-now", label: "On stage now" };
     }

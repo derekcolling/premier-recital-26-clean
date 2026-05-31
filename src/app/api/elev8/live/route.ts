@@ -34,6 +34,10 @@ async function validateLiveStateUpdate(payload: unknown): Promise<LiveStateUpdat
   const rawCurrentItemId = update.currentItemId ?? null;
   const hasCountdownShowId = Object.prototype.hasOwnProperty.call(update, "countdownShowId");
   const countdownShowId = hasCountdownShowId ? (update.countdownShowId ?? null) : undefined;
+  const hasIsPaused = Object.prototype.hasOwnProperty.call(update, "isPaused");
+  const isPaused = hasIsPaused ? update.isPaused : undefined;
+  const hasPauseLabel = Object.prototype.hasOwnProperty.call(update, "pauseLabel");
+  const pauseLabel = hasPauseLabel ? (update.pauseLabel ?? null) : undefined;
 
   if (activeShowId !== null && typeof activeShowId !== "string") {
     return { error: "activeShowId must be a string or null." };
@@ -45,6 +49,14 @@ async function validateLiveStateUpdate(payload: unknown): Promise<LiveStateUpdat
 
   if (countdownShowId !== undefined && countdownShowId !== null && typeof countdownShowId !== "string") {
     return { error: "countdownShowId must be a string or null." };
+  }
+
+  if (isPaused !== undefined && typeof isPaused !== "boolean") {
+    return { error: "isPaused must be a boolean." };
+  }
+
+  if (pauseLabel !== undefined && pauseLabel !== null && typeof pauseLabel !== "string") {
+    return { error: "pauseLabel must be a string or null." };
   }
 
   const currentItemId = normalizeCurrentItemId(rawCurrentItemId);
@@ -68,7 +80,13 @@ async function validateLiveStateUpdate(payload: unknown): Promise<LiveStateUpdat
     return { error: `Item ${currentItemId} does not belong to ${activeShow.id}.` };
   }
 
-  return hasCountdownShowId ? { activeShowId, currentItemId, countdownShowId: countdownShowId ?? null } : { activeShowId, currentItemId };
+  return {
+    activeShowId,
+    currentItemId,
+    ...(hasCountdownShowId ? { countdownShowId: countdownShowId ?? null } : {}),
+    ...(hasIsPaused ? { isPaused: Boolean(isPaused) } : {}),
+    ...(hasPauseLabel ? { pauseLabel: pauseLabel ?? null } : {}),
+  };
 }
 
 export async function GET() {
